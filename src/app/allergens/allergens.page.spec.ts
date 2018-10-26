@@ -24,4 +24,8 @@ describe('AllergensPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+    it('should contain fourteen allergens', () => {
+        expect(component.allergens).not.toBeNull();
+        expect(component.allergens.length).toBe(14);
+    });
 });
