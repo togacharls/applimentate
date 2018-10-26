@@ -1,1 +1,55 @@
+$green-softest: #fefcd7;
+$green-soft: #a6cb45;
+$green-heavy: #71b238;
+$green-heaviest: #6a8347;
 
+$color-softest: $green-softest;
+$color-soft: $green-soft;
+$color-heavy: $green-heavy;
+$color-heaviest: $green-heaviest;
+
+.bg-softest,
+ion-content.bg-softest {
+  background: $color-softest;
+}
+
+.bg-soft {
+  background: $color-soft;
+}
+
+.bg-heavy {
+  background: $color-heavy;
+}
+
+.bg-heaviest {
+  background: $color-heaviest;
+}
+.page {
+  height: 100%;
+}
+.card-background {
+  ion-card {
+    position: relative;
+    text-align: center;
+    background: #fff;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 3.2em;
+    width: 100%;
+    font-weight: bold;
+    color: $color-softest;
+    text-shadow: -2px 0 $color-heaviest, 0 2px $color-heaviest, 2px 0 $color-heaviest, 0 -2px $color-heaviest
+  }
+
+  .card-subtitle {
+    font-size: 2.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: $color-softest;
+    text-shadow: -1px 0 $color-heaviest, 0 1px $color-heaviest, 1px 0 $color-heaviest, 0 -1px $color-heaviest
+  }
+}
