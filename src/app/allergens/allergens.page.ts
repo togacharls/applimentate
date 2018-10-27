@@ -1,30 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { AllergenInterface } from './interfaces';
+import { NgStyle } from '@angular/common';
 
-@Component({
+@Component( {
     selector: 'app-allergens',
     templateUrl: 'allergens.page.html',
-    styleUrls: ['allergens.page.scss']
-})
+    styleUrls: [ 'allergens.page.scss' ]
+} )
 export class AllergensPage implements OnInit {
     allergens: AllergenInterface[];
-    constructor() {}
+    constructor () { }
     ngOnInit(): void {
         this.allergens = [
-            { name: 'Altramuces'},
-            { name: 'Apio'},
-            { name: 'Cacahuetes'},
-            { name: 'Crustáceos'},
-            { name: 'Dióxido de azufre y sulfitos'},
-            { name: 'Frutos secos'},
-            { name: 'Gluten'},
-            { name: 'Granos de sésamo'},
-            { name: 'Huevo'},
-            { name: 'Lácteos'},
-            { name: 'Moluscos'},
-            { name: 'Mostaza'},
-            { name: 'Pescado'},
-            { name: 'Soja'}
+            { name: 'Altramuces', imgSrc: '../../assets/icon/altramuces.png' },
+            { name: 'Apio', imgSrc: '../../assets/icon/apio.png' },
+            { name: 'Cacahuetes', imgSrc: '../../assets/icon/cacahuetes.png' },
+            { name: 'Crustáceos', imgSrc: '../../assets/icon/crustaceos.png' },
+            { name: 'Dióxido de azufre y sulfitos', imgSrc: '../../assets/icon/sulfitos.png' },
+            { name: 'Frutos secos', imgSrc: '../../assets/icon/frutossecos.png' },
+            { name: 'Gluten', imgSrc: '../../assets/icon/gluten.png' },
+            { name: 'Granos de sésamo', imgSrc: '../../assets/icon/sesamo.png' },
+            { name: 'Huevo', imgSrc: '../../assets/icon/huevo.png' },
+            { name: 'Lácteos', imgSrc: '../../assets/icon/lacteos.png' },
+            { name: 'Moluscos', imgSrc: '../../assets/icon/moluscos.png' },
+            { name: 'Mostaza', imgSrc: '../../assets/icon/mostaza.png' },
+            { name: 'Pescado', imgSrc: '../../assets/icon/pescado.png' },
+            { name: 'Soja', imgSrc: '../../assets/icon/soja.png' }
         ];
     }
 }
