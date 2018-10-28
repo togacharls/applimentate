@@ -9,23 +9,24 @@ import { NgStyle } from '@angular/common';
 } )
 export class AllergensPage implements OnInit {
     allergens: AllergenInterface[];
+    src = '../../assets/icon/';
     constructor () { }
     ngOnInit(): void {
         this.allergens = [
-            { name: 'Altramuces', imgSrc: '../../assets/icon/altramuces.png' },
-            { name: 'Apio', imgSrc: '../../assets/icon/apio.png' },
-            { name: 'Cacahuetes', imgSrc: '../../assets/icon/cacahuetes.png' },
-            { name: 'Crustáceos', imgSrc: '../../assets/icon/crustaceos.png' },
-            { name: 'Dióxido de azufre y sulfitos', imgSrc: '../../assets/icon/sulfitos.png' },
-            { name: 'Frutos secos', imgSrc: '../../assets/icon/frutossecos.png' },
-            { name: 'Gluten', imgSrc: '../../assets/icon/gluten.png' },
-            { name: 'Granos de sésamo', imgSrc: '../../assets/icon/sesamo.png' },
-            { name: 'Huevo', imgSrc: '../../assets/icon/huevo.png' },
-            { name: 'Lácteos', imgSrc: '../../assets/icon/lacteos.png' },
-            { name: 'Moluscos', imgSrc: '../../assets/icon/moluscos.png' },
-            { name: 'Mostaza', imgSrc: '../../assets/icon/mostaza.png' },
-            { name: 'Pescado', imgSrc: '../../assets/icon/pescado.png' },
-            { name: 'Soja', imgSrc: '../../assets/icon/soja.png' }
+            { name: 'Altramuces', imgSrc: this.src + 'altramuces.png' },
+            { name: 'Apio', imgSrc: this.src + 'apio.png' },
+            { name: 'Cacahuetes', imgSrc: this.src + 'cacahuetes.png' },
+            { name: 'Crustáceos', imgSrc: this.src + 'crustaceos.png' },
+            { name: 'Dióxido de azufre y sulfitos', imgSrc: this.src + 'sulfitos.png' },
+            { name: 'Frutos secos', imgSrc: this.src + 'frutossecos.png' },
+            { name: 'Gluten', imgSrc: this.src + 'gluten.png' },
+            { name: 'Granos de sésamo', imgSrc: this.src + 'sesamo.png' },
+            { name: 'Huevo', imgSrc: this.src + 'huevo.png' },
+            { name: 'Lácteos', imgSrc: this.src + 'lacteos.png' },
+            { name: 'Moluscos', imgSrc: this.src + 'moluscos.png' },
+            { name: 'Mostaza', imgSrc: this.src + 'mostaza.png' },
+            { name: 'Pescado', imgSrc: this.src + 'pescado.png' },
+            { name: 'Soja', imgSrc: this.src + 'soja.png' }
         ];
     }
 }
