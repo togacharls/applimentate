@@ -9,21 +9,35 @@ export class AllergensService {
   private srcPath = '../../../assets/icon/';
   constructor() { }
   getList(): AllergenInterface[] {
-    return [
-        { name: 'Altramuces', imgSrc: this.srcPath + 'altramuces.png' },
-        { name: 'Apio', imgSrc: this.srcPath + 'apio.png' },
-        { name: 'Cacahuetes', imgSrc: this.srcPath + 'cacahuetes.png' },
-        { name: 'Crustáceos', imgSrc: this.srcPath + 'crustaceos.png' },
-        { name: 'Dióxido de azufre y sulfitos', imgSrc: this.srcPath + 'sulfitos.png' },
-        { name: 'Frutos secos', imgSrc: this.srcPath + 'frutossecos.png' },
+    const allergenList = [
+        { name: 'Altramuces', imgSrc: '' },
+        { name: 'Apio', imgSrc: '' },
+        { name: 'Cacahuetes', imgSrc: '' },
+        { name: 'Crustáceos', imgSrc: '' },
+        { name: 'Dióxido de azufre y sulfitos', imgSrc: '' },
+        { name: 'Frutos secos', imgSrc: '' },
         { name: 'Gluten', imgSrc: this.srcPath + 'gluten.png' },
-        { name: 'Granos de sésamo', imgSrc: this.srcPath + 'sesamo.png' },
-        { name: 'Huevo', imgSrc: this.srcPath + 'huevo.png' },
-        { name: 'Lácteos', imgSrc: this.srcPath + 'lacteos.png' },
-        { name: 'Moluscos', imgSrc: this.srcPath + 'moluscos.png' },
-        { name: 'Mostaza', imgSrc: this.srcPath + 'mostaza.png' },
-        { name: 'Pescado', imgSrc: this.srcPath + 'pescado.png' },
-        { name: 'Soja', imgSrc: this.srcPath + 'soja.png' }
+        { name: 'Granos de sésamo', imgSrc: '' },
+        { name: 'Huevo', imgSrc: '' },
+        { name: 'Lácteos', imgSrc: '' },
+        { name: 'Moluscos', imgSrc: '' },
+        { name: 'Mostaza', imgSrc: '' },
+        { name: 'Pescado', imgSrc: '' },
+        { name: 'Soja', imgSrc: '' }
     ];
+    for (const allergen of allergenList) {
+        allergen.imgSrc = this.getIconFilename(allergen.name);
+    }
+    return allergenList;
+  }
+
+  private getIconFilename(allergenName: string): string {
+      return this.srcPath + allergenName
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .split(' ')
+          .join('_')
+          + '.png';
   }
 }
