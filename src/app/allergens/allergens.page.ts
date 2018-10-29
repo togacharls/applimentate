@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AllergenInterface } from './interfaces';
-import { NgStyle } from '@angular/common';
 
 @Component( {
     selector: 'app-allergens',
