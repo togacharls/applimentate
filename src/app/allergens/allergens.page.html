@@ -3,9 +3,11 @@
         <ion-title>Alérgenos</ion-title>
     </ion-toolbar>
 </ion-header>
-<ion-list class="no-border-last-item">
-    <ion-item *ngFor="let allergen of allergens">
-        <img src={{allergen.imgSrc}} />
-        {{allergen.name}}
-    </ion-item>
-</ion-list>
+<ion-content>
+    <ion-list class="no-border-last-item">
+        <ion-item *ngFor="let allergen of allergens">
+            <img src={{allergen.imgSrc}} />
+            {{allergen.name}}
+        </ion-item>
+    </ion-list>
+</ion-content>
