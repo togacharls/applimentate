@@ -5,9 +5,9 @@
 </ion-header>
 <ion-content>
     <ion-list class="no-border-last-item">
-        <ion-item *ngFor="let allergen of allergens">
+        <ion-item *ngFor="let allergen of allergens" class="listaAlergenos">
             <img src={{allergen.imgSrc}} />
-            {{allergen.name}}
+            <h2>{{allergen.name}}</h2>
         </ion-item>
     </ion-list>
 </ion-content>
