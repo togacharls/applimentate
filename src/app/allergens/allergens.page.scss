@@ -1,0 +1,9 @@
+ion-list {
+    h2 {
+    margin-left: 10px;
+    font-family: 'Kaushan Script', cursive;
+        &:active {
+        font-weight: bold
+        }
+    }
+}

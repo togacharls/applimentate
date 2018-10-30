@@ -4,10 +4,10 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-list class="no-border-last-item">
+    <ion-list>
         <ion-item *ngFor="let allergen of allergens">
             <img src={{allergen.imgSrc}} />
-            {{allergen.name}}
+            <h2>{{allergen.name}}</h2>
         </ion-item>
     </ion-list>
 </ion-content>
