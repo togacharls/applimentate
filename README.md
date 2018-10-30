@@ -26,7 +26,12 @@ There is no problem if you use _Windows, Linux_ or _MacOS_.
      You can also download [_Applimentate_ release version](https://github.com/togacharls/applimentate/archive/master.zip)
      or [_Applimentate_ development version](https://github.com/togacharls/applimentate/archive/dev.zip) as a .zip package.
 ### Running _Applimentate_ locally
-All you need to run _Applimentate_ is open a command promp, go to the _Applimentate_ path and run:
+All you need to run _Applimentate_ is open a command promp, go to the _Applimentate_ path and...
+* If it is the first time you also need to install all node dependencies:
+```
+npm install
+```
+* Run the _Ionic_ server:
 ```
 ionic serve
 ```
