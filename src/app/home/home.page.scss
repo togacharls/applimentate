@@ -34,6 +34,7 @@ ion-content.bg-softest {
     background: #fff;
   }
 
+
   .card-title {
     position: absolute;
     top: 36%;
@@ -41,7 +42,8 @@ ion-content.bg-softest {
     width: 100%;
     font-weight: bold;
     color: $color-softest;
-    text-shadow: -2px 0 $color-heaviest, 0 2px $color-heaviest, 2px 0 $color-heaviest, 0 -2px $color-heaviest
+    text-shadow: -2px 0 $color-heaviest, 0 2px $color-heaviest, 2px 0 $color-heaviest, 0 -2px $color-heaviest;
+    font-family: 'Kaushan Script', cursive;
   }
 
   .card-subtitle {
@@ -50,6 +52,7 @@ ion-content.bg-softest {
     top: 52%;
     width: 100%;
     color: $color-softest;
-    text-shadow: -1px 0 $color-heaviest, 0 1px $color-heaviest, 1px 0 $color-heaviest, 0 -1px $color-heaviest
+    text-shadow: -1px 0 $color-heaviest, 0 1px $color-heaviest, 1px 0 $color-heaviest, 0 -1px $color-heaviest;
+    font-family: 'Kaushan Script', cursive;
   }
 }
