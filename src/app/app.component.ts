@@ -14,10 +14,10 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    translate: TranslateService
+    private translate: TranslateService
   ) {
     this.initializeApp();
-    translate.setDefaultLang('en');
+    this.translate.setDefaultLang(this.translate.getBrowserLang());
   }
 
   initializeApp() {
