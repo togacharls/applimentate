@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let allergen of allergens">
+        <ion-item *ngFor="let allergen of allergens" routerLink="/{{allergen.path}}">
             <img src={{allergen.imgSrc}} />
             <h2>{{allergen.name}}</h2>
         </ion-item>

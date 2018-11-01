@@ -7,28 +7,39 @@ import { AllergenInterface } from '../interfaces';
 export class AllergensService {
 
   private srcPath = '../../../assets/icon/';
-  constructor () { }
+  private allergenStack = [];
+
+  allergenList = [
+    'Altramuces',
+    'Apio',
+    'Cacahuetes',
+    'Crustáceos',
+    'Dióxido de azufre y sulfitos',
+    'Frutos secos',
+    'Gluten',
+    'Granos de sésamo',
+    'Huevo',
+    'Lácteos',
+    'Moluscos',
+    'Mostaza',
+    'Pescado',
+    'Soja'
+  ];
+
   getList(): AllergenInterface[] {
-    const allergenList = [
-      { name: 'Altramuces', imgSrc: '' },
-      { name: 'Apio', imgSrc: '' },
-      { name: 'Cacahuetes', imgSrc: '' },
-      { name: 'Crustáceos', imgSrc: '' },
-      { name: 'Dióxido de azufre y sulfitos', imgSrc: '' },
-      { name: 'Frutos secos', imgSrc: '' },
-      { name: 'Gluten', imgSrc: '' },
-      { name: 'Granos de sésamo', imgSrc: '' },
-      { name: 'Huevo', imgSrc: '' },
-      { name: 'Lácteos', imgSrc: '' },
-      { name: 'Moluscos', imgSrc: '' },
-      { name: 'Mostaza', imgSrc: '' },
-      { name: 'Pescado', imgSrc: '' },
-      { name: 'Soja', imgSrc: '' }
-    ];
-    for ( const allergen of allergenList ) {
-      allergen.imgSrc = this.getIconFilename( allergen.name );
+
+    class AllergenObject {
+      constructor (
+        private name: string,
+        private imgSrc: string,
+        private path: string = name
+      ) { }
     }
-    return allergenList;
+
+    for ( const allergen of this.allergenList ) {
+      this.allergenStack.push( new AllergenObject( allergen, this.getIconFilename( allergen ) ) );
+    }
+    return this.allergenStack;
   }
 
   private getIconFilename( allergenName: string ): string {
