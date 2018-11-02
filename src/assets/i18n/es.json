@@ -2,5 +2,22 @@
   "HOME": {
     "ALLERGENS": "Alérgenos",
     "14_ALLERGENS" : "Los 14 alérgenos alimentarios"
+  },
+  "ALLERGENS": {
+    "TITLE": "Alérgenos",
+    "LUPINS": "Altramuces",
+    "CELERY": "Apio",
+    "PEANUTS": "Cacahuetes",
+    "CRUSTACEANS": "Crustáceos",
+    "SULFUR_DIOXIDE_AND_SULPHITES": "Dióxido de azufre y sulfitos",
+    "NUTS": "Frutos secos",
+    "GLUTEN": "Gluten",
+    "SESAME_SEEDS": "Granos de sésamo",
+    "EGG": "Huevo",
+    "DAIRY_PRODUCTS": "Lácteos",
+    "MOLLUSCS": "Moluscos",
+    "MUSTARD": "Mostaza",
+    "FISH": "Pescado",
+    "SOY": "Soja"
   }
 }
