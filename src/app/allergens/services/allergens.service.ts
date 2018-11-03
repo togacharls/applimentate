@@ -8,10 +8,6 @@ export class AllergensService {
 
   private srcPath = '../../../assets/icon/';
   private allergenStack = [];
-<<<<<<< HEAD
-=======
-  private allergenForm = { name: '', imgSrc: '' };
->>>>>>> fb6793b93a3522f35d7c9d5c0fc66fb84d1a8eb5
 
   allergenList = [
     'Altramuces',
@@ -38,19 +34,11 @@ export class AllergensService {
         private imgSrc: string,
         private path: string = name
       ) { }
-<<<<<<< HEAD
     }
 
     for ( const allergen of this.allergenList ) {
       this.allergenStack.push( new AllergenObject( allergen, this.getIconFilename( allergen ) ) );
     }
-=======
-    }
-
-    for ( const allergen of this.allergenList ) {
-      this.allergenStack.push( new AllergenObject( allergen, this.getIconFilename( allergen ) ) );
-    }
->>>>>>> fb6793b93a3522f35d7c9d5c0fc66fb84d1a8eb5
     return this.allergenStack;
   }
 
@@ -63,5 +51,4 @@ export class AllergensService {
       .join( '_' )
       + '.png';
   }
-
 }
