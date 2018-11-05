@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'allergens', loadChildren: './allergens/allergens.module#AllergensPageModule' },
   { path: 'allergensDetails', loadChildren: './allergens/allergens-details/allergens-details.module#AllergensDetailsPageModule' },
-
+  { path: 'Gluten', loadChildren: './allergens/allergen-info/gluten/gluten.module#GlutenModule' }
 ];
 
 @NgModule( {
