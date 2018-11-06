@@ -5,9 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AllergensPage } from './allergens.page';
+import { AllergensPage } from './pages/allergens-list/allergens.page';
+import { AllergensDetailPage } from './pages/allergens-detail/allergens-detail.page';
+
 import { AllergensService } from './services';
-import {AllergensDetailPage} from './allergens-detail/allergens-detail.page';
 
 const routes: Routes = [
   { path: '', component: AllergensPage },
@@ -22,6 +23,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [ AllergensPage, AllergensDetailPage ],
-  providers: [AllergensService]
+  providers: [ AllergensService ]
 })
 export class AllergensModule {}

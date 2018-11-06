@@ -1,6 +1,6 @@
-import { AllergensService } from './services/allergens.service';
+import { AllergensService } from '../../services/allergens.service';
 import { Component, OnInit } from '@angular/core';
-import { AllergenInterface } from './interfaces';
+import { AllergenInterface } from '../../interfaces/index';
 
 @Component( {
     selector: 'app-allergens',
