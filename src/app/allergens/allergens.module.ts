@@ -7,14 +7,14 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AllergensPage } from './allergens.page';
+import { AllergensPage } from './pages/allergens-list/allergens.page';
+import { AllergensDetailPage } from './pages/allergens-detail/allergens-detail.page';
+
 import { AllergensService } from './services';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AllergensPage
-  }
+  { path: '', component: AllergensPage },
+  { path: ':id', component: AllergensDetailPage }
 ];
 
 @NgModule({
@@ -25,7 +25,7 @@ const routes: Routes = [
     TranslateModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AllergensPage],
-  providers: [AllergensService]
+  declarations: [ AllergensPage, AllergensDetailPage ],
+  providers: [ AllergensService ]
 })
-export class AllergensPageModule {}
+export class AllergensModule {}
