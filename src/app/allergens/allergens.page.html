@@ -3,14 +3,14 @@
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
         </ion-buttons>
-        <ion-title>Alérgenos</ion-title>
+        <ion-title>{{ 'ALLERGENS.TITLE' | translate }}</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content>
     <ion-list>
         <ion-item *ngFor="let allergen of allergens">
             <img src={{allergen.imgSrc}} />
-            <h2>{{allergen.name}}</h2>
+            <h2>{{allergen.name | translate}}</h2>
         </ion-item>
     </ion-list>
 </ion-content>

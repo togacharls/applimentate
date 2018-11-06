@@ -2,5 +2,22 @@
   "HOME": {
     "ALLERGENS": "Allergens",
     "14_ALLERGENS" : "The 14 food allergens"
+  },
+  "ALLERGENS": {
+    "TITLE": "Allergens",
+    "LUPINS": "Lupins",
+    "CELERY": "Celery",
+    "PEANUTS": "Peanuts",
+    "CRUSTACEANS": "Crustaceans",
+    "SULFUR_DIOXIDE_AND_SULPHITES": "Sulfur dioxide and sulphites",
+    "NUTS": "Nuts",
+    "GLUTEN": "Gluten",
+    "SESAME_SEEDS": "Sesame seeds",
+    "EGG": "Egg",
+    "DAIRY_PRODUCTS": "Dairy products",
+    "MOLLUSCS": "Moluscs",
+    "MUSTARD": "Mustard",
+    "FISH": "Fish",
+    "SOY": "Soy"
   }
 }
