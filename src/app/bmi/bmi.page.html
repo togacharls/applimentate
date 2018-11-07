@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>bmi</ion-title>
+    <ion-title>{{'BMI.TITLE' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <form>
+    <div>
+      <label>{{'BMI.HEIGHT' | translate}}</label>
+      <input [(ngModel)]="height" [ngModelOptions]="{standalone: true}"> cm
+    </div>
+    <div>
+      <label>{{'BMI.WEIGHT' | translate}}</label>
+      <input [(ngModel)]="weight" [ngModelOptions]="{standalone: true}"> kg
+    </div>
+    <button type="submit" (click)="calcBMI()">{{'BMI.CALC' | translate}}</button>
+  </form>
+  <p [hidden]="bmi === null">{{'BMI.RESULT' | translate}}: {{ bmi }}</p>
 </ion-content>

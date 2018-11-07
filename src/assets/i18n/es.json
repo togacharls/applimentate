@@ -1,10 +1,7 @@
 {
   "HOME": {
     "ALLERGENS": "Alérgenos",
-    "14_ALLERGENS": "Los 14 alérgenos alimentarios",
-    "SUMMARY": "Resumen",
-    "FOOD": "Alimentos",
-    "HEALTH": "Salud"
+    "14_ALLERGENS" : "Los 14 alérgenos alimentarios"
   },
   "ALLERGENS": {
     "TITLE": "Alérgenos",
@@ -70,5 +67,12 @@
       "FISH": "Los síntomas que puede presentar son picores, urticaria, enrojecimiento, hinchazón de labios y párpados, vómitos, diarrea, problemas respiratorios, anafilaxis.",
       "SOY": "Con la alergenicidad a la soja a diferencia de otros alimentos ocurre que no se ve disminuida con la temperatura. Presenta resistencia a la desnaturalización térmica, química y preoteolítica cosa común en las legumbres. Los síntomas que presenta son urticaria ronchas, hinchazón de labios picor de labios, problemas respiratorios, y en  casos más graves la anafilaxia."
     }
+  },
+  "BMI": {
+    "TITLE": "Índice de masa corporal",
+    "HEIGHT": "Altura",
+    "WEIGHT": "Peso",
+    "CALC": "Calcular",
+    "RESULT": "Resultado"
   }
 }

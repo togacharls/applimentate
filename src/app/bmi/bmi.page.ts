@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BmiPage implements OnInit {
 
+  height: number;
+  weight: number;
+  bmi: number;
+
   constructor() { }
 
   ngOnInit() {
+    this.height = null;
+    this.weight = null;
+    this.bmi = null;
+  }
+
+  calcBMI(): void {
+    this.bmi = (this.weight / ((this.height/100) * (this.height/100)));
   }
 
 }
