@@ -20,24 +20,24 @@ export class AllergensService {
   }
 
   private getDefaultAllergenList(): AllergenInterface[] {
-      const allergenList = [
-          { name: 'ALLERGENS.LUPINS', imgSrc: '' },
-          { name: 'ALLERGENS.CELERY', imgSrc: '' },
-          { name: 'ALLERGENS.PEANUTS', imgSrc: '' },
-          { name: 'ALLERGENS.CRUSTACEANS', imgSrc: '' },
-          { name: 'ALLERGENS.SULFUR_DIOXIDE_AND_SULPHITES', imgSrc: '' },
-          { name: 'ALLERGENS.NUTS', imgSrc: '' },
-          { name: 'ALLERGENS.GLUTEN', imgSrc: '' },
-          { name: 'ALLERGENS.SESAME_SEEDS', imgSrc: '' },
-          { name: 'ALLERGENS.EGG', imgSrc: '' },
-          { name: 'ALLERGENS.DAIRY_PRODUCTS', imgSrc: '' },
-          { name: 'ALLERGENS.MOLLUSCS', imgSrc: '' },
-          { name: 'ALLERGENS.MUSTARD', imgSrc: '' },
-          { name: 'ALLERGENS.FISH', imgSrc: '' },
-          { name: 'ALLERGENS.SOY', imgSrc: '' }
+      const allergenList: AllergenInterface [] = [
+          { name: 'ALLERGENS.LUPINS', icon: '' },
+          { name: 'ALLERGENS.CELERY', icon: '' },
+          { name: 'ALLERGENS.PEANUTS', icon: '' },
+          { name: 'ALLERGENS.CRUSTACEANS', icon: '' },
+          { name: 'ALLERGENS.SULFUR_DIOXIDE_AND_SULPHITES', icon: '' },
+          { name: 'ALLERGENS.NUTS', icon: '' },
+          { name: 'ALLERGENS.GLUTEN', icon: '' },
+          { name: 'ALLERGENS.SESAME_SEEDS', icon: '' },
+          { name: 'ALLERGENS.EGG', icon: '' },
+          { name: 'ALLERGENS.DAIRY_PRODUCTS', icon: '' },
+          { name: 'ALLERGENS.MOLLUSCS', icon: '' },
+          { name: 'ALLERGENS.MUSTARD', icon: '' },
+          { name: 'ALLERGENS.FISH', icon: '' },
+          { name: 'ALLERGENS.SOY', icon: '' }
       ];
       for ( const allergen of allergenList ) {
-          allergen.imgSrc = this.getIconFilename( allergen.name.split('.')[1] );
+          allergen.icon = this.getIconFilename( allergen.name.split('.')[1] );
       }
       return allergenList;
   }

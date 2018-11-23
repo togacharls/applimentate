@@ -13,7 +13,7 @@ export class AllergensDetailPage implements OnInit {
 
   ngOnInit() {
     this.allergen = {
-        imgSrc: null,
+        icon: null,
         name: this.route.snapshot.params['id']
     };
   }

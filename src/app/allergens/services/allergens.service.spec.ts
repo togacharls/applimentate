@@ -20,7 +20,7 @@ describe( 'AllergensService', () => {
             'gluten', 'granos_de_sesamo', 'huevo', 'lacteos', 'moluscos', 'mostaza', 'pescado', 'soja' ],
             allergensList = service.getList(),
 
-            filterFunction = ( allergenItem, expectedFilename ) => allergenItem.imgSrc === `../../../assets/icon/${ expectedFilename }.png`;
+            filterFunction = ( allergenItem, expectedFilename ) => allergenItem.icon === `../../../assets/icon/${ expectedFilename }.png`;
         for ( const allergen of allergensName ) {
             expect( allergensList.filter( item => filterFunction( item, allergen ) ).length ).toBe( 1 );
         }
