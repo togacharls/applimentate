@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { take } from 'rxjs/operators';
-import { AllergenInterface } from '../interfaces';
+import { AllergenDetailInterface, AllergenInterface } from '../interfaces';
 
 @Injectable( {
   providedIn: 'root'
@@ -17,6 +17,32 @@ export class AllergensService {
 
   getList(): AllergenInterface[] {
     return this.allergenList;
+  }
+
+  getAllergenById(id: string): AllergenDetailInterface {
+      switch (id) {
+          case 'ALLERGENS.LUPINS':
+          case 'ALLERGENS.CELERY':
+          case 'ALLERGENS.PEANUTS':
+          case 'ALLERGENS.CRUSTACEANS':
+          case 'ALLERGENS.SULFUR_DIOXIDE_AND_SULPHITES':
+          case 'ALLERGENS.NUTS':
+          case 'ALLERGENS.GLUTEN':
+          case 'ALLERGENS.SESAME_SEEDS':
+          case 'ALLERGENS.EGG':
+          case 'ALLERGENS.DAIRY_PRODUCTS':
+          case 'ALLERGENS.MOLLUSCS':
+          case 'ALLERGENS.MUSTARD':
+          case 'ALLERGENS.FISH':
+          case 'ALLERGENS.SOY':
+              return {
+                  name: id,
+                  icon: this.getIconFilename(id),
+                  img: '',
+                  summary: ''
+              };
+          default: return null;
+      }
   }
 
   private getDefaultAllergenList(): AllergenInterface[] {

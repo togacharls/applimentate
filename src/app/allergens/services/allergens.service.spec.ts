@@ -1,9 +1,13 @@
 import { TestBed } from '@angular/core/testing';
+import { TranslateModule } from "@ngx-translate/core";
 
 import { AllergensService } from './allergens.service';
+import {AllergenDetailInterface} from "../interfaces";
 
 describe( 'AllergensService', () => {
-    beforeEach( () => TestBed.configureTestingModule( {} ) );
+    beforeEach( () => TestBed.configureTestingModule( {
+        imports: [TranslateModule.forRoot()]
+    } ) );
 
     it( 'should be created', () => {
         const service: AllergensService = TestBed.get( AllergensService );
@@ -16,8 +20,8 @@ describe( 'AllergensService', () => {
     } );
     it( 'should return the correct path and filename of each allergen icon', () => {
         const service: AllergensService = TestBed.get( AllergensService );
-        const allergensName: string[] = [ 'altramuces', 'apio', 'cacahuetes', 'crustaceos', 'dioxido_de_azufre_y_sulfitos', 'frutos_secos',
-            'gluten', 'granos_de_sesamo', 'huevo', 'lacteos', 'moluscos', 'mostaza', 'pescado', 'soja' ],
+        const allergensName: string[] = [ 'lupins', 'celery', 'peanuts', 'crustaceans', 'sulfur_dioxide_and_sulphites', 'nuts',
+            'gluten', 'sesame_seeds', 'egg', 'dairy_products', 'molluscs', 'mustard', 'fish', 'soy' ],
             allergensList = service.getList(),
 
             filterFunction = ( allergenItem, expectedFilename ) => allergenItem.icon === `../../../assets/icon/${ expectedFilename }.png`;
@@ -25,4 +29,16 @@ describe( 'AllergensService', () => {
             expect( allergensList.filter( item => filterFunction( item, allergen ) ).length ).toBe( 1 );
         }
     } );
+    it('should return an object with the same "name" than the "id" which is passed as parameter', () => {
+        const service: AllergensService = TestBed.get( AllergensService ),
+            allergenName: string ='ALLERGENS.GLUTEN',
+            allergen: AllergenDetailInterface = service.getAllergenById(allergenName);
+        expect(allergen.name).toBe(allergenName);
+    });
+    it('should return null if the id is not valid', () => {
+        const service: AllergensService = TestBed.get( AllergensService ),
+            allergenName: string ='HAPPY HOUR!',
+            allergen: AllergenDetailInterface = service.getAllergenById(allergenName);
+        expect(allergen).toBeNull();
+    });
 } );

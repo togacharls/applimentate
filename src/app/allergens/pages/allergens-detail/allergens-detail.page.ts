@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { AllergenInterface } from "../../interfaces";
+import { AllergensService } from "../../services";
 
 @Component({
   selector: 'app-allergens-details',
@@ -9,13 +10,12 @@ import { AllergenInterface } from "../../interfaces";
 })
 export class AllergensDetailPage implements OnInit {
   allergen: AllergenInterface;
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+      private route: ActivatedRoute,
+      private allergensService: AllergensService
+  ) { }
 
   ngOnInit() {
-    this.allergen = {
-        icon: null,
-        name: this.route.snapshot.params['id']
-    };
+    this.allergen = this.allergensService.getAllergenById(this.route.snapshot.params['id']);
   }
-
 }
