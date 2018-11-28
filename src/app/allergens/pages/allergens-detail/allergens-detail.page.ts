@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { AllergenInterface } from "../../interfaces";
-import { AllergensService } from "../../services";
+import { ActivatedRoute } from '@angular/router';
+import { AllergensService } from '../../services';
+import { AllergenDetailInterface } from '../../interfaces/allergen.interface';
 
-@Component({
+
+@Component( {
   selector: 'app-allergens-details',
   templateUrl: './allergens-detail.page.html',
-  styleUrls: ['./allergens-detail.page.scss'],
-})
+  styleUrls: [ './allergens-detail.page.scss' ],
+} )
 export class AllergensDetailPage implements OnInit {
-  allergen: AllergenInterface;
-  constructor(
-      private route: ActivatedRoute,
-      private allergensService: AllergensService
+
+  allergen: AllergenDetailInterface;
+  constructor (
+    private route: ActivatedRoute,
+    private allergensService: AllergensService,
   ) { }
 
   ngOnInit() {
-    this.allergen = this.allergensService.getAllergenById(this.route.snapshot.params['id']);
+    this.allergen = this.allergensService.getAllergenById( this.route.snapshot.params[ 'id' ] );
   }
 }

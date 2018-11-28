@@ -1,7 +1,7 @@
 {
   "HOME": {
     "ALLERGENS": "Alérgenos",
-    "14_ALLERGENS" : "Los 14 alérgenos alimentarios"
+    "14_ALLERGENS": "Los 14 alérgenos alimentarios"
   },
   "ALLERGENS": {
     "TITLE": "Alérgenos",
@@ -18,6 +18,9 @@
     "MOLLUSCS": "Moluscos",
     "MUSTARD": "Mostaza",
     "FISH": "Pescado",
-    "SOY": "Soja"
+    "SOY": "Soja",
+    "SUMMARIES": {
+      "GLUTEN": "El gluten (del latín gluten, 'pegamento') es un compuesto de proteínas de almacenamiento denominadas prolaminas y glutelinas [1] que se almacenan junto con el almidón en el endospermo (que nutre la planta embrionaria durante la germinación) de diversos granos de cereal (hierba). Se encuentra en el trigo, cebada, centeno, [malta] y especies relacionadas e híbridos (como espelta, khorasan, emmer, einkorn, triticale, kamut, etc.), [2] así como productos derivados de estos granos (como como panes y maltas). Los glúteos, y más especialmente los glúteos Triticeae, son apreciados por sus propiedades viscoelásticas, [3] [4] que le dan su elasticidad a la masa, ayudándola a aumentar y mantener su forma y, a menudo, dejan el producto final con una textura masticable."
+    }
   }
 }

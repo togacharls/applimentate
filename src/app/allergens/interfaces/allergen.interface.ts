@@ -3,7 +3,7 @@ export interface AllergenInterface {
     icon: string;
 }
 
-export interface AllergenDetailInterface extends AllergenInterface{
+export interface AllergenDetailInterface extends AllergenInterface {
     img: string;
     summary: string;
 }

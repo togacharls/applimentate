@@ -1,7 +1,7 @@
 {
   "HOME": {
     "ALLERGENS": "Allergens",
-    "14_ALLERGENS" : "The 14 food allergens"
+    "14_ALLERGENS": "The 14 food allergens"
   },
   "ALLERGENS": {
     "TITLE": "Allergens",
@@ -18,6 +18,9 @@
     "MOLLUSCS": "Moluscs",
     "MUSTARD": "Mustard",
     "FISH": "Fish",
-    "SOY": "Soy"
+    "SOY": "Soy",
+    "SUMMARIES": {
+      "GLUTEN": "Gluten (from Latin gluten, 'glue') is a composite of storage proteins termed prolamins and glutelins[1] that is stored together with starch in the endosperm (which nourishes the embryonic plant during germination) of various cereal (grass) grains. It is found in wheat, barley, rye, [malt] and related species and hybrids (such as spelt, khorasan, emmer, einkorn, triticale, kamut, etc.),[2] as well as products derived from these grains (such as breads and malts). Glutens, and most especially the Triticeae glutens, are appreciated for their viscoelastic properties,[3][4] which give dough its elasticity, helping it rise and keep its shape and often leaving the final product with a chewy texture. "
+    }
   }
 }
