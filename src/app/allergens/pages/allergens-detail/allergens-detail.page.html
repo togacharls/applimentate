@@ -4,19 +4,27 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>{{ allergen.name | translate }}</ion-title>
+    <div>
+      <button class="border" (click)="chosed($event)" value="Summary">Summary</button>
+      <button class="border" (click)="chosed($event)" value="Health">Health</button>
+      <button class="border" (click)="chosed($event)" value="Food">Food</button>
+    </div>
   </ion-toolbar>
+
 </ion-header>
 
 
 <ion-content class="bg-softest">
   <ion-img src="{{allergen.imgSummary}}"></ion-img>
-  <div>
-    <p class="allergenDetails"> {{ allergen.summary | translate }}</p>
-  </div>
-  <div>
-    <p class="allergenDetails"> {{ allergen.food | translate }}</p>
-  </div>
-  <div>
-    <p class="allergenDetails"> {{ allergen.health | translate }}</p>
+  <div [ngSwitch]="data">
+    <div *ngSwitchCase="'Summary'">
+      <p class="allergenDetails"> {{ allergen.summary | translate }}</p>
+    </div>
+    <div *ngSwitchCase="'Health'">
+      <p class="allergenDetails"> {{ allergen.health | translate }}</p>
+    </div>
+    <div *ngSwitchCase="'Food'">
+      <p class="allergenDetails"> {{ allergen.food | translate }}</p>
+    </div>
   </div>
 </ion-content>

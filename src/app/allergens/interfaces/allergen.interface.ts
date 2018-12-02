@@ -9,4 +9,3 @@ export interface AllergenDetailInterface extends AllergenInterface {
     food: string;
     health: string;
 }
-
