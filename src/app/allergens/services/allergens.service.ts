@@ -9,7 +9,8 @@ import { AllergenDetailInterface, AllergenInterface } from '../interfaces';
 export class AllergensService {
 
     private allergenList: AllergenInterface[];
-    private srcPath = '../../../assets/icon/';
+    private srcImgIconPath = '../../../assets/icon/';
+    private srcImgSummaryPath = '../../../assets/img/ImgAllergens/';
     constructor ( private translateService: TranslateService ) {
         this.allergenList = this.getDefaultAllergenList();
         this.sortAllergenList();
@@ -38,8 +39,10 @@ export class AllergensService {
                 return {
                     name: id,
                     icon: this.getIconFilename( id ),
-                    img: '',
-                    summary: this.getSummary( id )
+                    imgSummary: this.getSummaryImg( id ),
+                    summary: this.getSummary( id ),
+                    food: this.getFood( id ),
+                    health: this.getHealth( id )
                 };
             default: return null;
         }
@@ -81,7 +84,7 @@ export class AllergensService {
     }
 
     private getIconFilename( allergenName: string ): string {
-        return this.srcPath + allergenName
+        return this.srcImgIconPath + allergenName
             .toLowerCase()
             + '.png';
     }
@@ -90,5 +93,23 @@ export class AllergensService {
         return 'ALLERGENS.SUMMARIES.' + alergeno
             .slice( alergeno
                 .lastIndexOf( '.' ) + 1 );
+    }
+
+    private getFood( alergeno: string ): string {
+        return 'ALLERGENS.FOODS.' + alergeno
+            .slice( alergeno
+                .lastIndexOf( '.' ) + 1 );
+    }
+
+    private getHealth( alergeno: string ): string {
+        return 'ALLERGENS.HEALTH.' + alergeno
+            .slice( alergeno
+                .lastIndexOf( '.' ) + 1 );
+    }
+
+    private getSummaryImg( alergeno: string ): string {
+        return this.srcImgSummaryPath + alergeno
+            .slice( alergeno
+                .lastIndexOf( '.' ) + 1 ) + '.png';
     }
 }

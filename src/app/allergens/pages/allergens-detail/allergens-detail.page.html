@@ -9,7 +9,14 @@
 
 
 <ion-content class="bg-softest">
+  <ion-img src="{{allergen.imgSummary}}"></ion-img>
   <div>
     <p class="allergenDetails"> {{ allergen.summary | translate }}</p>
+  </div>
+  <div>
+    <p class="allergenDetails"> {{ allergen.food | translate }}</p>
+  </div>
+  <div>
+    <p class="allergenDetails"> {{ allergen.health | translate }}</p>
   </div>
 </ion-content>
