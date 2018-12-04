@@ -12,6 +12,8 @@ export class AllergensDetailPage implements OnInit {
   public data = 'Summary';
   allergen: AllergenDetailInterface;
 
+  data3: any;
+
   chosed( event ): void {
     this.data = event.target.value;
   }
@@ -23,5 +25,7 @@ export class AllergensDetailPage implements OnInit {
 
   ngOnInit() {
     this.allergen = this.allergensService.getAllergenById( this.route.snapshot.params[ 'id' ] );
+    this.data3 = document.querySelector( '#dataDetaultSelected' );
+    this.data3.focus();
   }
 }
