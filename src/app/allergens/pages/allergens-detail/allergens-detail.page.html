@@ -4,14 +4,14 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>{{ allergen.name | translate }}</ion-title>
-    <div>
-      <button class="border" (click)="chosed($event)" value="Summary">Summary</button>
-      <button class="border" (click)="chosed($event)" value="Health">Health</button>
-      <button class="border" (click)="chosed($event)" value="Food">Food</button>
-    </div>
   </ion-toolbar>
 
 </ion-header>
+<div>
+  <button class="border" id="dataDetaultSelected" (click)="chosed($event)" value="Summary">{{ 'HOME.SUMMARY' | translate }}</button>
+  <button class="border" (click)="chosed($event)" value="Health">{{ 'HOME.HEALT' | translate }}</button>
+  <button class="border" (click)="chosed($event)" value="Food">{{ 'HOME.FOOD' | translate }}</button>
+</div>
 
 
 <ion-content class="bg-softest">
