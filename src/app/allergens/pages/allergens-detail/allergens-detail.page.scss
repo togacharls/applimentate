@@ -1,10 +1,19 @@
 .allergen-detail {
     padding: 1em;
 }
+
 .border {
-    width: 33%;
-    border: 1px dashed black;
-    &:focus, &:active {
+    width: 32%;
+    font-size: 15px;
+    text-align: center;
+    // border: 1px solid black;
+    &:focus {
         background-color: rgba(83, 83, 83, 0.8)
     }
+
+.headerWrapper {
+    box-sizing: border-box;
+    padding: 0.5em;
+}
+
 }
