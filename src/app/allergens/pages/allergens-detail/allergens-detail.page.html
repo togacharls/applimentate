@@ -4,25 +4,24 @@
       <ion-back-button defaultHref="/allergens"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ allergen.name | translate }}</ion-title>
-    <div>
-      <button class="border" id="dataDetaultSelected" (click)="chosed($event)" value="Summary">{{ 'HOME.SUMMARY' | translate }}</button>
-      <button class="border" (click)="chosed($event)" value="Health">{{ 'HOME.HEALT' | translate }}</button>
-      <button class="border" (click)="chosed($event)" value="Food">{{ 'HOME.FOOD' | translate }}</button>
-    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="bg-softest">
-  <ion-img src="{{allergen.imgSummary}}"></ion-img>
-  <div [ngSwitch]="data">
-    <div *ngSwitchCase="'Summary'">
-      <p class="allergenDetails"> {{ allergen.summary | translate }}</p>
-    </div>
-    <div *ngSwitchCase="'Health'">
-      <p class="allergenDetails"> {{ allergen.health | translate }}</p>
-    </div>
-    <div *ngSwitchCase="'Food'">
-      <p class="allergenDetails"> {{ allergen.food | translate }}</p>
-    </div>
-  </div>
+<ion-content>
+  <ion-tabs #tabSelectedByDefaultSummary>
+    <ion-tab label="{{ 'HOME.SUMMARY' | translate }}" selectedIndex="0">
+      <ion-img src="{{allergen.imgSummary}}"></ion-img>
+      {{ allergen.summary | translate }}
+    </ion-tab>
+
+    <ion-tab label="{{ 'HOME.HEALT'  | translate }}">
+      <ion-img src="{{allergen.imgSummary}}"></ion-img>
+      {{ allergen.health | translate }}
+    </ion-tab>
+
+    <ion-tab label="{{ 'HOME.FOOD' | translate }}">
+      <ion-img src="{{allergen.imgSummary}}"></ion-img>
+      {{ allergen.food | translate }}
+    </ion-tab>
+  </ion-tabs>
 </ion-content>
