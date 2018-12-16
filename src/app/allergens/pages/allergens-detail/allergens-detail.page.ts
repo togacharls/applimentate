@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AllergenDetailInterface } from '../../interfaces/allergen.interface';
 import { AllergensService } from '../../services/allergens.service';
 
@@ -9,14 +9,8 @@ import { AllergensService } from '../../services/allergens.service';
   styleUrls: [ './allergens-detail.page.scss' ],
 } )
 export class AllergensDetailPage implements OnInit {
-  public data = 'Summary';
   allergen: AllergenDetailInterface;
-
-  data3: any;
-
-  chosed( event ): void {
-    this.data = event.target.value;
-  }
+  @ViewChild( 'tabSelectedByDefaultSummary' ) tabRef;
 
   constructor (
     private route: ActivatedRoute,
@@ -25,7 +19,9 @@ export class AllergensDetailPage implements OnInit {
 
   ngOnInit() {
     this.allergen = this.allergensService.getAllergenById( this.route.snapshot.params[ 'id' ] );
-    this.data3 = document.querySelector( '#dataDetaultSelected' );
-    this.data3.focus();
+  }
+
+  ionViewDidEnter() {
+    this.tabRef.select( 0 );
   }
 }
