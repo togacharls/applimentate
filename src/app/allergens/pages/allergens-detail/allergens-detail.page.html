@@ -7,21 +7,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="bg-softest">
   <ion-tabs #tabSelectedByDefaultSummary>
-    <ion-tab label="{{ 'HOME.SUMMARY' | translate }}">
+
+    <ion-tab label="{{ 'HOME.SUMMARY' | translate }}" icon="book">
       <ion-img src="{{allergen.imgSummary}}"></ion-img>
-      {{ allergen.summary | translate }}
+      <p>{{ allergen.summary | translate }}</p>
     </ion-tab>
 
-    <ion-tab label="{{ 'HOME.HEALT'  | translate }}">
+    <ion-tab label="{{ 'HOME.HEALT'  | translate }}" icon="medkit">
       <ion-img src="{{allergen.imgSummary}}"></ion-img>
-      {{ allergen.health | translate }}
+      <p>{{ allergen.health | translate }}</p>
     </ion-tab>
 
-    <ion-tab label="{{ 'HOME.FOOD' | translate }}">
+    <ion-tab label="{{ 'HOME.FOOD' | translate }}" icon="pizza">
       <ion-img src="{{allergen.imgSummary}}"></ion-img>
-      {{ allergen.food | translate }}
+      <p>{{ allergen.food | translate }}</p>
     </ion-tab>
+
   </ion-tabs>
 </ion-content>
