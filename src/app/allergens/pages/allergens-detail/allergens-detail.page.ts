@@ -1,3 +1,4 @@
+import { Tabs } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AllergenDetailInterface } from '../../interfaces/allergen.interface';
@@ -10,7 +11,7 @@ import { AllergensService } from '../../services/allergens.service';
 } )
 export class AllergensDetailPage implements OnInit {
   allergen: AllergenDetailInterface;
-  @ViewChild( 'tabSelectedByDefaultSummary' ) tabRef;
+  @ViewChild( 'tabSelectedByDefaultSummary' ) tabRef: Tabs;
 
   constructor (
     private route: ActivatedRoute,
