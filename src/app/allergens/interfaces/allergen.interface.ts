@@ -4,7 +4,9 @@ export interface AllergenInterface {
 }
 
 export interface AllergenDetailInterface extends AllergenInterface {
-    imgSummary: string;
+    imgSummary01: string;
+    imgSummary02: string;
+    imgSummary03: string;
     summary: string;
     food: string;
     health: string;

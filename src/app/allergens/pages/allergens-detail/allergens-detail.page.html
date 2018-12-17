@@ -9,12 +9,24 @@
 
 <ion-content class="bg-softest">
   <ion-tabs #tabSelectedByDefaultSummary>
-
     <ion-tab label="{{ 'HOME.SUMMARY' | translate }}" icon="book">
-      <ion-img src="{{allergen.imgSummary}}"></ion-img>
-      <p>{{ allergen.summary | translate }}</p>
-    </ion-tab>
+      <ion-content class="bg-softest">
+        <ion-slides pager>
+          <ion-slide>
+            <ion-img src="{{allergen.imgSummary01}}"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img src="{{allergen.imgSummary02}}"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img src="{{allergen.imgSummary03}}"></ion-img>
+          </ion-slide>
+        </ion-slides>
 
+        <p>{{ allergen.summary | translate }}</p>
+      </ion-content>
+    </ion-tab>
+    <!-- 
     <ion-tab label="{{ 'HOME.HEALT'  | translate }}" icon="medkit">
       <ion-img src="{{allergen.imgSummary}}"></ion-img>
       <p>{{ allergen.health | translate }}</p>
@@ -23,7 +35,7 @@
     <ion-tab label="{{ 'HOME.FOOD' | translate }}" icon="pizza">
       <ion-img src="{{allergen.imgSummary}}"></ion-img>
       <p>{{ allergen.food | translate }}</p>
-    </ion-tab>
-
+    </ion-tab> -->
   </ion-tabs>
+
 </ion-content>

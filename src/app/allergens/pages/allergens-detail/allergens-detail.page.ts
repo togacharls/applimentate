@@ -12,6 +12,7 @@ import { AllergensService } from '../../services/allergens.service';
 export class AllergensDetailPage implements OnInit {
   allergen: AllergenDetailInterface;
   @ViewChild( 'tabSelectedByDefaultSummary' ) tabRef: Tabs;
+  imgStackSummary = [ 'allergen.imgSummary01', 'allergen.imgSummary02', 'allergen.imgSummary03' ];
 
   constructor (
     private route: ActivatedRoute,
