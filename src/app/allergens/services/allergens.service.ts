@@ -28,9 +28,15 @@ export class AllergensService {
         return {
             name: 'ALLERGENS.' + allergenName,
             icon: this.srcImgIconPath + allergenName.toLowerCase() + '.png',
-            imgSummary01: this.srcImgSummaryPath + allergenName + '01.png',
-            imgSummary02: this.srcImgSummaryPath + allergenName + '02.png',
-            imgSummary03: this.srcImgSummaryPath + allergenName + '03.png',
+            imgSummary01: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_S01.png',
+            imgSummary02: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_S02.png',
+            imgSummary03: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_S03.png',
+            imgHealth01: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_H01.png',
+            imgHealth02: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_H02.png',
+            imgHealth03: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_H03.png',
+            imgFood01: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_F01.png',
+            imgFood02: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_F02.png',
+            imgFood03: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_F03.png',
             summary: 'ALLERGENS.SUMMARIES.' + allergenName,
             food: 'ALLERGENS.FOODS.' + allergenName,
             health: 'ALLERGENS.HEALTH.' + allergenName
