@@ -1,15 +1,11 @@
 
-ion-tab {
-    box-sizing: border-box;
-    padding: 3%;
-    overflow-y: scroll;
-    ion-img {
-        max-height:400px;
-        border: 1px solid black;
-        box-shadow:0px 0px 30px rgba(0, 0, 0, 0.8);
+p {
+    padding-bottom: 50%;
+    font-size: 18px;
+    padding:10px;
     }
-    p {
-        padding-bottom: 50%;
-        font-size: 18px;
-    }
+img {
+    width: 100%;
+    border: 1px solid black;
+
 }
