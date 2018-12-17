@@ -21,6 +21,7 @@ export class AllergensDetailPage implements OnInit {
 
   ngOnInit() {
     this.allergen = this.allergensService.getAllergenById( this.route.snapshot.params[ 'id' ] );
+    console.log( this.allergen );
   }
 
   ionViewDidEnter() {
