@@ -9,17 +9,18 @@
 
 <ion-content class="bg-softest">
   <ion-tabs #tabSelectedByDefaultSummary>
+
     <ion-tab label="{{ 'HOME.SUMMARY' | translate }}" icon="book">
       <ion-content class="bg-softest">
         <ion-slides pager>
           <ion-slide>
-            <img src="{{allergen.imgSummary01}}">
+            <ion-img src="{{allergen.imgSummary01}}"></ion-img>
           </ion-slide>
           <ion-slide>
-            <img src="{{allergen.imgSummary02}}">
+            <ion-img src="{{allergen.imgSummary02}}"></ion-img>
           </ion-slide>
           <ion-slide>
-            <img src="{{allergen.imgSummary03}}">
+            <ion-img src="{{allergen.imgSummary03}}"></ion-img>
           </ion-slide>
         </ion-slides>
         <p>{{ allergen.summary | translate }}</p>
@@ -30,13 +31,13 @@
       <ion-content class="bg-softest">
         <ion-slides pager>
           <ion-slide>
-            <img src="{{allergen.imgHealth01}}">
+            <ion-img src="{{allergen.imgHealth01}}"></ion-img>
           </ion-slide>
           <ion-slide>
-            <img src="{{allergen.imgHealth02}}">
+            <ion-img src="{{allergen.imgHealth02}}"></ion-img>
           </ion-slide>
           <ion-slide>
-            <img src="{{allergen.imgHealth03}}">
+            <ion-img src="{{allergen.imgHealth03}}"></ion-img>
           </ion-slide>
         </ion-slides>
         <p>{{ allergen.health | translate }}</p>
@@ -47,18 +48,18 @@
       <ion-content class="bg-softest">
         <ion-slides pager>
           <ion-slide>
-            <img src="{{allergen.imgFood01}}">
+            <ion-img src="{{allergen.imgFood01}}"></ion-img>
           </ion-slide>
           <ion-slide>
-            <img src="{{allergen.imgFood02}}">
+            <ion-img src="{{allergen.imgFood02}}"></ion-img>
           </ion-slide>
           <ion-slide>
-            <img src="{{allergen.imgFood03}}">
+            <ion-img src="{{allergen.imgFood03}}"></ion-img>
           </ion-slide>
         </ion-slides>
         <p>{{ allergen.food | translate }}</p>
       </ion-content>
     </ion-tab>
-  </ion-tabs>
 
+  </ion-tabs>
 </ion-content>
