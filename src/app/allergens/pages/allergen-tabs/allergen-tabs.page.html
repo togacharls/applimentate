@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ allergen.name | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="allergen-summary">
+        <ion-icon name="book"></ion-icon>
+        <ion-label>{{ 'HOME.SUMMARY' | translate }}</ion-label>
+        <ion-badge>3</ion-badge>
+      </ion-tab-button>
+
+      <ion-tab-button tab="allergen-health">
+        <ion-icon name="medkit"></ion-icon>
+        <ion-label>{{ 'HOME.HEALTH' | translate }}</ion-label>
+        <ion-badge>3</ion-badge>
+      </ion-tab-button>
+
+      <ion-tab-button tab="allergen-food">
+        <ion-icon name="pizza"></ion-icon>
+        <ion-label>{{ 'HOME.FOOD' | translate }}</ion-label>
+        <ion-badge>3</ion-badge>
+
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

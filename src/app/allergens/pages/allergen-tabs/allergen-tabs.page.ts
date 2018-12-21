@@ -5,14 +5,13 @@ import { AllergenDetailInterface } from '../../interfaces/allergen.interface';
 import { AllergensService } from '../../services/allergens.service';
 
 @Component( {
-  selector: 'app-allergens-details',
-  templateUrl: './allergens-detail.page.html',
-  styleUrls: [ './allergens-detail.page.scss' ],
+  selector: 'app-allergen-tabs',
+  templateUrl: './allergen-tabs.page.html',
+  styleUrls: [ './allergen-tabs.page.scss' ],
 } )
-export class AllergensDetailPage implements OnInit {
+export class AllergenTabsPage implements OnInit {
   allergen: AllergenDetailInterface;
   @ViewChild( 'tabSelectedByDefaultSummary' ) tabRef: Tabs;
-  imgStackSummary = [ 'allergen.imgSummary01', 'allergen.imgSummary02', 'allergen.imgSummary03' ];
 
   constructor (
     private route: ActivatedRoute,
