@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'HOME.SUMMARY'  | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-softest">
+
+  <ion-content class="bg-softest">
+    <ion-slides pager>
+      <ion-slide>
+        <ion-img src="{{allergen.imgSummary01}}"></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <ion-img src="{{allergen.imgSummary02}}"></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <ion-img src="{{allergen.imgSummary03}}"></ion-img>
+      </ion-slide>
+    </ion-slides>
+    <p>{{ allergen.summary | translate }}</p>
+
+  </ion-content>
