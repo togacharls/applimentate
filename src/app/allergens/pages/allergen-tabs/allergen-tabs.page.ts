@@ -23,6 +23,6 @@ export class AllergenTabsPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.tabRef.select( 0 );
+    // this.tabRef.select( 0 );
   }
 }

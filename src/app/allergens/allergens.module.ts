@@ -16,13 +16,12 @@ import { AllergenSummaryPage } from './pages/allergen-summary/allergen-summary.p
 import { AllergenHealthPage } from './pages/allergen-health/allergen-health.page';
 import { AllergenFoodPage } from './pages/allergen-food/allergen-food.page';
 import { AllergenTabsPageModule } from './pages/allergen-tabs/allergen-tabs.module';
+import { AllergenTabsPage } from './pages/allergen-tabs/allergen-tabs.page';
 
 const routes: Routes = [
   { path: '', component: AllergensPage },
   { path: ':id', component: AllergensDetailPage },
-  { path: ':id/Summary', component: AllergenSummaryPage },
-  { path: ':id/health', component: AllergenHealthPage },
-  { path: ':id/Food', component: AllergenFoodPage }
+  { path: ':id/Summary', component: AllergenSummaryPage }
 ];
 
 @NgModule( {
