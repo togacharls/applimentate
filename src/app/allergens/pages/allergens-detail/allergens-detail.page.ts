@@ -21,9 +21,10 @@ export class AllergensDetailPage implements OnInit {
 
   ngOnInit() {
     this.allergen = this.allergensService.getAllergenById( this.route.snapshot.params[ 'id' ] );
+    console.log( this.allergen );
   }
 
   ionViewDidEnter() {
-    this.tabRef.select( 0 );
+    // this.tabRef.select(0);
   }
 }
