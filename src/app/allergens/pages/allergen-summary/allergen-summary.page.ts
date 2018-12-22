@@ -29,6 +29,5 @@ export class AllergenSummaryPage implements OnInit {
   ngOnInit() {
     this.allergenPath = this.allergensService.getAllergenNameFromPath( this.route.snapshot.routeConfig.path );
     this.allergen = this.allergensService.getAllergenById( this.allergenPath );
-    console.log( this.route.url );
   }
 }

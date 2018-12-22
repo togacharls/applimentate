@@ -12,18 +12,14 @@ import { AllergenSummaryPage } from '../allergen-summary/allergen-summary.page';
 import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
-  // {
-  //   path: 'food',
-  //   component: AllergenFoodPage
-  // },
-  // {
-  //   path: 'Health',
-  //   component: AllergenHealthPage
-  // },
-  // {
-  //   path: 'Summary',
-  //   component: AllergenSummaryPage
-  // },
+  {
+    path: 'ALLERGENS.LUPINS/Food',
+    component: AllergenFoodPage
+  },
+  {
+    path: 'ALLERGENS.LUPINS/Health',
+    component: AllergenHealthPage
+  },
   {
     path: 'ALLERGENS.LUPINS/Summary',
     component: AllergenSummaryPage
@@ -38,7 +34,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild( routes )
   ],
-  declarations: [ AllergenTabsPage, AllergenSummaryPage ],
+  declarations: [ AllergenTabsPage, AllergenSummaryPage, AllergenHealthPage, AllergenFoodPage ],
   exports: [ AllergenTabsPage ]
 } )
 export class AllergenTabsPageModule { }
