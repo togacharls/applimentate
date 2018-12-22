@@ -26,6 +26,7 @@ export class AllergensService {
     getAllergenNameFromPath( url ): string {
         const te = url.lastIndexOf( '/' );
         const ty = url.slice( url.lastIndexOf( '.' ) + 1, te );
+        console.log( 'getAllergenNameFromPath ' + ty );
         return ty;
     }
 
