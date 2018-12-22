@@ -1,23 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ 'HOME.SUMMARY'  | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{ allergen.name | translate }} </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="bg-softest">
 
-  <ion-content class="bg-softest">
-    <ion-slides pager>
-      <ion-slide>
-        <ion-img src="{{allergen.imgSummary01}}"></ion-img>
-      </ion-slide>
-      <ion-slide>
-        <ion-img src="{{allergen.imgSummary02}}"></ion-img>
-      </ion-slide>
-      <ion-slide>
-        <ion-img src="{{allergen.imgSummary03}}"></ion-img>
-      </ion-slide>
-    </ion-slides>
-    <p>{{ allergen.summary | translate }}</p>
+<ion-content class="gr-soft">
+  <ion-slides pager>
+    <ion-slide>
+      <ion-img src="../../../assets/img/ImgAllergens/LUPINS/LUPINS_S01.png"></ion-img>
+    </ion-slide>
+    <ion-slide>
+      <ion-img src="{{allergen.imgSummary02}}"></ion-img>
+    </ion-slide>
+    <ion-slide>
+      <ion-img src="{{allergen.imgSummary03}}"></ion-img>
+    </ion-slide>
+  </ion-slides>
+  <p>{{ allergen.summary | translate }}</p>
+</ion-content>
 
-  </ion-content>
+<app-allergen-tabs></app-allergen-tabs>

@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AllergenHealthPage } from './allergen-health.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -14,13 +15,15 @@ const routes: Routes = [
   }
 ];
 
-@NgModule({
+@NgModule( {
   imports: [
+    TranslateModule,
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild( routes )
   ],
-  declarations: [AllergenHealthPage]
-})
-export class AllergenHealthPageModule {}
+  declarations: [ AllergenHealthPage ],
+  exports: [ AllergenHealthPage ]
+} )
+export class AllergenHealthPageModule { }
