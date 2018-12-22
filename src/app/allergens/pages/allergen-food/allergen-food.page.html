@@ -4,19 +4,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-tab label="{{ 'HOME.FOOD' | translate }}" icon="pizza">
-  <ion-content class="bg-softest">
-    <ion-slides pager>
-      <ion-slide>
-        <ion-img src="{{allergen.imgFood01}}"></ion-img>
-      </ion-slide>
-      <ion-slide>
-        <ion-img src="{{allergen.imgFood02}}"></ion-img>
-      </ion-slide>
-      <ion-slide>
-        <ion-img src="{{allergen.imgFood03}}"></ion-img>
-      </ion-slide>
-    </ion-slides>
-    <p>{{ allergen.food | translate }}</p>
-  </ion-content>
-</ion-tab>
+<ion-content class="bg-softest">
+  <ion-slides pager>
+    <ion-slide>
+      <ion-img src="{{allergen.imgFood01}}"></ion-img>
+    </ion-slide>
+    <ion-slide>
+      <ion-img src="{{allergen.imgFood02}}"></ion-img>
+    </ion-slide>
+    <ion-slide>
+      <ion-img src="{{allergen.imgFood03}}"></ion-img>
+    </ion-slide>
+  </ion-slides>
+  <p>{{ allergen.food | translate }}</p>
+</ion-content>
+
+<app-allergen-tabs></app-allergen-tabs>

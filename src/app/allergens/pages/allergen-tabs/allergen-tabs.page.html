@@ -9,23 +9,24 @@
 
 <ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="AllergenSummaryPage" routerLink="/Summary">
+
+    <ion-tab-button tab="AllergenSummaryPage" id="primero" routerLink="Summary">
       <ion-icon name="book"></ion-icon>
       <ion-label>{{ 'HOME.SUMMARY' | translate }}</ion-label>
       <ion-badge>3</ion-badge>
     </ion-tab-button>
 
-    <ion-tab-button tab="allergen-health">
+    <ion-tab-button tab="allergen-health" routerLink="/Summary">
       <ion-icon name="medkit"></ion-icon>
       <ion-label>{{ 'HOME.HEALT' | translate }}</ion-label>
       <ion-badge>3</ion-badge>
     </ion-tab-button>
 
-    <ion-tab-button tab="allergen-food">
+    <ion-tab-button tab="allergen-food" routerLink="Summary">
       <ion-icon name="pizza"></ion-icon>
       <ion-label>{{ 'HOME.FOOD' | translate }}</ion-label>
       <ion-badge>3</ion-badge>
-
     </ion-tab-button>
+
   </ion-tab-bar>
 </ion-tabs>

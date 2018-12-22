@@ -20,8 +20,12 @@ const routes: Routes = [
   //   path: 'Health',
   //   component: AllergenHealthPage
   // },
+  // {
+  //   path: 'Summary',
+  //   component: AllergenSummaryPage
+  // },
   {
-    path: 'Summary',
+    path: 'ALLERGENS.LUPINS/Summary',
     component: AllergenSummaryPage
   }
 ];

@@ -23,6 +23,12 @@ export class AllergensService {
         return this.allergenList;
     }
 
+    getAllergenNameFromPath( url ): string {
+        const te = url.lastIndexOf( '/' );
+        const ty = url.slice( url.lastIndexOf( '.' ) + 1, te );
+        return ty;
+    }
+
     getAllergenById( id: string ): AllergenDetailInterface {
         const allergenName = id.slice( id.lastIndexOf( '.' ) + 1 );
         return {
