@@ -8,8 +8,8 @@
 </ion-header>
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let allergen of allergens">
-            <img src={{allergen.imgSrc}} />
+        <ion-item *ngFor="let allergen of allergens" routerLink="{{'/allergens/' + allergen.name }}">
+            <img src="{{allergen.icon}}" />
             <h2>{{allergen.name | translate}}</h2>
         </ion-item>
     </ion-list>

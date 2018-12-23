@@ -14,3 +14,19 @@
   font-family: 'Kaushan Script';
   src: url('assets/fonts/kaushan-script-regular.ttf');
 }
+
+ion-content.bg-softest {
+  --background: var(--green-softest);
+}
+
+ion-content.wd-softest {
+  --background: var(--brown-softest);
+}
+
+ion-content.wd-heaviest {
+  --background: var(--brown-heaviest);
+}
+
+ion-content.gr-soft {
+  --background: var(--green-soft);
+}
