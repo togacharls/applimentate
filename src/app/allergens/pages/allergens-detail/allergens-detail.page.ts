@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AllergensService } from '../../services';
-import { AllergenDetailInterface } from '../../interfaces/allergen.interface';
+import { AllergenDetailInterface } from '../../interfaces';
 
 
 @Component( {

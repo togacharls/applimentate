@@ -76,9 +76,9 @@ export class AllergensService {
         this.translateService
             .get( this.allergenList.map( item => item.name ) )
             .pipe( take( 1 ) )
-            .subscribe( trasnlated => {
+            .subscribe( translated => {
                 this.allergenList.sort( ( elem1, elem2 ) =>
-                    trasnlated[ elem1.name ] < trasnlated[ elem2.name ] ? -1 : trasnlated[ elem1.name ] > trasnlated[ elem2.name ] ? 1 : 0
+                    translated[ elem1.name ] < translated[ elem2.name ] ? -1 : translated[ elem1.name ] > translated[ elem2.name ] ? 1 : 0
                 );
             } );
     }
@@ -89,27 +89,27 @@ export class AllergensService {
             + '.png';
     }
 
-    private getSummary( alergeno: string ): string {
-        return 'ALLERGENS.SUMMARIES.' + alergeno
-            .slice( alergeno
+    private getSummary( allergenID: string ): string {
+        return 'ALLERGENS.SUMMARIES.' + allergenID
+            .slice( allergenID
                 .lastIndexOf( '.' ) + 1 );
     }
 
-    private getFood( alergeno: string ): string {
-        return 'ALLERGENS.FOODS.' + alergeno
-            .slice( alergeno
+    private getFood( allergenID: string ): string {
+        return 'ALLERGENS.FOODS.' + allergenID
+            .slice( allergenID
                 .lastIndexOf( '.' ) + 1 );
     }
 
-    private getHealth( alergeno: string ): string {
-        return 'ALLERGENS.HEALTH.' + alergeno
-            .slice( alergeno
+    private getHealth( allergenID: string ): string {
+        return 'ALLERGENS.HEALTH.' + allergenID
+            .slice( allergenID
                 .lastIndexOf( '.' ) + 1 );
     }
 
-    private getSummaryImg( alergeno: string ): string {
-        return this.srcImgSummaryPath + alergeno
-            .slice( alergeno
+    private getSummaryImg( allergenID: string ): string {
+        return this.srcImgSummaryPath + allergenID
+            .slice( allergenID
                 .lastIndexOf( '.' ) + 1 ) + '.png';
     }
 }
