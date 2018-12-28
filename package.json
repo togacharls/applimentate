@@ -1,8 +1,7 @@
 {
   "name": "applimentate",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "version": "1.0.0",
+  "author": "Carlos Torres García<togacharls@gmail.com>, Jorge Jesús Campoy López<jorgecampoy81@gmail.com>, Elvira María Alonso Cervilla<elvi_ac94@hotmail.com>",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -56,5 +55,5 @@
     "tslint": "~5.11.0",
     "typescript": "~2.9.2"
   },
-  "description": "An Ionic project"
+  "description": "Hybrid App about advising on eating and healthy habits using Ionic"
 }
