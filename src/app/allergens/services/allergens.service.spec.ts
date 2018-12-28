@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { TranslateModule } from "@ngx-translate/core";
+import { TranslateModule } from '@ngx-translate/core';
 
 import { AllergensService } from './allergens.service';
-import {AllergenDetailInterface} from "../interfaces";
+import {AllergenDetailInterface} from '../interfaces';
 
 describe( 'AllergensService', () => {
     beforeEach( () => TestBed.configureTestingModule( {
@@ -31,13 +31,13 @@ describe( 'AllergensService', () => {
     } );
     it('should return an object with the same "name" than the "id" which is passed as parameter', () => {
         const service: AllergensService = TestBed.get( AllergensService ),
-            allergenName: string ='ALLERGENS.GLUTEN',
+            allergenName = 'ALLERGENS.GLUTEN',
             allergen: AllergenDetailInterface = service.getAllergenById(allergenName);
         expect(allergen.name).toBe(allergenName);
     });
     it('should return null if the id is not valid', () => {
         const service: AllergensService = TestBed.get( AllergensService ),
-            allergenName: string ='HAPPY HOUR!',
+            allergenName  = 'HAPPY HOUR!',
             allergen: AllergenDetailInterface = service.getAllergenById(allergenName);
         expect(allergen).toBeNull();
     });

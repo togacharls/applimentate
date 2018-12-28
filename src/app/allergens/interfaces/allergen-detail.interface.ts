@@ -1,4 +1,4 @@
-import { AllergenInterface } from "./allergen.interface";
+import { AllergenInterface } from './allergen.interface';
 
 export interface AllergenDetailInterface extends AllergenInterface {
     imgSummary: string;
