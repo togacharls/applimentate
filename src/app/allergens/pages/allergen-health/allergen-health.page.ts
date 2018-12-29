@@ -20,12 +20,6 @@ export class AllergenHealthPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.allergenPath = this.allergensService.getAllergenNameFromPath( this.route.snapshot.routeConfig.path );
-    // this.allergen = this.allergensService.getAllergenById( this.allergenPath );
-    // console.log( this.allergenPath );
-    // console.log( this.allergen );
-
     this.allergen = this.allergensService.getAllergenById( this.route.snapshot.params[ 'id' ] );
-    console.log( this.route.snapshot );
   }
 }

@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { AllergenHealthPage } from './allergen-health.page';
 import { TranslateModule } from '@ngx-translate/core';
-import { AllergenTabsPageModule } from '../allergen-tabs/allergen-tabs.module';
 import { AllergensService } from '../../services/allergens.service';
 
 // const routes: Routes = [

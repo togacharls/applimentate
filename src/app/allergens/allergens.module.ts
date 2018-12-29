@@ -14,29 +14,48 @@ import { AllergensService } from './services';
 import { AllergenSummaryPage } from './pages/allergen-summary/allergen-summary.page';
 import { AllergenHealthPage } from './pages/allergen-health/allergen-health.page';
 import { AllergenFoodPage } from './pages/allergen-food/allergen-food.page';
+import { AllergenSummaryPageModule } from './pages/allergen-summary/allergen-summary.module';
+import { AllergenHealthPageModule } from './pages/allergen-health/allergen-health.module';
+import { AllergenFoodPageModule } from './pages/allergen-food/allergen-food.module';
 
 const routes: Routes = [
   { path: '', component: AllergensPage },
   {
     path: ':id', component: AllergensDetailPage,
     children: [
-      { path: 'Summary', loadChildren: './pages/allergen-summary/allergen-summary.module#AllergenSummaryPageModule' },
-      { path: 'Health', loadChildren: './pages/allergen-health/allergen-health.module#AllergenHealthPageModule' },
-      { path: 'Food', loadChildren: './pages/allergen-food/allergen-food.module#AllergenFoodPageModule' },
+      {
+        path: 'Health',
+        loadChildren: './pages/allergen-health/allergen-health.module#AllergenHealthPageModule',
+      },
+      {
+        path: 'Summary',
+        loadChildren: './pages/allergen-summary/allergen-summary.module#AllergenSummaryPageModule',
+      },
+      {
+        path: 'Food',
+        loadChildren: './pages/allergen-food/allergen-food.module#AllergenFoodPageModule',
+      },
     ]
   },
-  { path: '**', component: AllergensPage }
 ];
 
 @NgModule( {
   imports: [
+    AllergenSummaryPageModule,
+    AllergenHealthPageModule,
+    AllergenFoodPageModule,
     CommonModule,
     FormsModule,
     IonicModule,
     TranslateModule,
     RouterModule.forChild( routes )
   ],
-  declarations: [ AllergensPage, AllergensDetailPage, AllergenSummaryPage, AllergenHealthPage, AllergenFoodPage ],
+  declarations: [
+    AllergensPage,
+    AllergensDetailPage,
+    AllergenSummaryPage,
+    AllergenHealthPage,
+    AllergenFoodPage ],
   providers: [ AllergensService ],
 } )
 export class AllergensModule { }
