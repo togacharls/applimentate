@@ -7,48 +7,46 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- <ion-content class="bg-softest">
-  <ion-tabs #tabSelectedByDefaultSummary>
+<ion-tabs>
 
-    <ion-tab label="{{ 'HOME.SUMMARY' | translate }}" icon="book">
+  <ion-tab tab="Summary">
+    <ion-router-outlet>
+      <app-allergen-summary></app-allergen-summary>
+    </ion-router-outlet>
+  </ion-tab>
 
-    </ion-tab>
+  <ion-tab tab="Health">
+    <ion-router-outlet>
+      <app-allergen-health></app-allergen-health>
+    </ion-router-outlet>
+  </ion-tab>
 
-    <ion-tab label="{{ 'HOME.HEALT'  | translate }}" icon="medkit">
-      <ion-content class="bg-softest">
-        <ion-slides pager>
-          <ion-slide>
-            <ion-img src="{{allergen.imgHealth01}}"></ion-img>
-          </ion-slide>
-          <ion-slide>
-            <ion-img src="{{allergen.imgHealth02}}"></ion-img>
-          </ion-slide>
-          <ion-slide>
-            <ion-img src="{{allergen.imgHealth03}}"></ion-img>
-          </ion-slide>
-        </ion-slides>
-        <p>{{ allergen.health | translate }}</p>
-      </ion-content>
-    </ion-tab>
+  <ion-tab tab="Food">
+    <ion-router-outlet>
+      <app-allergen-food></app-allergen-food>
+    </ion-router-outlet>
+  </ion-tab>
 
-    <ion-tab label="{{ 'HOME.FOOD' | translate }}" icon="pizza">
-      <ion-content class="bg-softest">
-        <ion-slides pager>
-          <ion-slide>
-            <ion-img src="{{allergen.imgFood01}}"></ion-img>
-          </ion-slide>
-          <ion-slide>
-            <ion-img src="{{allergen.imgFood02}}"></ion-img>
-          </ion-slide>
-          <ion-slide>
-            <ion-img src="{{allergen.imgFood03}}"></ion-img>
-          </ion-slide>
-        </ion-slides>
-        <p>{{ allergen.food | translate }}</p>
-      </ion-content>
-    </ion-tab> 
-    
-  </ion-tabs>
-</ion-content>
--->
-<app-allergen-tabs></app-allergen-tabs>
+
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button tab="Summary">
+      <ion-icon name="book"></ion-icon>
+      <ion-label>{{ 'HOME.SUMMARY' | translate }}</ion-label>
+      <ion-badge>3</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="Health">
+      <ion-icon name="medkit"></ion-icon>
+      <ion-label>{{ 'HOME.HEALT' | translate }}</ion-label>
+      <ion-badge>3</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="Food">
+      <ion-icon name="pizza"></ion-icon>
+      <ion-label>{{ 'HOME.FOOD' | translate }}</ion-label>
+      <ion-badge>3</ion-badge>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

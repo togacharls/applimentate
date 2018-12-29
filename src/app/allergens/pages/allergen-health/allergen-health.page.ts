@@ -17,17 +17,15 @@ export class AllergenHealthPage implements OnInit {
   constructor (
     private route: ActivatedRoute,
     private allergensService: AllergensService,
-  ) {
-
-  }
-
-  Dale() {
-    console.log( this.route.snapshot.routeConfig );
-    console.log( this.allergenPath );
-  }
+  ) { }
 
   ngOnInit() {
-    this.allergenPath = this.allergensService.getAllergenNameFromPath( this.route.snapshot.routeConfig.path );
-    this.allergen = this.allergensService.getAllergenById( this.allergenPath );
+    // this.allergenPath = this.allergensService.getAllergenNameFromPath( this.route.snapshot.routeConfig.path );
+    // this.allergen = this.allergensService.getAllergenById( this.allergenPath );
+    // console.log( this.allergenPath );
+    // console.log( this.allergen );
+
+    this.allergen = this.allergensService.getAllergenById( this.route.snapshot.params[ 'id' ] );
+    console.log( this.route.snapshot );
   }
 }

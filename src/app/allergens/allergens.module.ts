@@ -10,30 +10,33 @@ import { IonicModule } from '@ionic/angular';
 import { AllergensPage } from './pages/allergens-list/allergens.page';
 import { AllergensDetailPage } from './pages/allergens-detail/allergens-detail.page';
 
-
 import { AllergensService } from './services';
 import { AllergenSummaryPage } from './pages/allergen-summary/allergen-summary.page';
 import { AllergenHealthPage } from './pages/allergen-health/allergen-health.page';
 import { AllergenFoodPage } from './pages/allergen-food/allergen-food.page';
-import { AllergenTabsPageModule } from './pages/allergen-tabs/allergen-tabs.module';
-import { AllergenTabsPage } from './pages/allergen-tabs/allergen-tabs.page';
 
 const routes: Routes = [
   { path: '', component: AllergensPage },
-  { path: ':id', component: AllergensDetailPage },
-  { path: ':id/Summary', component: AllergenSummaryPage }
+  {
+    path: ':id', component: AllergensDetailPage,
+    children: [
+      { path: 'Summary', loadChildren: './pages/allergen-summary/allergen-summary.module#AllergenSummaryPageModule' },
+      { path: 'Health', loadChildren: './pages/allergen-health/allergen-health.module#AllergenHealthPageModule' },
+      { path: 'Food', loadChildren: './pages/allergen-food/allergen-food.module#AllergenFoodPageModule' },
+    ]
+  },
+  { path: '**', component: AllergensPage }
 ];
 
 @NgModule( {
   imports: [
-    AllergenTabsPageModule,
     CommonModule,
     FormsModule,
     IonicModule,
     TranslateModule,
     RouterModule.forChild( routes )
   ],
-  declarations: [ AllergensPage, AllergensDetailPage ],
-  providers: [ AllergensService ]
+  declarations: [ AllergensPage, AllergensDetailPage, AllergenSummaryPage, AllergenHealthPage, AllergenFoodPage ],
+  providers: [ AllergensService ],
 } )
 export class AllergensModule { }

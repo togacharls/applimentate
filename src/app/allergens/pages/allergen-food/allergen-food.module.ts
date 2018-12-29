@@ -5,27 +5,27 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AllergenFoodPage } from './allergen-food.page';
 import { TranslateModule } from '@ngx-translate/core';
-import { AllergenTabsPageModule } from '../allergen-tabs/allergen-tabs.module';
+import { AllergensService } from '../../services/allergens.service';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: AllergenFoodPage
-  }
-];
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: AllergenFoodPage
+//   }
+// ];
 
 @NgModule( {
   imports: [
-    AllergenTabsPageModule,
     CommonModule,
     TranslateModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild( routes )
+    // RouterModule.forChild( routes )
   ],
-  declarations: [ AllergenFoodPage ],
-  exports: [ AllergenFoodPage ]
+  declarations: [],
+  providers: [ AllergensService ]
+  // exports: [ RouterModule ]
+
 } )
 export class AllergenFoodPageModule { }

@@ -7,25 +7,25 @@ import { IonicModule } from '@ionic/angular';
 
 import { AllergenSummaryPage } from './allergen-summary.page';
 import { TranslateModule } from '@ngx-translate/core';
-import { AllergenTabsPageModule } from '../allergen-tabs/allergen-tabs.module';
+import { AllergensService } from '../../services/allergens.service';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: AllergenSummaryPage
-  }
-];
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: AllergenSummaryPage
+//   }
+// ];
 
 @NgModule( {
   imports: [
-    AllergenTabsPageModule,
     CommonModule,
     TranslateModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild( routes )
+    // RouterModule.forChild( routes )
   ],
-  declarations: [ AllergenSummaryPage ],
-  exports: [ AllergenSummaryPage ]
+  declarations: [],
+  // exports: [ RouterModule ],
+  providers: [ AllergensService ]
 } )
 export class AllergenSummaryPageModule { }
