@@ -23,15 +23,19 @@ export class AllergensService {
         return this.allergenList;
     }
 
+    // This function return just the name of the allergen:
+    // http://localhost:8100/allergens/ALLERGENS.LUPINS      return  'LUPINS'
+    // http://localhost:8100/allergens/ALLERGENS.LUPINS/foo  return  'LUPINS'
     getAllergenNameFromPath( url ): string {
-        const te = url.lastIndexOf( '/' );
-        const ty = url.slice( url.lastIndexOf( '.' ) + 1, te );
-        console.log( 'getAllergenNameFromPath ' + ty );
-        return ty;
+        const allergenPos = url.indexOf( 'ALLERGENS' );
+        const idxNextSlash = url.indexOf( '/', allergenPos );
+        const slash = idxNextSlash === -1 ? undefined : idxNextSlash;
+        return url.slice( url.indexOf( '.' ) + 1, slash );
     }
 
     getAllergenById( id: string ): AllergenDetailInterface {
-        const allergenName = id.slice( id.lastIndexOf( '.' ) + 1 );
+        const allergenName = this.getAllergenNameFromPath( id );
+        console.log( allergenName );
         return {
             name: 'ALLERGENS.' + allergenName,
             icon: this.srcImgIconPath + allergenName.toLowerCase() + '.png',

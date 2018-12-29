@@ -1,13 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title> {{ allergen.name | translate }} </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="wd-softest" padding>
+<ion-content class="gr-soft">
   <ion-slides pager>
     <ion-slide>
       <ion-img src="{{allergen.imgHealth01}}"></ion-img>
@@ -21,5 +12,3 @@
   </ion-slides>
   <p>{{ allergen.health | translate }}</p>
 </ion-content>
-
-<app-allergen-tabs></app-allergen-tabs>
