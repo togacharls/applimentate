@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { AllergensService } from '../../services/allergens.service';
+import { AllergenFoodPage } from './allergen-food.page';
 
 // const routes: Routes = [
 //   {
@@ -24,7 +25,7 @@ import { AllergensService } from '../../services/allergens.service';
     // RouterModule.forChild( routes )
   ],
   declarations: [],
-  providers: [ AllergensService ]
+  providers: [ AllergensService ],
   // exports: [ RouterModule ]
 
 } )
