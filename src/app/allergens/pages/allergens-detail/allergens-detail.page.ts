@@ -11,6 +11,11 @@ import { AllergensService } from '../../services/allergens.service';
 export class AllergensDetailPage implements OnInit {
   allergen: AllergenDetailInterface;
 
+  Detail = 'Summary';
+
+  DetailSelected( event ) {
+    this.Detail = event.target.attributes.value.value;
+  }
 
   constructor (
     private route: ActivatedRoute,
