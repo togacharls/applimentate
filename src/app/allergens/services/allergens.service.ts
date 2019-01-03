@@ -48,8 +48,8 @@ export class AllergensService {
             imgFood01: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_F01.png',
             imgFood02: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_F02.png',
             imgFood03: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_F03.png',
-            summary: 'ALLERGENS.SUMMARIES.' + allergenName,
-            food: 'ALLERGENS.FOODS.' + allergenName,
+            summary: 'ALLERGENS.SUMMARY.' + allergenName,
+            food: 'ALLERGENS.FOOD.' + allergenName,
             health: 'ALLERGENS.HEALTH.' + allergenName
         };
     }
