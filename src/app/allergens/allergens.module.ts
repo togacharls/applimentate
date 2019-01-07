@@ -9,13 +9,34 @@ import { IonicModule } from '@ionic/angular';
 
 import { AllergensPage } from './pages/allergens-list/allergens.page';
 import { AllergensDetailPage } from './pages/allergens-detail/allergens-detail.page';
-
 import { AllergensService } from './services';
+import { AllergenSummaryPage } from './pages/allergen-summary/allergen-summary.page';
+import { AllergenHealthPage } from './pages/allergen-health/allergen-health.page';
+import { AllergenFoodPage } from './pages/allergen-food/allergen-food.page';
 
 const routes: Routes = [
   { path: '', component: AllergensPage },
   {
-    path: ':id', component: AllergensDetailPage
+    path: ':id', component: AllergensDetailPage,
+    children: [
+      {
+        path: '',
+        redirectTo: 'Summary',
+        pathMatch: 'full'
+      },
+      {
+        path: 'Health',
+        component: AllergenHealthPage,
+      },
+      {
+        path: 'Summary',
+        component: AllergenSummaryPage,
+      },
+      {
+        path: 'Food',
+        component: AllergenFoodPage,
+      },
+    ]
   },
 ];
 
@@ -29,7 +50,10 @@ const routes: Routes = [
   ],
   declarations: [
     AllergensPage,
-    AllergensDetailPage
+    AllergensDetailPage,
+    AllergenSummaryPage,
+    AllergenHealthPage,
+    AllergenFoodPage
   ],
   providers: [ AllergensService ],
 } )

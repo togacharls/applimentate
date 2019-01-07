@@ -1,6 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AllergenDetailInterface } from '../../interfaces/allergen.interface';
 import { AllergensService } from '../../services/allergens.service';
 
 @Component( {
@@ -9,21 +8,14 @@ import { AllergensService } from '../../services/allergens.service';
   styleUrls: [ './allergens-detail.page.scss' ],
 } )
 export class AllergensDetailPage implements OnInit {
-  allergen: AllergenDetailInterface;
-
-  Detail = 'Summary';
-
-  DetailSelected( event ) {
-    this.Detail = event.target.attributes.value.value;
-  }
+  allergen: string;
 
   constructor (
     private route: ActivatedRoute,
     private allergensService: AllergensService,
   ) { }
 
-
   ngOnInit() {
-    this.allergen = this.allergensService.getAllergenById( this.route.snapshot.params[ 'id' ] );
+    this.allergen = this.allergensService.getAllergenNameFromParams( this.route.snapshot.params.id );
   }
 }

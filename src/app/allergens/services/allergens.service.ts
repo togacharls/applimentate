@@ -1,77 +1,81 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { take } from 'rxjs/operators';
-import { AllergenDetailInterface, AllergenInterface } from '../interfaces';
+import { AllergenFood, AllergenSummary, AllergenHealth, AllergensList } from '../interfaces/allergen.interface';
 
 @Injectable( {
     providedIn: 'root'
 } )
 export class AllergensService {
 
-    private allergenList: AllergenInterface[];
-    private srcImgIconPath = '../../../assets/icon/';
-    private srcImgSummaryPath = '../../../assets/img/ImgAllergens/';
-    private namesList = [ 'LUPINS', 'CELERY', 'PEANUTS', 'CRUSTACEANS', 'SULFUR_DIOXIDE_AND_SULPHITES', 'NUTS', 'GLUTEN',
-        'SESAME_SEEDS', 'EGG', 'DAIRY_PRODUCTS', 'MOLLUSCS', 'MUSTARD', 'FISH', 'SOY' ];
+    private allergenList: AllergensList[];
+    public aName: string;
+    private srcIcon = '../../../assets/icon/';
+    private srcImg = '../../../assets/img/ImgAllergens/';
+
+    private namesList = [
+        'LUPINS', 'CELERY', 'PEANUTS', 'CRUSTACEANS', 'SULFUR_DIOXIDE_AND_SULPHITES', 'NUTS',
+        'GLUTEN', 'SESAME_SEEDS', 'EGG', 'DAIRY_PRODUCTS', 'MOLLUSCS', 'MUSTARD', 'FISH', 'SOY'
+    ];
 
     constructor ( private translateService: TranslateService ) {
         this.allergenList = this.getDefaultAllergenList();
         this.sortAllergenList();
     }
 
-    getList(): AllergenInterface[] {
+    getList(): AllergensList[] {
         return this.allergenList;
     }
 
-    // This function return just the name of the allergen:
-    // http://localhost:8100/allergens/ALLERGENS.LUPINS      return  'LUPINS'
-    // http://localhost:8100/allergens/ALLERGENS.LUPINS/foo  return  'LUPINS'
-    getAllergenNameFromPath( url ): string {
-        const allergenPos = url.indexOf( 'ALLERGENS' );
-        const idxNextSlash = url.indexOf( '/', allergenPos );
-        const slash = idxNextSlash === -1 ? undefined : idxNextSlash;
-        return url.slice( url.indexOf( '.' ) + 1, slash );
+    getAllergenNameFromParams( data ): string {
+        // data = 'ALLERGENS.LUPINS'
+        this.aName = data.slice( data.indexOf( '.' ) + 1 );
+        // this.aName = 'LUPINS'
+        return this.aName;
     }
 
-    getAllergenById( id: string ): AllergenDetailInterface {
-        const allergenName = this.getAllergenNameFromPath( id );
-        console.log( allergenName );
+    getAllergenSummary(): AllergenSummary {
         return {
-            name: 'ALLERGENS.' + allergenName,
-            icon: this.srcImgIconPath + allergenName.toLowerCase() + '.png',
-            imgSummary01: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_S01.png',
-            imgSummary02: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_S02.png',
-            imgSummary03: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_S03.png',
-            imgHealth01: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_H01.png',
-            imgHealth02: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_H02.png',
-            imgHealth03: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_H03.png',
-            imgFood01: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_F01.png',
-            imgFood02: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_F02.png',
-            imgFood03: this.srcImgSummaryPath + allergenName + '/' + allergenName + '_F03.png',
-            summary: 'ALLERGENS.SUMMARY.' + allergenName,
-            food: 'ALLERGENS.FOOD.' + allergenName,
-            health: 'ALLERGENS.HEALTH.' + allergenName
+            imgSummary01: this.srcImg + this.aName + '/' + this.aName + '_S01.png',
+            imgSummary02: this.srcImg + this.aName + '/' + this.aName + '_S02.png',
+            imgSummary03: this.srcImg + this.aName + '/' + this.aName + '_S03.png',
+            summary: 'ALLERGENS.SUMMARY.' + this.aName
         };
     }
 
-    private getDefaultAllergenList(): AllergenInterface[] {
-        const allergenNameIcon = [];
-        class AllergenId {
-            constructor (
-                public name: string,
-                public icon: string
-            ) { }
+    getAllergenHealth(): AllergenHealth {
+        return {
+            imgHealth01: this.srcImg + this.aName + '/' + this.aName + '_H01.png',
+            imgHealth02: this.srcImg + this.aName + '/' + this.aName + '_H02.png',
+            imgHealth03: this.srcImg + this.aName + '/' + this.aName + '_H03.png',
+            health: 'ALLERGENS.HEALTH.' + this.aName
+        };
+    }
+
+    getAllergenFood(): AllergenFood {
+        return {
+            imgFood01: this.srcImg + this.aName + '/' + this.aName + '_F01.png',
+            imgFood02: this.srcImg + this.aName + '/' + this.aName + '_F02.png',
+            imgFood03: this.srcImg + this.aName + '/' + this.aName + '_F03.png',
+            food: 'ALLERGENS.FOOD.' + this.aName
+        };
+    }
+
+    private getDefaultAllergenList(): AllergensList[] {
+        const allergenListStack = [];
+
+        for ( const Name of this.namesList ) {
+            allergenListStack.push( {
+                name: 'ALLERGENS.' + Name,
+                icon: this.srcIcon + Name.toLowerCase() + '.png'
+            } );
         }
-        for ( const allergen of this.namesList ) {
-            allergenNameIcon.push( new AllergenId( 'ALLERGENS.' + allergen,
-                this.srcImgIconPath + allergen.toLowerCase() + '.png' ) );
-        }
-        return allergenNameIcon;
+        return allergenListStack;
     }
 
     private sortAllergenList(): void {
         this.translateService
-            .get( this.allergenList.map( allergenName => allergenName.name ) )
+            .get( this.allergenList.map( aName => aName.name ) )
             .pipe( take( 1 ) )
             .subscribe( trasnlated => {
                 this.allergenList.sort( ( elem1, elem2 ) =>
