@@ -3,72 +3,36 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/allergens"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ allergen.name | translate }}</ion-title>
+    <ion-title>{{ 'ALLERGENS.' + allergen | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-tabs>
 
 
-<div [ngSwitch]="Detail">
-  <div *ngSwitchCase="'Summary'">
-    <ion-slides pager>
-      <ion-slide>
-        <img src="{{allergen.imgSummary01}}">
-      </ion-slide>
-      <ion-slide>
-        <img src="{{allergen.imgSummary02}}">
-      </ion-slide>
-      <ion-slide>
-        <img src="{{allergen.imgSummary03}}">
-      </ion-slide>
-    </ion-slides>
-    <p>{{ allergen.summary | translate }}</p>
-  </div>
 
-  <div *ngSwitchCase="'Health'">
-    <ion-slides pager>
-      <ion-slide>
-        <img src="{{allergen.imgHealth01}}">
-      </ion-slide>
-      <ion-slide>
-        <img src="{{allergen.imgHealth02}}">
-      </ion-slide>
-      <ion-slide>
-        <img src="{{allergen.imgHealth03}}">
-      </ion-slide>
-    </ion-slides>
-    <p>{{ allergen.health | translate }}</p>
-  </div>
+  <ion-tab tab="Summary">
+    <ion-router-outlet></ion-router-outlet>
+  </ion-tab>
 
-  <div *ngSwitchCase="'Food'">
-    <ion-slides pager>
-      <ion-slide>
-        <img src="{{allergen.imgFood01}}">
-      </ion-slide>
-      <ion-slide>
-        <img src="{{allergen.imgFood02}}">
-      </ion-slide>
-      <ion-slide>
-        <img src="{{allergen.imgFood03}}">
-      </ion-slide>
-    </ion-slides>
-    <p>{{ allergen.food | translate }}</p>
-  </div>
+  <ion-tab-bar slot="bottom">
 
-  <div *ngSwitchDefault>
-    <h1>Algo a salido mal :(</h1>
-  </div>
-</div>
+    <ion-tab-button tab="Summary" routerLink="Summary">
+      <ion-icon name="book"></ion-icon>
+      <ion-label>{{ 'HOME.SUMMARY' | translate }}</ion-label>
+      <ion-badge>3</ion-badge>
+    </ion-tab-button>
 
-<ion-grid>
-  <ion-row>
-    <ion-col>
-      <ion-button value="Summary" (ionFocus)="DetailSelected($event)">{{ 'HOME.SUMMARY' | translate }}</ion-button>
-    </ion-col>
-    <ion-col>
-      <ion-button value="Health" (ionFocus)="DetailSelected($event)">{{ 'HOME.HEALTH' | translate }} </ion-button>
-    </ion-col>
-    <ion-col>
-      <ion-button value="Food" (ionFocus)="DetailSelected($event)">{{ 'HOME.FOOD' | translate }}</ion-button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+    <ion-tab-button tab="Summary" routerLink="Health">
+      <ion-icon name="medkit"></ion-icon>
+      <ion-label>{{ 'HOME.HEALTH' | translate }}</ion-label>
+      <ion-badge>3</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="Summary" routerLink="Food">
+      <ion-icon name="pizza"></ion-icon>
+      <ion-label>{{ 'HOME.FOOD' | translate }}</ion-label>
+      <ion-badge>3</ion-badge>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
