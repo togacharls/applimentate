@@ -1,14 +1,8 @@
 <ion-content class="bg-softest">
-  <ion-slides pager="true">
-    <ion-slide>
-      <img src="{{allergen.imgSummary01}}">
-    </ion-slide>
-    <ion-slide>
-      <img src="{{allergen.imgSummary02}}">
-    </ion-slide>
-    <ion-slide>
-      <img src="{{allergen.imgSummary03}}">
+  <ion-slides pager>
+    <ion-slide *ngFor="let image of imagesAllergen">
+      <img src="{{ srcImgAllergen + '/' + allergenName + '/' + allergenName + image + '.png'}}">
     </ion-slide>
   </ion-slides>
-  <p>{{ allergen.summary | translate }}</p>
+  <p>{{ 'ALLERGENS.SUMMARY.' + allergenName  | translate }}</p>
 </ion-content>

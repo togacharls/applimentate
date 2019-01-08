@@ -19,19 +19,19 @@
     <ion-tab-button tab="Summary" routerLink="Summary">
       <ion-icon name="book"></ion-icon>
       <ion-label>{{ 'HOME.SUMMARY' | translate }}</ion-label>
-      <ion-badge>3</ion-badge>
+      <ion-badge>{{ numberBadgeSummary }}</ion-badge>
     </ion-tab-button>
 
     <ion-tab-button tab="Summary" routerLink="Health">
       <ion-icon name="medkit"></ion-icon>
       <ion-label>{{ 'HOME.HEALTH' | translate }}</ion-label>
-      <ion-badge>3</ion-badge>
+      <ion-badge>{{ numberBadgeHealth }}</ion-badge>
     </ion-tab-button>
 
     <ion-tab-button tab="Summary" routerLink="Food">
       <ion-icon name="pizza"></ion-icon>
       <ion-label>{{ 'HOME.FOOD' | translate }}</ion-label>
-      <ion-badge>3</ion-badge>
+      <ion-badge>{{ numberBadgeFood }}</ion-badge>
     </ion-tab-button>
 
   </ion-tab-bar>

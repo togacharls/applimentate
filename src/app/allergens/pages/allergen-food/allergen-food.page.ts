@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AllergensService } from '../../services/allergens.service';
-import { AllergenFood } from '../../interfaces';
 
 @Component( {
   selector: 'app-allergen-food',
@@ -8,13 +7,17 @@ import { AllergenFood } from '../../interfaces';
   styleUrls: [ './allergen-food.page.scss' ],
 } )
 export class AllergenFoodPage implements OnInit {
-  allergen: AllergenFood;
+  allergenName: string;
+  srcImgAllergen: string;
+  imagesAllergen: object;
 
   constructor (
     private allergensService: AllergensService,
   ) { }
 
   ngOnInit() {
-    this.allergen = this.allergensService.getAllergenFood();
+    this.allergenName = this.allergensService.aName;
+    this.srcImgAllergen = this.allergensService.srcImg;
+    this.imagesAllergen = this.allergensService.srcImgNameFood;
   }
 }

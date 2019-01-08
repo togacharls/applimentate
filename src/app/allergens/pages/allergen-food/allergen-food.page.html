@@ -1,14 +1,8 @@
 <ion-content class="wd-softest">
-  <ion-slides pager="true">
-    <ion-slide>
-      <ion-img src="{{allergen.imgFood01}}"></ion-img>
-    </ion-slide>
-    <ion-slide>
-      <ion-img src="{{allergen.imgFood02}}"></ion-img>
-    </ion-slide>
-    <ion-slide>
-      <ion-img src="{{allergen.imgFood03}}"></ion-img>
+  <ion-slides pager>
+    <ion-slide *ngFor="let image of imagesAllergen">
+      <img src="{{ srcImgAllergen + '/' + allergenName + '/' + allergenName + image + '.png'}}">
     </ion-slide>
   </ion-slides>
-  <p>{{ allergen.food | translate }}</p>
+  <p>{{ 'ALLERGENS.FOOD.' + allergenName  | translate }}</p>
 </ion-content>
