@@ -14,6 +14,7 @@ import { AllergenSummaryPage } from './pages/allergen-summary/allergen-summary.p
 import { AllergenHealthPage } from './pages/allergen-health/allergen-health.page';
 import { AllergenFoodPage } from './pages/allergen-food/allergen-food.page';
 
+
 const routes: Routes = [
   { path: '', component: AllergensPage },
   {
@@ -21,19 +22,22 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'Summary',
-        pathMatch: 'full'
-      },
-      {
-        path: 'Health',
-        component: AllergenHealthPage,
-      },
-      {
-        path: 'Summary',
+        outlet: 'Summary',
         component: AllergenSummaryPage,
       },
       {
+        path: 'Summary',
+        outlet: 'Summary',
+        component: AllergenSummaryPage,
+      },
+      {
+        path: 'Health',
+        outlet: 'Health',
+        component: AllergenHealthPage,
+      },
+      {
         path: 'Food',
+        outlet: 'Food',
         component: AllergenFoodPage,
       },
     ]
