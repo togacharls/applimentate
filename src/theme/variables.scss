@@ -87,39 +87,19 @@
   --ion-color-light-contrast-rgb: 0,0,0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** custom colors **/
+  --ion-color-green-softest: #fefcd7;
+  --ion-color-green-softy: #c2f38c;
+  --ion-color-green-soft: #a6cb45;
+  --ion-color-green-heavy: #71b238;
+  --ion-color-green-heaviest: #6a8347;
+
+  /** wood **/
+  --ion-color-brown-softest: #E6BF83;
+  --ion-color-brown-soft: #BE975B;
+  --ion-color-brown-softy: #e4b270;
+  --ion-color-brown-medium: #785115;
+  --ion-color-brown-heavy: #643D01;
+  --ion-color-brown-heaviest: #461F00;
 }
-
-
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.fadeIn {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-}
-
