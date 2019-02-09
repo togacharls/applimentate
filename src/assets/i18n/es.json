@@ -1,7 +1,7 @@
 {
   "HOME": {
     "ALLERGENS": "Alérgenos",
-    "14_ALLERGENS" : "Los 14 alérgenos alimentarios"
+    "14_ALLERGENS": "Los 14 alérgenos alimentarios"
   },
   "ALLERGENS": {
     "TITLE": "Alérgenos",
@@ -69,7 +69,8 @@
     }
   },
   "BMI": {
-    "TITLE": "Índice de masa corporal",
+    "TITLE": "Bmi",
+    "SUBTITLE": "Índice de masa corporal",
     "HEIGHT": "Altura",
     "WEIGHT": "Peso",
     "CALC": "Calcular",
