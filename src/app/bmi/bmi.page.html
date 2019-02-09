@@ -1,20 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>{{'BMI.TITLE' | translate}}</ion-title>
+  <ion-toolbar text-left>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'BMI.SUBTITLE' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="bg-softest">
   <form>
-    <div>
-      <label>{{'BMI.HEIGHT' | translate}}</label>
-      <input [(ngModel)]="height" [ngModelOptions]="{standalone: true}"> cm
-    </div>
-    <div>
-      <label>{{'BMI.WEIGHT' | translate}}</label>
-      <input [(ngModel)]="weight" [ngModelOptions]="{standalone: true}"> kg
-    </div>
+    <ion-item>
+      <ion-label position="floating">{{'BMI.HEIGHT' | translate}} (cm)</ion-label>
+      <ion-input clearInput [(ngModel)]="height" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'BMI.WEIGHT' | translate}} (kg)</ion-label>
+      <ion-input clearInput [(ngModel)]="weight" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
     <button type="submit" (click)="calcBMI()">{{'BMI.CALC' | translate}}</button>
   </form>
-  <p [hidden]="bmi === null">{{'BMI.RESULT' | translate}}: {{ bmi }}</p>
+  <p [hidden]="bmi === undefined">{{'BMI.RESULT' | translate}}: {{ bmi }}</p>
 </ion-content>

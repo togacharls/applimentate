@@ -1,0 +1,15 @@
+$bg-softest:#fefcd7;
+
+ion-item{
+    --background: $bg-softest;
+    ion-label {
+        --background: $bg-softest;
+    }
+
+    ion-input {
+        --background: $bg-softest;
+    }
+
+}
+
+
