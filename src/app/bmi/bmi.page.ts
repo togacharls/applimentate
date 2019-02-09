@@ -9,16 +9,16 @@ export class BmiPage implements OnInit {
 
   height: number;
   weight: number;
-  bmi: number;
+  bmi = 0;
 
   constructor () { }
 
-  ngOnInit() {
+  ngOnInit() { }
 
+  calcBMI() {
+    const resultado = this.weight / ( ( this.height / 100 ) * ( this.height / 100 ) );
+    isNaN( resultado ) || resultado === Infinity
+      ? this.bmi = 0
+      : this.bmi = resultado;
   }
-
-  calcBMI(): void {
-    this.bmi = ( this.weight / ( ( this.height / 100 ) * ( this.height / 100 ) ) );
-  }
-
 }

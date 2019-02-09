@@ -11,13 +11,16 @@
   <form>
     <ion-item>
       <ion-label position="floating">{{'BMI.HEIGHT' | translate}} (cm)</ion-label>
-      <ion-input clearInput [(ngModel)]="height" [ngModelOptions]="{standalone: true}"></ion-input>
+      <ion-input (ionChange)="calcBMI()" clearInput [(ngModel)]="height" type="number"
+        [ngModelOptions]="{standalone: true}">
+      </ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">{{'BMI.WEIGHT' | translate}} (kg)</ion-label>
-      <ion-input clearInput [(ngModel)]="weight" [ngModelOptions]="{standalone: true}"></ion-input>
+      <ion-input (ionChange)="calcBMI()" clearInput [(ngModel)]="weight" type="number"
+        [ngModelOptions]="{standalone: true}">
+      </ion-input>
     </ion-item>
-    <button type="submit" (click)="calcBMI()">{{'BMI.CALC' | translate}}</button>
   </form>
-  <p [hidden]="bmi === undefined">{{'BMI.RESULT' | translate}}: {{ bmi }}</p>
+  <p [hidden]="bmi === 0">{{'BMI.RESULT' | translate}}: {{ bmi }}</p>
 </ion-content>
