@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
 } )
 export class BmiPage implements OnInit {
 
-  height: number;
-  weight: number;
-  bmi = 0;
-  sex = [ 'Man', 'Woman' ];
-  selecSex: string = this.sex[ 0 ];
-  typeWeight = [ 'slim', 'fit', 'normal', 'fat', 'fatest' ];
-  colorWeight = [ 'aqua', 'lime', 'yellow', 'orange', 'red' ];
-  idxWeight = 0;
-  selecWeight: string = this.typeWeight[ this.idxWeight ];
+  private height: number;
+  private weight: number;
+  private bmi = 0;
+  private readonly sex = [ 'Man', 'Woman' ];
+  private selecSex: string = this.sex[ 0 ];
+  private readonly typeWeight = [ 'slim', 'fit', 'normal', 'fat', 'fatest' ];
+  private readonly colorWeight = [ 'aqua', 'lime', 'yellow', 'orange', 'red' ];
+  private idxWeight = 0;
+  private selecWeight: string = this.typeWeight[ this.idxWeight ];
 
 
   constructor () { }
