@@ -1,15 +1,36 @@
 $bg-softest:#fefcd7;
 
+
+
 ion-item{
     --background: $bg-softest;
     ion-label {
         --background: $bg-softest;
     }
-
+    
     ion-input {
         --background: $bg-softest;
     }
-
+    
 }
 
+ion-content {
+    overflow: scroll;
+}
 
+.result {
+    margin: 16px 0px;
+    border-style: inset;
+}
+
+.imageCuadro {
+    height: 400px;
+    width: 128px;
+}
+
+.cuadro {
+    @extend .imageCuadro;
+    margin-left: calc(50% - 64px);
+    margin-top: 20px;
+    background-color: rgb(103, 250, 103);
+}
