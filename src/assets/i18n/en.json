@@ -72,10 +72,13 @@
     }
   },
   "BMI": {
-    "TITLE": "Body mass index",
+    "TITLE": "Bmi",
+    "SUBTITLE": "Body mass index",
     "HEIGHT": "Height",
     "WEIGHT": "Weight",
     "CALC": "Calc",
-    "RESULT": "Result"
+    "RESULT": "Result",
+    "MAN": "Man",
+    "WOMAN": "Woman"
   }
 }

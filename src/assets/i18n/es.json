@@ -69,11 +69,13 @@
     }
   },
   "BMI": {
-    "TITLE": "Bmi",
+    "TITLE": "Imc",
     "SUBTITLE": "Índice de masa corporal",
     "HEIGHT": "Altura",
     "WEIGHT": "Peso",
     "CALC": "Calcular",
-    "RESULT": "Resultado"
+    "RESULT": "Resultado",
+    "MAN": "Hombre",
+    "WOMAN": "Mujer"
   }
 }
