@@ -23,7 +23,7 @@
     </ion-item>
   </form>
   <ion-item class="result">
-    <p [hidden]="bmi === 0">{{'BMI.RESULT' | translate}}: {{ bmi }}</p>
+    <p [hidden]="bmi <= 0">{{'BMI.RESULT' | translate}}: {{ bmi }}</p>
   </ion-item>
 
   <ion-button color="primary" expand="full" (click)="changeSex()">{{ 'BMI.' + selecSex  | uppercase | translate }}
