@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+export enum Sex { 'Man', 'Woman' }
+export enum weightMeter { 'slim', 'fit', 'normal', 'fat', 'fatest' }
+export enum colorWeight { 'aqua', 'lime', 'yellow', 'orange', 'red' }
 @Component( {
   selector: 'app-bmi',
   templateUrl: './bmi.page.html',
@@ -9,51 +12,50 @@ export class BmiPage implements OnInit {
 
   private height: number;
   private weight: number;
-  private bmi = 0;
-  private readonly sex = [ 'Man', 'Woman' ];
-  private selecSex: string = this.sex[ 0 ];
-  private readonly typeWeight = [ 'slim', 'fit', 'normal', 'fat', 'fatest' ];
-  private readonly colorWeight = [ 'aqua', 'lime', 'yellow', 'orange', 'red' ];
-  private idxWeight = 0;
-  private selecWeight: string = this.typeWeight[ this.idxWeight ];
+  public bmiResult = 0;
 
+  public selectedSex: any = Sex[ 0 ]; // 'man'
+  public selectedWeight: any; // 'slim'
+  public colorAcordingWeight: any; // 'aqua'
 
   constructor () { }
 
   ngOnInit() { }
 
   changeSex(): void {
-    this.selecSex === this.sex[ 0 ]
-      ? this.selecSex = this.sex[ 1 ]
-      : this.selecSex = this.sex[ 0 ];
+    this.selectedSex === Sex[ 0 ]
+      ? this.selectedSex = Sex[ 1 ]
+      : this.selectedSex = Sex[ 0 ];
   }
 
   calcBMI(): void {
-    const resultado: number = this.weight / ( ( this.height / 100 ) * ( this.height / 100 ) );
+    const result: number = this.weight / ( ( this.height / 100 ) * ( this.height / 100 ) );
     switch ( true ) {
-      case ( resultado <= 18 ):
-        this.selecWeight = this.typeWeight[ 0 ];
-        this.idxWeight = 0;
+      case ( result <= 18 ):
+        this.selectedWeight = weightMeter[ 0 ];
+        this.colorAcordingWeight = colorWeight[ 0 ];
         break;
-      case ( resultado > 18 && resultado <= 24 ):
-        this.selecWeight = this.typeWeight[ 1 ];
-        this.idxWeight = 1;
+      case ( result > 18 && result <= 24 ):
+        this.selectedWeight = weightMeter[ 1 ];
+        this.colorAcordingWeight = colorWeight[ 1 ];
         break;
-      case ( resultado > 24 && resultado <= 29 ):
-        this.selecWeight = this.typeWeight[ 2 ];
-        this.idxWeight = 2;
+      case ( result > 24 && result <= 29 ):
+        this.selectedWeight = weightMeter[ 2 ];
+        this.colorAcordingWeight = colorWeight[ 2 ];
         break;
-      case ( resultado > 29 && resultado <= 39 ):
-        this.selecWeight = this.typeWeight[ 3 ];
-        this.idxWeight = 3;
+      case ( result > 29 && result <= 39 ):
+        this.selectedWeight = weightMeter[ 3 ];
+        this.colorAcordingWeight = colorWeight[ 3 ];
         break;
-      case ( resultado > 39 ):
-        this.selecWeight = this.typeWeight[ 4 ];
-        this.idxWeight = 4;
+      case ( result > 39 ):
+        this.selectedWeight = weightMeter[ 4 ];
+        this.colorAcordingWeight = colorWeight[ 4 ];
         break;
     }
-    isNaN( resultado ) || resultado === Infinity
-      ? this.bmi = 0
-      : this.bmi = resultado;
+    isNaN( result ) || result === Infinity
+      ? this.bmiResult = 0
+      : this.bmiResult = result;
   }
+
 }
+
