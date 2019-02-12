@@ -26,11 +26,13 @@
     <p [hidden]="bmiResult <= 0">{{'BMI.RESULT' | translate}}: {{ bmiResult }}</p>
   </ion-item>
 
-  <ion-button color="primary" expand="full" (click)="changeSex()">{{ 'BMI.' + selectedSex  | uppercase | translate }}
-  </ion-button>
+  <!-- <ion-button color="primary" expand="full" (click)="changeSex()">
+    {{ 'BMI.' + selectedSex  | uppercase | translate }}
+  </ion-button> -->
 
-  <div class="cuadro" [hidden]="bmiResult <= 0" [style.background]="colorAcordingWeight">
-    <img class="imageCuadro" src="../../assets/img/{{selectedWeight}}{{selectedSex}}.png">
+  <div class="contenedor" [hidden]="bmiResult <= 0">
+    <div class="cuadro" [style.margin-left.px]="adjustImgLeft">
+    </div>
   </div>
 
 </ion-content>
