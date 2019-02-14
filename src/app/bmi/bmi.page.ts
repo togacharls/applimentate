@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {BmiRange} from './enums/bmi.bmi-range.enum';
 
-// export enum Sex { 'Man', 'Woman' }
-// export enum weightMeter { 'slim', 'fit', 'normal', 'fat', 'fatest' }
 // export enum colorWeight { 'aqua', 'lime', 'yellow', 'orange', 'red' }
 @Component( {
   selector: 'app-bmi',
@@ -28,22 +27,16 @@ export class BmiPage implements OnInit {
 
   calcBMI(): void {
     const result: number = this.weight / ( ( this.height / 100 ) * ( this.height / 100 ) );
-    switch ( true ) {
-      case ( result <= 18.5 ):
-        this.adjustImgLeft = -5;
-        break;
-      case ( result > 18.5 && result <= 24.9 ):
+    if ( result <= BmiRange.SLIM ) {
+      this.adjustImgLeft = -5;
+    } else if ( result <= BmiRange.FIT ) {
         this.adjustImgLeft = -254;
-        break;
-      case ( result > 24.9 && result <= 29.9 ):
+    } else if ( result <= BmiRange.OVERWEIGHT) {
         this.adjustImgLeft = -508;
-        break;
-      case ( result > 29.9 && result <= 34.9 ):
+    } else if ( result <= BmiRange.OBESE ) {
         this.adjustImgLeft = -762;
-        break;
-      case ( result > 34.9 ):
+    } else {
         this.adjustImgLeft = -1016;
-        break;
     }
     isNaN( result ) || result === Infinity
       ? this.bmiResult = 0
