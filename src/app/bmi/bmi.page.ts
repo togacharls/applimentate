@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BmiRange} from './enums/bmi.bmi-range.enum';
+import {Genre} from "./enums/bmi.genre.enum";
 
 // export enum colorWeight { 'aqua', 'lime', 'yellow', 'orange', 'red' }
 @Component( {
@@ -11,19 +12,17 @@ export class BmiPage implements OnInit {
 
   private height: number;
   private weight: number;
+  private genre: Genre;
   public bmiResult = 0;
-
   public adjustImgLeft = 0;
-
+  protected readonly GenreEnum = Genre;
   constructor () { }
 
   ngOnInit() { }
 
-  // changeSex(): void {
-  //   this.selectedSex === Sex[ 0 ]
-  //     ? this.selectedSex = Sex[ 1 ]
-  //     : this.selectedSex = Sex[ 0 ];
-  // }
+  onChangeGenre(genre): void {
+    this.genre = genre;
+  }
 
   onClickCalcBMI(): void {
     this.calcBMI();

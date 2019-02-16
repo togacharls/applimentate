@@ -26,9 +26,22 @@
     <p [hidden]="bmiResult <= 0">{{'BMI.RESULT' | translate}}: {{ bmiResult }}</p>
   </ion-item>
 
-  <!-- <ion-button color="primary" expand="full" (click)="changeSex()">
-    {{ 'BMI.' + selectedSex  | uppercase | translate }}
-  </ion-button> -->
+  <ion-radio-group (change)="onChangeGenre($event)">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>{{'BMI.WOMAN' | translate}}</ion-label>
+          <ion-radio value="{{GenreEnum.WOMAN}}"></ion-radio>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>{{'BMI.MAN' | translate}}</ion-label>
+          <ion-radio value="{{GenreEnum.MAN}}"></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
 
   <div class="contenedor" [hidden]="bmiResult <= 0">
     <div class="cuadro" [style.margin-left.px]="adjustImgLeft">
