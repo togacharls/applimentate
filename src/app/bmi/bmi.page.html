@@ -22,9 +22,6 @@
       </ion-input>
     </ion-item>
   </form>
-  <ion-item class="result">
-    <p [hidden]="bmiResult <= 0">{{'BMI.RESULT' | translate}}: {{ bmiResult | number:'1.0-2'}}</p>
-  </ion-item>
 
   <ion-radio-group [(ngModel)]="genre">
     <ion-row>
@@ -47,6 +44,11 @@
     <div class="choosen-silhouette" [hidden]="!bmiResult"></div>
     <img src="{{getSilhouetteImg()}}">
   </div>
+
+  <div class="bmi-result" [hidden]="!bmiResult">
+    <p>{{'BMI.RESULT' | translate}}: {{ bmiResult | number:'1.0-2'}}</p>
+  </div>
+
 
 </ion-content>
 <ion-footer>
