@@ -16,6 +16,7 @@
 }
 
 ion-content {
+  --ion-color-primary: var(--green-heavy);
   &.bg-softest {
     --background: var(--green-softest);
   }
