@@ -23,7 +23,7 @@
     </ion-item>
   </form>
   <ion-item class="result">
-    <p [hidden]="bmiResult <= 0">{{'BMI.RESULT' | translate}}: {{ bmiResult }}</p>
+    <p [hidden]="bmiResult <= 0">{{'BMI.RESULT' | translate}}: {{ bmiResult | number:'1.0-2'}}</p>
   </ion-item>
 
   <ion-radio-group (change)="onChangeGenre($event)">
