@@ -15,10 +15,11 @@
   src: url('assets/fonts/kaushan-script-regular.ttf');
 }
 
-ion-content.bg-softest {
-  --background: var(--green-softest);
+ion-content {
+  &.bg-softest {
+    --background: var(--green-softest);
+  }
 }
-
 ion-content.wd-softest {
   --background: var(--brown-softest);
 }
@@ -29,4 +30,11 @@ ion-content.wd-heaviest {
 
 ion-content.gr-soft {
   --background: var(--green-soft);
+}
+
+ion-footer {
+  ion-toolbar {
+    --background: var(--green-heavy);
+    --ion-color-primary: #fff;
+  }
 }

@@ -25,7 +25,15 @@ export class BmiPage implements OnInit {
   //     : this.selectedSex = Sex[ 0 ];
   // }
 
-  calcBMI(): void {
+  onClickCalcBMI(): void {
+    this.calcBMI();
+  }
+
+  disableCalcBMI(): boolean {
+    return !this.height || !this.weight;
+  }
+
+  private calcBMI(): void {
     const result: number = this.weight / ( ( this.height / 100 ) * ( this.height / 100 ) );
     if ( result <= BmiRange.SLIM ) {
       this.adjustImgLeft = -5;
@@ -42,6 +50,5 @@ export class BmiPage implements OnInit {
       ? this.bmiResult = 0
       : this.bmiResult = result;
   }
-
 }
 
