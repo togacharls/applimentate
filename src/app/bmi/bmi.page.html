@@ -26,7 +26,7 @@
     <p [hidden]="bmiResult <= 0">{{'BMI.RESULT' | translate}}: {{ bmiResult | number:'1.0-2'}}</p>
   </ion-item>
 
-  <ion-radio-group (change)="onChangeGenre($event)">
+  <ion-radio-group [(ngModel)]="genre">
     <ion-row>
       <ion-col>
         <ion-item>
@@ -43,9 +43,9 @@
     </ion-row>
   </ion-radio-group>
 
-  <div class="contenedor" [hidden]="bmiResult <= 0">
-    <div class="cuadro" [style.margin-left.px]="adjustImgLeft">
-    </div>
+  <div class="contenedor">
+    <div class="choosen-silhouette" [hidden]="!bmiResult"></div>
+    <img src="{{getSilhouetteImg()}}">
   </div>
 
 </ion-content>

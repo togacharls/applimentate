@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {BmiRange} from './enums/bmi.bmi-range.enum';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {Genre} from "./enums/bmi.genre.enum";
+import {BmiRange} from "./enums/bmi.bmi-range.enum";
 
 // export enum colorWeight { 'aqua', 'lime', 'yellow', 'orange', 'red' }
 @Component( {
@@ -13,41 +13,48 @@ export class BmiPage implements OnInit {
   private height: number;
   private weight: number;
   private genre: Genre;
+
   public bmiResult = 0;
-  public adjustImgLeft = 0;
   protected readonly GenreEnum = Genre;
-  constructor () { }
+  constructor (private elRef:ElementRef) { }
 
-  ngOnInit() { }
-
-  onChangeGenre(genre): void {
-    this.genre = genre;
+  ngOnInit() {
+    this.genre = Genre.WOMAN;
   }
 
   onClickCalcBMI(): void {
     this.calcBMI();
+    this.updateChoosenSilhouette();
   }
 
   disableCalcBMI(): boolean {
     return !this.height || !this.weight;
   }
 
+  protected getSilhouetteImg(): string {
+    return'../../assets/img/bmi/bmi_' + this.genre + '_silhouettes.png';
+  }
+
   private calcBMI(): void {
     const result: number = this.weight / ( ( this.height / 100 ) * ( this.height / 100 ) );
-    if ( result <= BmiRange.SLIM ) {
-      this.adjustImgLeft = -5;
-    } else if ( result <= BmiRange.FIT ) {
-        this.adjustImgLeft = -254;
-    } else if ( result <= BmiRange.OVERWEIGHT) {
-        this.adjustImgLeft = -508;
-    } else if ( result <= BmiRange.OBESE ) {
-        this.adjustImgLeft = -762;
-    } else {
-        this.adjustImgLeft = -1016;
-    }
     isNaN( result ) || result === Infinity
       ? this.bmiResult = 0
       : this.bmiResult = result;
+  }
+
+  private updateChoosenSilhouette(): void {
+    const choosenSilhouette = this.elRef.nativeElement.querySelector('div.choosen-silhouette');
+    if (this.bmiResult < BmiRange.FIT) {
+      choosenSilhouette.style.marginLeft = '0';
+    } else if (this.bmiResult < BmiRange.OVERWEIGHT) {
+      choosenSilhouette.style.marginLeft = '20%';
+    } else if (this.bmiResult < BmiRange.OBESE) {
+      choosenSilhouette.style.marginLeft = '40%';
+    } else if (this.bmiResult < BmiRange.MORBID) {
+      choosenSilhouette.style.marginLeft = '60%';
+    } else {
+      choosenSilhouette.style.marginLeft = '80%';
+    }
   }
 }
 

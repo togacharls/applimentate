@@ -26,19 +26,20 @@ ion-content {
 }
 
 .contenedor {
-    margin-top: 1.25rem;
-    position: fixed;
-    width: 260px;
-    height: 500px;
-    overflow: hidden;
-    left: calc(50% - 130px);
-}
+    width: 100%;
+    height: 140px; /*TODO fix this*/
+    background-color: var(--brown-softest);
+    .choosen-silhouette {
+        z-index: 1;
+        position: fixed;
+        width: 20%;
+        background-color: var(--green-heavy);
+        height: 140px; /*TODO fix this*/
+    }
 
-.cuadro {
-    background-image: url(../../assets/img/imageBmi.png);
-    margin-top: -190px;
-    width: 1400px;
-    height: 650px;
-    // margin-left: 60px;
-    overflow: hidden;
+    img {
+        width: 288px; /*TODO fix this*/
+        z-index: 2;
+        position: fixed;
+    }
 }
