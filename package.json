@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng run app:serve --host=0.0.0.0 --port=8100",
+    "aot": "ng run app:serve --aot --host=0.0.0.0 --port=8100",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
