@@ -1,6 +1,6 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
-import {Genre} from "./enums/bmi.genre.enum";
-import {BmiRange} from "./enums/bmi.bmi-range.enum";
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Genre } from "./enums/bmi.genre.enum";
+import { BmiRange } from "./enums/bmi.bmi-range.enum";
 
 // export enum colorWeight { 'aqua', 'lime', 'yellow', 'orange', 'red' }
 @Component( {
@@ -10,13 +10,13 @@ import {BmiRange} from "./enums/bmi.bmi-range.enum";
 } )
 export class BmiPage implements OnInit {
 
-  private height: number;
+  public height: number;
   private weight: number;
   private genre: Genre;
 
   public bmiResult = 0;
   protected readonly GenreEnum = Genre;
-  constructor (private elRef:ElementRef) { }
+  constructor ( private elRef: ElementRef ) { }
 
   ngOnInit() {
     this.genre = Genre.WOMAN;
@@ -32,7 +32,7 @@ export class BmiPage implements OnInit {
   }
 
   protected getSilhouetteImg(): string {
-    return'../../assets/img/bmi/bmi_' + this.genre + '_silhouettes.png';
+    return '../../assets/img/bmi/bmi_' + this.genre + '_silhouettes.png';
   }
 
   private calcBMI(): void {
@@ -43,18 +43,31 @@ export class BmiPage implements OnInit {
   }
 
   private updateChoosenSilhouette(): void {
-    const choosenSilhouette = this.elRef.nativeElement.querySelector('div.choosen-silhouette');
-    if (this.bmiResult < BmiRange.FIT) {
-      choosenSilhouette.style.marginLeft = '0';
-    } else if (this.bmiResult < BmiRange.OVERWEIGHT) {
-      choosenSilhouette.style.marginLeft = '20%';
-    } else if (this.bmiResult < BmiRange.OBESE) {
-      choosenSilhouette.style.marginLeft = '40%';
-    } else if (this.bmiResult < BmiRange.MORBID) {
-      choosenSilhouette.style.marginLeft = '60%';
-    } else {
-      choosenSilhouette.style.marginLeft = '80%';
+    const choosenSilhouette = this.elRef.nativeElement.querySelector( 'div.choosen-silhouette' );
+
+    switch ( true ) {
+      case this.bmiResult <= BmiRange.SLIM:
+        choosenSilhouette.style.marginLeft = '0%';
+        choosenSilhouette.style.width = '16%';
+        break;
+      case this.bmiResult <= BmiRange.FIT:
+        choosenSilhouette.style.marginLeft = '16%';
+        choosenSilhouette.style.width = '18%';
+        break;
+      case this.bmiResult <= BmiRange.OVERWEIGHT:
+        choosenSilhouette.style.marginLeft = '35%';
+        choosenSilhouette.style.width = '18%';
+        break;
+      case this.bmiResult <= BmiRange.OBESE:
+        choosenSilhouette.style.marginLeft = '0%';
+        choosenSilhouette.style.right = '26%';
+        choosenSilhouette.style.width = '15%';
+        break;
+      case this.bmiResult <= BmiRange.MORBID:
+        choosenSilhouette.style.marginLeft = '0%';
+        choosenSilhouette.style.right = '5.4%';
+        choosenSilhouette.style.width = '18%';
+        break;
     }
   }
 }
-

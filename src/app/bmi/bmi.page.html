@@ -11,17 +11,16 @@
   <form>
     <ion-item>
       <ion-label position="floating">{{'BMI.HEIGHT' | translate}} (cm)</ion-label>
-      <ion-input [(ngModel)]="height" type="number"
-        [ngModelOptions]="{standalone: true}">
+      <ion-input [(ngModel)]="height" type="number" autofocus [ngModelOptions]="{standalone: true}">
       </ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">{{'BMI.WEIGHT' | translate}} (kg)</ion-label>
-      <ion-input [(ngModel)]="weight" type="number"
-        [ngModelOptions]="{standalone: true}">
+      <ion-input [(ngModel)]="weight" type="number" [ngModelOptions]="{standalone: true}">
       </ion-input>
     </ion-item>
   </form>
+
 
   <ion-radio-group [(ngModel)]="genre">
     <ion-row>
@@ -40,19 +39,22 @@
     </ion-row>
   </ion-radio-group>
 
-  <div class="contenedor">
-    <div class="choosen-silhouette" [hidden]="!bmiResult"></div>
-    <img src="{{getSilhouetteImg()}}">
+  <div class="contenedor animated fadeIn" [hidden]="!bmiResult">
+    <img id="image" src="{{getSilhouetteImg()}}">
+    <div class="choosen-silhouette"></div>
   </div>
 
-  <div class="bmi-result" [hidden]="!bmiResult">
-    <p>{{'BMI.RESULT' | translate}}: {{ bmiResult | number:'1.0-2'}}</p>
-  </div>
+  <div class="separator"></div>
 
+  <div class="bmi-result animated fadeIn" [hidden]="!bmiResult">
+    <ion-label>{{'BMI.RESULT' | translate}}: {{ bmiResult | number:'1.0-2'}}</ion-label>
+  </div>
 
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-button expand="full" fill="clear" (click)="onClickCalcBMI()" [disabled]="disableCalcBMI()">{{'BMI.CALC' | translate}}</ion-button>
+    <ion-button expand="full" fill="clear" (click)="onClickCalcBMI()" [disabled]="disableCalcBMI()">
+      <ion-label>{{'BMI.CALC' | translate}}</ion-label>
+    </ion-button>
   </ion-toolbar>
 </ion-footer>

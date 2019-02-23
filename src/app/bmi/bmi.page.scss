@@ -9,14 +9,13 @@ ion-item{
 }
 
 ion-content {
+    position: relative;
     overflow: scroll;
     background-color: var(--green-sofest);
+    margin-bottom: 1000px;
 }
 
-.result {
-    margin: 1rem 0;
-    border-style: inset;
-}
+
 
 .container {
     background-color: var(--green-sofest);
@@ -26,27 +25,44 @@ ion-content {
 }
 
 .contenedor {
-    width: 100%;
-    height: 140px; /*TODO fix this*/
-    background-color: var(--brown-softest);
+    width: calc(100vw - 32px);
+    height: auto;
+
     .choosen-silhouette {
         z-index: 1;
-        position: fixed;
-        width: 20%;
         background-color: var(--green-heavy);
-        height: 140px; /*TODO fix this*/
+        position: absolute;
+        top: 202px;
+        height: 44vw;
     }
 
-    img {
-        width: 288px; /*TODO fix this*/
+    #image {
+        position: absolute;
+        top: 202px;
+        width: calc(100vw - 32px);
         z-index: 2;
-        position: fixed;
     }
+    
 }
+
+// This is a simple separator for the bmiResult
+.separator {
+    width: 200px;
+    height: 53vw;
+    // background: blue; // Uncomment to look at its size.
+}
+
 
 .bmi-result {
-    p {
+    position: absolute;
+    width: 200px;
+    left: calc(50% - 100px);
+    ion-label {
         text-align: center;
         font-weight: bold;
+        font-size: 22px;
     }
 }
+
+
+
