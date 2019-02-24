@@ -48,25 +48,28 @@ export class BmiPage implements OnInit {
     switch ( true ) {
       case this.bmiResult <= BmiRange.SLIM:
         choosenSilhouette.style.marginLeft = '0%';
+        choosenSilhouette.style.right = 'initial';
         choosenSilhouette.style.width = '16%';
         break;
       case this.bmiResult <= BmiRange.FIT:
-        choosenSilhouette.style.marginLeft = '16%';
+        choosenSilhouette.style.marginLeft = '18%';
+        choosenSilhouette.style.right = 'initial';
         choosenSilhouette.style.width = '18%';
         break;
       case this.bmiResult <= BmiRange.OVERWEIGHT:
-        choosenSilhouette.style.marginLeft = '35%';
+        choosenSilhouette.style.marginLeft = '36%';
+        choosenSilhouette.style.right = 'initial';
         choosenSilhouette.style.width = '18%';
         break;
       case this.bmiResult <= BmiRange.OBESE:
         choosenSilhouette.style.marginLeft = '0%';
-        choosenSilhouette.style.right = '26%';
-        choosenSilhouette.style.width = '15%';
+        choosenSilhouette.style.right = '24%';
+        choosenSilhouette.style.width = '17%';
         break;
       case this.bmiResult <= BmiRange.MORBID:
         choosenSilhouette.style.marginLeft = '0%';
-        choosenSilhouette.style.right = '5.4%';
-        choosenSilhouette.style.width = '18%';
+        choosenSilhouette.style.right = '17px';
+        choosenSilhouette.style.width = '19%';
         break;
     }
   }
