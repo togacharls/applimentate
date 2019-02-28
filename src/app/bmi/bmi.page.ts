@@ -11,8 +11,8 @@ import { BmiRange } from "./enums/bmi.bmi-range.enum";
 export class BmiPage implements OnInit {
 
   public height: number;
-  private weight: number;
-  private genre: Genre;
+  public weight: number;
+  public genre: Genre;
 
   public bmiResult = 0;
   protected readonly GenreEnum = Genre;
