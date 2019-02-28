@@ -25,7 +25,7 @@ ion-content {
 }
 
 .contenedor {
-    width: calc(100vw - 32px);
+    width: calc(100% - 32px);
     height: auto;
 
     .choosen-silhouette {
@@ -33,14 +33,15 @@ ion-content {
         background-color: var(--green-heavy);
         position: absolute;
         top: 202px;
-        height: 44vw;
+        height: 43vw;
     }
 
     #image {
         position: absolute;
         top: 202px;
-        width: calc(100vw - 32px);
+        width: calc(100% - 32px);
         z-index: 2;
+        height: 44vw;
     }
     
 }
@@ -48,19 +49,24 @@ ion-content {
 // This is a simple separator for the bmiResult
 .separator {
     width: 200px;
-    height: 53vw;
+    height: 44vw;
+    padding-bottom: 20px
     // background: blue; // Uncomment to look at its size.
 }
 
 
 .bmi-result {
+    background-color: blue;
     position: absolute;
-    width: 200px;
-    left: calc(50% - 100px);
+    width: 300px;
+    left: calc(50% - 150px);
     ion-label {
+        width: 295px;
         text-align: center;
         font-weight: bold;
-        font-size: 22px;
+        font-size: 18px;
+        position: absolute;
+        margin: 20px 0px;
     }
 }
 
