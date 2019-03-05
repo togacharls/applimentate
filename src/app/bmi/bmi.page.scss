@@ -1,0 +1,74 @@
+ion-item{
+    --background: var(--green-sofest);
+    ion-label {
+        --background: var(--green-sofest);
+    }
+    ion-input {
+        --background: var(--green-sofest);
+    }
+}
+
+ion-content {
+    position: relative;
+    overflow: scroll;
+    background-color: var(--green-sofest);
+    margin-bottom: 1000px;
+}
+
+
+
+.container {
+    background-color: var(--green-sofest);
+    width: 100%;
+    height: 650px;
+    border: 1px solid black
+}
+
+.contenedor {
+    width: calc(100% - 32px);
+    height: auto;
+
+    .choosen-silhouette {
+        z-index: 1;
+        background-color: var(--green-heavy);
+        position: absolute;
+        top: 202px;
+        height: 43vw;
+    }
+
+    #image {
+        position: absolute;
+        top: 202px;
+        width: calc(100% - 32px);
+        z-index: 2;
+        height: 44vw;
+    }
+    
+}
+
+// This is a simple separator for the bmiResult
+.separator {
+    width: 200px;
+    height: 44vw;
+    padding-bottom: 20px
+    // background: blue; // Uncomment to look at its size.
+}
+
+
+.bmi-result {
+    background-color: blue;
+    position: absolute;
+    width: 300px;
+    left: calc(50% - 150px);
+    ion-label {
+        width: 295px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        position: absolute;
+        margin: 20px 0px;
+    }
+}
+
+
+

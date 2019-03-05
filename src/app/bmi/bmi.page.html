@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar text-left>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'BMI.SUBTITLE' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="bg-softest">
+  <form>
+    <ion-item>
+      <ion-label position="floating">{{'BMI.HEIGHT' | translate}} (cm)</ion-label>
+      <ion-input [(ngModel)]="height" type="number" autofocus [ngModelOptions]="{standalone: true}">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'BMI.WEIGHT' | translate}} (kg)</ion-label>
+      <ion-input [(ngModel)]="weight" type="number" [ngModelOptions]="{standalone: true}">
+      </ion-input>
+    </ion-item>
+  </form>
+
+
+  <ion-radio-group [(ngModel)]="genre">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>{{'BMI.WOMAN' | translate}}</ion-label>
+          <ion-radio value="{{GenreEnum.WOMAN}}"></ion-radio>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>{{'BMI.MAN' | translate}}</ion-label>
+          <ion-radio value="{{GenreEnum.MAN}}"></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
+
+  <div class="contenedor animated fadeIn" [hidden]="!bmiResult">
+    <img id="image" src="{{getSilhouetteImg()}}">
+    <div class="choosen-silhouette"></div>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="bmi-result animated fadeIn" [hidden]="!bmiResult">
+    <ion-label>{{'BMI.RESULT' | translate}}: {{ bmiResult | number:'1.0-2'}}</ion-label>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" fill="clear" (click)="onClickCalcBMI()" [disabled]="disableCalcBMI()">
+      <ion-label>{{'BMI.CALC' | translate}}</ion-label>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -70,5 +70,15 @@
       "FISH": "The symptoms that can present are itching, hives, redness, swelling of lips and eyelids, vomiting, diarrhea, respiratory problems, anaphylaxis.",
       "SOY": "With the allergenicity to soy, unlike other foods, it does not diminish with temperature. It presents resistance to thermal, chemical and pre-theolitic denaturation, a common thing in pulses. The symptoms are urticaria hives, swelling of lips itching lips, respiratory problems, and in more severe cases anaphylaxis."
     }
+  },
+  "BMI": {
+    "TITLE": "Bmi",
+    "SUBTITLE": "Body mass index",
+    "HEIGHT": "Height",
+    "WEIGHT": "Weight",
+    "CALC": "Calculate",
+    "RESULT": "Result",
+    "MAN": "Man",
+    "WOMAN": "Woman"
   }
 }

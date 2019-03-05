@@ -8,6 +8,9 @@ $color-soft: $green-soft;
 $color-heavy: $green-heavy;
 $color-heaviest: $green-heaviest;
 
+$grass-softest: rgb(196, 252, 198);
+$grass-heaviest: rgb(2, 114, 26);
+
 .bg-softest,
 ion-content.bg-softest {
   background: $color-softest;
@@ -26,6 +29,7 @@ ion-content.bg-softest {
 }
 .page {
   height: 100%;
+  overflow-y: scroll;
 }
 .card-background {
   ion-card {
@@ -34,25 +38,30 @@ ion-content.bg-softest {
     background: #fff;
   }
 
-
   .card-title {
     position: absolute;
-    top: 36%;
-    font-size: 3.2em;
+    top: 20%;
+    font-size: 10vw;
     width: 100%;
     font-weight: bold;
-    color: $color-softest;
-    text-shadow: -2px 0 $color-heaviest, 0 2px $color-heaviest, 2px 0 $color-heaviest, 0 -2px $color-heaviest;
     font-family: 'Kaushan Script', cursive;
   }
 
   .card-subtitle {
-    font-size: 2.0em;
-    position: absolute;
-    top: 52%;
-    width: 100%;
-    color: $color-softest;
-    text-shadow: -1px 0 $color-heaviest, 0 1px $color-heaviest, 1px 0 $color-heaviest, 0 -1px $color-heaviest;
-    font-family: 'Kaushan Script', cursive;
+    @extend .card-title;
+    font-weight: normal;
+    font-size: 7.5vw;
+    top: 55%;
   }
+
+  .allergens {
+    color: $color-softest;
+    text-shadow: 3px 0 $color-heaviest, 0 2px $color-heaviest, 2px 0 $color-heaviest, 0 -2px $color-heaviest;
+  }
+  
+  .bmi {
+    color: $grass-softest;
+    text-shadow: 3px 0 $grass-heaviest, 0 1px $grass-heaviest, 1px 0 $grass-heaviest, 0 -2px $grass-heaviest;
+  }
+
 }
