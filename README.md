@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/release-v1.0.0-71b238.svg)
+![](https://img.shields.io/badge/release-v1.1.0-71b238.svg)
 # Applimentate
 Hybrid App about advising on eating and healthy habits using [__Ionic__](https://ionicframework.com/)
 
