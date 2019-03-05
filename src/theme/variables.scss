@@ -3,9 +3,21 @@
 
 /** Ionic CSS Variables **/
 :root {
+  /** green **/
+  --green-softest: #fefcd7;
+  --green-soft: #a6cb45;
+  --green-heavy: #71b238;
+  --green-heaviest: #6a8347;
+
+  /** wood **/
+  --brown-softest: #E6BF83;
+  --brown-soft: #BE975B;
+  --brown-medium: #785115;
+  --brown-heavy: #643D01;
+  --brown-heaviest: #461F00;
 
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: var(--green-heavy);
   --ion-color-primary-rgb: 56,128,255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255,255,255;
@@ -75,17 +87,39 @@
   --ion-color-light-contrast-rgb: 0,0,0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
-
-  /** custom colors **/
-  --green-softest: #fefcd7;
-  --green-soft: #a6cb45;
-  --green-heavy: #71b238;
-  --green-heaviest: #6a8347;
-
-  /** wood **/
-  --brown-softest: #E6BF83;
-  --brown-soft: #BE975B;
-  --brown-medium: #785115;
-  --brown-heavy: #643D01;
-  --brown-heaviest: #461F00;
 }
+
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+

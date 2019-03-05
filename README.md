@@ -1,3 +1,4 @@
+![](https://img.shields.io/badge/release-v1.1.0-71b238.svg)
 # Applimentate
 Hybrid App about advising on eating and healthy habits using [__Ionic__](https://ionicframework.com/)
 
@@ -35,7 +36,43 @@ npm install
 ```
 ionic serve
 ```
+or
+```
+npm run start
+```
 This command will open your default web browser running _Applimentate_.
+
+## Theming
+### Supported resolutions
+- 360p
+- 480p
+- 720p (HD)
+- 1080p (Full HD)
+
+### Colors
+__Green scale__
+ ![](http://ximg.es/16x16/fefcd7&text=+)![](http://ximg.es/16x16/a6cb45&text=+)![](http://ximg.es/16x16/71b238&text=+)![](http://ximg.es/16x16/6a8347&text=+)
+
+![](http://ximg.es/16x16/fefcd7&text=+) _green-softest_: #fefcd7
+
+![](http://ximg.es/16x16/a6cb45&text=+) _green-soft_: #a6cb45
+
+![](http://ximg.es/16x16/71b238&text=+) _green-heavy_: #71b238
+  
+![](http://ximg.es/16x16/6a8347&text=+) _green-heaviest_: #6a8347
+   
+__Wood__ ![](http://ximg.es/16x16/e6bf83&text=+)![](http://ximg.es/16x16/be975b&text=+)![](http://ximg.es/16x16/785115&text=+)![](http://ximg.es/16x16/643d01&text=+)![](http://ximg.es/16x16/461f00&text=+)
+
+![](http://ximg.es/16x16/e6bf83&text=+) _brown-softest_: #e6bf83
+
+![](http://ximg.es/16x16/be975b&text=+) _brown-soft_: #be975b
+
+![](http://ximg.es/16x16/785115&text=+) _brown-medium_: #785115
+ 
+![](http://ximg.es/16x16/643d01&text=+) _brown-heavy_: #643d01
+
+![](http://ximg.es/16x16/461f00&text=+) _brown-heaviest_: #461f00
+
 
 Thanks for reading me. :grin:
 
