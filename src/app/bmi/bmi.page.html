@@ -39,21 +39,21 @@
     </ion-row>
   </ion-radio-group>
 
-  <div class="contenedor animated fadeIn" [hidden]="weightAndHeightIsNegative()">
+  <div class="contenedor animated fadeIn" [hidden]="!bmiResult">
     <img id="image" src="{{getSilhouetteImg()}}">
     <div class="choosen-silhouette"></div>
   </div>
 
-  <div class="separator" [hidden]="weightAndHeightIsNegative()"></div>
+  <div class="separator"></div>
 
-  <div class="bmi-result animated fadeIn" [hidden]="weightAndHeightIsNegative()">
+  <div class="bmi-result animated fadeIn" [hidden]="!bmiResult">
     <ion-label>{{'BMI.RESULT' | translate}}: {{ bmiResult | number:'1.0-2'}}</ion-label>
   </div>
 
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-button expand="full" fill="clear" (click)="onClickCalcBMI()" [disabled]="weightOrHeighIsNegativeOrUndefined()">
+    <ion-button expand="full" fill="clear" (click)="onClickCalcBMI()" [disabled]="disableCalcBMI()">
       <ion-label>{{'BMI.CALC' | translate}}</ion-label>
     </ion-button>
   </ion-toolbar>
