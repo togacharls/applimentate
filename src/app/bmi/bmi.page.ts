@@ -28,6 +28,14 @@ export class BmiPage implements OnInit {
     this.updateChoosenSilhouette();
   }
 
+  onKeyPress($event): boolean {
+    if($event.key && !$event.key.match(/[0-9]/)){
+      $event.preventDefault();
+      return false;
+    }
+    return true;
+  }
+
   disableCalcBMI(): boolean {
     return !this.height || !this.weight;
   }
