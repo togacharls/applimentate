@@ -5,21 +5,18 @@ import { BmiRange } from './enums/bmi.bmi-range.enum';
 @Component( {
   selector: 'app-bmi',
   templateUrl: './bmi.page.html',
-  styleUrls: [ './bmi.page.scss' ],
-  // directives: [ OnlyNumberDirective ],
-
+  styleUrls: [ './bmi.page.scss' ]
 } )
 export class BmiPage implements OnInit {
 
-  public height: number;
-  public weight: number;
+  public height: any;
+  public weight: any;
   public genre: Genre;
 
   public bmiResult = 0;
   public readonly GenreEnum = Genre;
 
-  constructor ( private elRef: ElementRef ) {
-  }
+  constructor ( private elRef: ElementRef ) { }
 
   ngOnInit() {
     this.genre = Genre.WOMAN;
@@ -28,18 +25,6 @@ export class BmiPage implements OnInit {
   onClickCalcBMI(): void {
     this.calcBMI();
     this.updateChoosenSilhouette();
-  }
-
-  // onKeyPress($event): boolean {
-  //   if($event.key && !$event.key.match(/[0-9]/)){
-  //     $event.preventDefault();
-  //     return false;
-  //   }
-  //   return true;
-  // }
-
-  dime( event ) {
-    // console.log( event );
   }
 
   disableCalcBMI(): boolean {
@@ -52,7 +37,7 @@ export class BmiPage implements OnInit {
 
   private calcBMI(): void {
     const result: number = this.weight / ( ( this.height / 100 ) * ( this.height / 100 ) );
-    isNaN( result ) || result === Infinity
+    isNaN( result ) || result === Infinity || this.height === '' || this.weight === ''
       ? this.bmiResult = 0
       : this.bmiResult = result;
   }
