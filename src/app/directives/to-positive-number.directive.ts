@@ -1,19 +1,10 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, HostListener } from '@angular/core';
 
 @Directive( {
-  selector: '[appToPositiveNumber]',
-  host: { '(input)': 'numberPositive()' }
+  selector: '[appToPositiveNumber]'
 } )
 export class ToPositiveNumberDirective {
-  constructor ( private el: ElementRef ) { }
-
-  numberPositive() {
-    console.log();
-    if ( isNaN( Math.abs( parseInt( this.el.nativeElement.value, 10 ) ) ) ) {
-      this.el.nativeElement.value = '';
-    } else {
-      this.el.nativeElement.value = Math.abs( parseInt( this.el.nativeElement.value, 10 ) );
-    }
+  @HostListener( 'input', [ '$event' ] ) numberPositive( ev ) {
+    ev.target.value = Math.abs( ev.path[ 0 ].valueAsNumber );
   }
-
 }
