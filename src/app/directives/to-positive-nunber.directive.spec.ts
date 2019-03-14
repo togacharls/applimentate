@@ -1,35 +1,36 @@
 import { ToPositiveNumberDirective } from './to-positive-number.directive';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { BmiPage } from '../bmi/bmi.page';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
 
-describe( 'ToPositiveNunberDirective', () => {
+describe( 'ToPositiveNumberDirective', () => {
+
   let component: BmiPage;
   let fixture: ComponentFixture<BmiPage>;
-  let input: DebugElement;
-  const directive = new ToPositiveNumberDirective( null );
 
-  beforeEach( function () {
+  beforeEach( () => {
     TestBed.configureTestingModule( {
-      declarations: [ BmiPage, ToPositiveNumberDirective ],
-
-    } )
+      declarations: [ BmiPage ],
+      imports: [
+        IonicModule,
+        FormsModule,
+      ]
+    } );
   } );
 
 
-  beforeEach( function () {
-    fixture = TestBed.createComponent( BmiPage )
-    component = fixture.componentInstance;
-    input = fixture.debugElement.query( By.css( 'ion-input' ) );
-
-    fixture.detectChanges();
-
-  } );
 
   it( 'should create an instance', () => {
-
-
-    expect( directive ).toBeTruthy();
+    const directive = new ToPositiveNumberDirective();
+    expect( directive.numberPositive( null ) ).toBeTruthy();
   } );
+  // it( 'should create an instance', () => {
+  //   const directive = new ToPositiveNumberDirective();
+  //   expect( directive.numberPositive() ).toBeTruthy();
+  // } );
+  // it( 'should create an instance', () => {
+  //   const directive = new ToPositiveNumberDirective();
+  //   expect( directive.numberPositive() ).toBeTruthy();
+  // } );
 } );
