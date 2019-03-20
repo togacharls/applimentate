@@ -1,36 +1,39 @@
-import { ToPositiveNumberDirective } from './to-positive-number.directive';
-import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { BmiPage } from '../bmi/bmi.page';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { By } from '@angular/platform-browser';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
+import { ToPositiveNumberDirective } from './to-positive-number.directive';
+import { ToPositiveNumberDirectiveTest } from './to-positive-number.directive-test';
 
 describe( 'ToPositiveNumberDirective', () => {
+// let keyboardValue: any;
+let component: ToPositiveNumberDirectiveTest;
+let fixture: ComponentFixture<ToPositiveNumberDirectiveTest>;
+let inputEl: DebugElement;
 
-  let component: BmiPage;
-  let fixture: ComponentFixture<BmiPage>;
 
-  beforeEach( () => {
-    TestBed.configureTestingModule( {
-      declarations: [ BmiPage ],
-      imports: [
-        IonicModule,
-        FormsModule,
-      ]
-    } );
+beforeEach(() => {
+  TestBed.configureTestingModule({
+    imports: [
+      IonicModule,
+      FormsModule ],
+    declarations: [ ToPositiveNumberDirectiveTest, ToPositiveNumberDirective ]
+  });
+});
+
+beforeEach(() => {
+  fixture = TestBed.createComponent(ToPositiveNumberDirectiveTest);
+  component = fixture.componentInstance;
+  inputEl = fixture.debugElement.query(By.css('input'));
+});
+
+
+it( 'should create an instance', () => {
+  fixture.detectChanges();
+  inputEl.triggerEventHandler('keydown', {keyCode: 104});
+    
+  console.log(inputEl);
   } );
 
-
-
-  it( 'should create an instance', () => {
-    const directive = new ToPositiveNumberDirective();
-    expect( directive.numberPositive( null ) ).toBeTruthy();
-  } );
-  // it( 'should create an instance', () => {
-  //   const directive = new ToPositiveNumberDirective();
-  //   expect( directive.numberPositive() ).toBeTruthy();
-  // } );
-  // it( 'should create an instance', () => {
-  //   const directive = new ToPositiveNumberDirective();
-  //   expect( directive.numberPositive() ).toBeTruthy();
-  // } );
 } );
