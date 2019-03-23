@@ -5,17 +5,25 @@ import { Directive, HostListener } from '@angular/core';
 })
 export class ToPositiveNumberDirective {
 
+  private lastValue: any;
+
   @HostListener( 'keyup', [ '$event' ] )
   numberPositive( ev: any ) {
-    // if the value is NOT a number from 0 to 9 in keyboard or numberpad or backspace key then the value is ''
-    if ( !((ev.keyCode >= 96 && ev.keyCode <= 105) || (ev.keyCode >= 48 && ev.keyCode <= 57) || ev.keyCode === 8 ) ) {
-      ev.path[ 0 ].value = '';
+    if (!this.isValidKey(ev.key)) {
+      ev.currentTarget.value = this.lastValue;
+      ev.preventDefault();
       return false;
+    } else {
+      this.lastValue = ev.currentTarget.value;
     }
   }
 
   @HostListener( 'paste', [ '$event' ] )
   blockPaste( ev: any  ) {
     ev.preventDefault();
+  }
+
+  private isValidKey(key: string): boolean{
+    return key.includes('Arrow') || key ==='Backspace' || !isNaN(parseInt(key));
   }
 }
