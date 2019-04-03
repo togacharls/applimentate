@@ -1,14 +1,15 @@
 import { Directive, HostListener } from '@angular/core';
+const Color = require('colrs');
 
 @Directive({
   selector: '[appToPositiveNumber]'
 })
 export class ToPositiveNumberDirective {
-
   private lastValue: any;
 
-  @HostListener( 'keyup', [ '$event' ] )
-  numberPositive( ev: any ) {
+  @HostListener('keyup', ['$event'])
+  numberPositive(ev: any) {
+    console.log( ev);
     if (!this.isValidKey(ev.key)) {
       ev.currentTarget.value = this.lastValue;
       ev.preventDefault();
@@ -18,12 +19,16 @@ export class ToPositiveNumberDirective {
     }
   }
 
-  @HostListener( 'paste', [ '$event' ] )
-  blockPaste( ev: any  ) {
+  @HostListener('paste', ['$event'])
+  blockPaste(ev: any) {
     ev.preventDefault();
   }
 
-  private isValidKey(key: string): boolean{
-    return key.includes('Arrow') || key ==='Backspace' || !isNaN(parseInt(key));
+  private isValidKey(key: string): boolean {
+    console.log(Color('bgyellow', key ));
+
+    return (
+      key.includes('Arrow') || key === 'Backspace' || !isNaN(parseInt(key))
+    );
   }
 }
