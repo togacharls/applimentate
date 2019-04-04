@@ -1,34 +1,35 @@
 import { Directive, HostListener } from '@angular/core';
-const Color = require('colrs');
 
 @Directive({
   selector: '[appToPositiveNumber]'
 })
 export class ToPositiveNumberDirective {
-  private lastValue: any;
+  private arrValues: string[] = [];
 
   @HostListener('keyup', ['$event'])
-  numberPositive(ev: any) {
-    console.log( ev);
-    if (!this.isValidKey(ev.key)) {
-      ev.currentTarget.value = this.lastValue;
-      ev.preventDefault();
-      return false;
-    } else {
-      this.lastValue = ev.currentTarget.value;
-    }
+  numberPositive(ev: any): void {
+    if (
+      // If the key is Backspace or Delete or a number then update this.arrValues
+      !isNaN(ev.key) ||
+      ev.key === 'Backspace' ||
+      ev.key === 'Delete'
+    ) {
+      this.arrValues = ev.currentTarget.value.split('');
+      ev.currentTarget.value = this.arrValues.join('');
+    } else if (
+      // Invalid keys don't modify the ev.currentTarget.value
+      ev.key === '-' ||
+      ev.key === '+' ||
+      ev.key === '.' ||
+      ev.key === ',' ||
+      ev.key === 'e'
+      ) {
+        ev.currentTarget.value = parseInt(this.arrValues.join(''), 10);
+      }
   }
 
   @HostListener('paste', ['$event'])
-  blockPaste(ev: any) {
+  blockPaste(ev: any): void {
     ev.preventDefault();
-  }
-
-  private isValidKey(key: string): boolean {
-    console.log(Color('bgyellow', key ));
-
-    return (
-      key.includes('Arrow') || key === 'Backspace' || !isNaN(parseInt(key))
-    );
   }
 }

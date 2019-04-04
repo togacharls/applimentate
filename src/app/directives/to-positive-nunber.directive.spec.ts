@@ -1,50 +1,48 @@
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { By } from '@angular/platform-browser';
-import { dispatchEvent } from '@angular/platform-browser/testing/src/browser_util';
-import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
-import { Component, DebugElement } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { ToPositiveNumberDirective } from './to-positive-number.directive';
-const Color = require('colrs');
-
-@Component({
-  template: `<input appToPositiveNumber min="1" type="number">`
-})
-class TestComponentWithToPositiveNumberDirective {}
 
 describe('ToPositiveNumberDirective', () => {
-
-  let component: TestComponentWithToPositiveNumberDirective;
-  let fixture: ComponentFixture<TestComponentWithToPositiveNumberDirective>;
-  let inputEl;
+  const directive = new ToPositiveNumberDirective();
+  const mock_9 = {
+    currentTarget: { value: '9' },
+    key: '9'
+  };
+  const mock_M = {
+    currentTarget: { value: 'm' },
+    key: 'm'
+  };
+  const mock_negative = {
+    currentTarget: { value: '-' },
+    key: '-'
+  };
 
   beforeEach( () => {
     TestBed.configureTestingModule( {
-      declarations: [ ToPositiveNumberDirective, TestComponentWithToPositiveNumberDirective ],
-      imports: [
-        IonicModule,
-        FormsModule,
-      ]
+      declarations: [ ToPositiveNumberDirective ],
     } );
+    directive['arrValues'] = [];
   } );
 
-beforeEach(() => {
-    fixture = TestBed.createComponent(TestComponentWithToPositiveNumberDirective);
-    component = fixture.componentInstance;
-    inputEl = fixture.debugElement.query(By.css('input'));
+  it( '0 directive param is "9" then directive.arrValues = 9 ', () => {
+    directive['numberPositive'](mock_9);
+    expect(directive['arrValues'][0]).toBe('9');
+  } );
+
+  it('1 directive param is NaN then directive.arrValues = undefined', () => {
+    directive['numberPositive'](mock_M);
+    expect(directive['arrValues'][0]).toBeUndefined();
   });
 
-  it( 'should create an instance', () => {
-    let ionput = inputEl.nativeElement;
-    const mock9 = {
-      currentTarget: ionput || {value: '9'},
-      key: '9'
-    };
-    fixture.detectChanges();
-    inputEl.triggerEventHandler('keyup', mock9);
-    
-    console.log(inputEl);
-    console.log(Color('bgcyan', inputEl.nativeElement.value));
+  it('2 directive.arrValues is "99" then press "-" and the value still is 99 ', () => {
+    directive['arrValues'].push('99');
+    directive['numberPositive'](mock_negative);
+    expect(directive['arrValues'].join('')).toBe('99');
+  });
 
-  } );
+  it('3 directive.arrValues = 99 then press "m" and the value still is 99 ', () => {
+    directive['arrValues'].push('99');
+    directive['numberPositive'](mock_M);
+    expect(directive['arrValues'].join('')).toBe('99');
+  });
+
 });
