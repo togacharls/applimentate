@@ -4,32 +4,26 @@ import { Directive, HostListener } from '@angular/core';
   selector: '[appToPositiveNumber]'
 })
 export class ToPositiveNumberDirective {
-  private arrValues: string[] = [];
 
-  @HostListener('keyup', ['$event'])
-  numberPositive(ev: any): void {
-    if (
-      // If the key is Backspace or Delete or a number then update this.arrValues
-      !isNaN(ev.key) ||
-      ev.key === 'Backspace' ||
-      ev.key === 'Delete'
-    ) {
-      this.arrValues = ev.currentTarget.value.split('');
-      ev.currentTarget.value = this.arrValues.join('');
-    } else if (
-      // Invalid keys don't modify the ev.currentTarget.value
-      ev.key === '-' ||
-      ev.key === '+' ||
-      ev.key === '.' ||
-      ev.key === ',' ||
-      ev.key === 'e'
-      ) {
-        ev.currentTarget.value = parseInt(this.arrValues.join(''), 10);
-      }
+  private lastValue: any;
+
+  @HostListener( 'keyup', [ '$event' ] )
+  numberPositive( ev: any ) {
+    if (!this.isValidKey(ev.key)) {
+      ev.currentTarget.value = this.lastValue;
+      ev.preventDefault();
+      return false;
+    } else {
+      this.lastValue = ev.currentTarget.value;
+    }
   }
 
-  @HostListener('paste', ['$event'])
-  blockPaste(ev: any): void {
+  @HostListener( 'paste', [ '$event' ] )
+  blockPaste( ev: any  ) {
     ev.preventDefault();
+  }
+
+  private isValidKey(key: string): boolean{
+    return key.includes('Arrow') || key ==='Backspace' || key === 'Delete' || !isNaN(parseInt(key));
   }
 }
