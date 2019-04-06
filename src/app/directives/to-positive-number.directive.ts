@@ -23,7 +23,7 @@ export class ToPositiveNumberDirective {
     ev.preventDefault();
   }
 
-  private isValidKey(key: string): boolean{
-    return key.includes('Arrow') || key ==='Backspace' || key === 'Delete' || !isNaN(parseInt(key));
+  private isValidKey( key: string ): boolean {
+    return key.includes('Arrow') || key === 'Backspace' || key === 'Delete' || !isNaN(parseInt(key, 10));
   }
 }
