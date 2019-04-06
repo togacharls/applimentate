@@ -2,47 +2,40 @@ import { TestBed } from '@angular/core/testing';
 import { ToPositiveNumberDirective } from './to-positive-number.directive';
 
 describe('ToPositiveNumberDirective', () => {
-  const directive = new ToPositiveNumberDirective();
-  const mock_9 = {
-    currentTarget: { value: '9' },
+  const mockValidTarget = { value: '19'};
+  const mockNotValidTarget = { value: 'm'};
+
+  const mock_9 = () => ({
+    currentTarget: { ...mockValidTarget },
     key: '9'
-  };
-  const mock_M = {
-    currentTarget: { value: 'm' },
-    key: 'm'
-  };
-  const mock_negative = {
-    currentTarget: { value: '-' },
-    key: '-'
-  };
+  });
+  const mock_M = () => ({
+    currentTarget: { ...mockNotValidTarget },
+    key: 'm',
+    preventDefault: () => false
+  });
+  let directive;
+  let eventMock;
+  let expected;
 
   beforeEach( () => {
+    directive = new ToPositiveNumberDirective();
     TestBed.configureTestingModule( {
       declarations: [ ToPositiveNumberDirective ],
     } );
-    directive['arrValues'] = [];
   } );
 
-  it( '0 directive param is "9" then directive.arrValues = 9 ', () => {
-    directive['numberPositive'](mock_9);
-    expect(directive['arrValues'][0]).toBe('9');
+  it( 'should accept number keys', () => {
+    eventMock = mock_9();
+    expected = mock_9();
+    directive['numberPositive'](eventMock);
+    expect(eventMock.currentTarget.value).toBe(expected.currentTarget.value);
   } );
 
-  it('1 directive param is NaN then directive.arrValues = undefined', () => {
-    directive['numberPositive'](mock_M);
-    expect(directive['arrValues'][0]).toBeUndefined();
+  it('should does not accept non-number keys', () => {
+    eventMock = mock_M();
+    expected = mock_M();
+    directive['numberPositive'](eventMock);
+    expect(eventMock.currentTarget.value).not.toBe(expected.currentTarget.value);
   });
-
-  it('2 directive.arrValues is "99" then press "-" and the value still is 99 ', () => {
-    directive['arrValues'].push('99');
-    directive['numberPositive'](mock_negative);
-    expect(directive['arrValues'].join('')).toBe('99');
-  });
-
-  it('3 directive.arrValues = 99 then press "m" and the value still is 99 ', () => {
-    directive['arrValues'].push('99');
-    directive['numberPositive'](mock_M);
-    expect(directive['arrValues'].join('')).toBe('99');
-  });
-
 });
