@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
 
 import { BmiPage } from './bmi.page';
+import { ToPositiveNumberDirective } from '../directives/to-positive-number.directive';
 
 const routes: Routes = [
   {
@@ -16,14 +17,14 @@ const routes: Routes = [
   }
 ];
 
-@NgModule({
+@NgModule( {
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     TranslateModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild( routes )
   ],
-  declarations: [BmiPage]
-})
-export class BmiPageModule {}
+  declarations: [ BmiPage, ToPositiveNumberDirective ]
+} )
+export class BmiPageModule { }
