@@ -1,19 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { ToPositiveNumberDirective } from './to-positive-number.directive';
+import { Mock } from './to-positive-number.directive.mock';
 
 describe('ToPositiveNumberDirective', () => {
-  const mockValidTarget = { value: '19'};
-  const mockNotValidTarget = { value: 'm'};
-
-  const mock_9 = () => ({
-    currentTarget: { ...mockValidTarget },
-    key: '9'
-  });
-  const mock_M = () => ({
-    currentTarget: { ...mockNotValidTarget },
-    key: 'm',
-    preventDefault: () => false
-  });
   let directive;
   let eventMock;
   let expected;
@@ -26,15 +15,15 @@ describe('ToPositiveNumberDirective', () => {
   } );
 
   it( 'should accept number keys', () => {
-    eventMock = mock_9();
-    expected = mock_9();
+    eventMock = Mock.mock_9();
+    expected = Mock.mock_9();
     directive['numberPositive'](eventMock);
     expect(eventMock.currentTarget.value).toBe(expected.currentTarget.value);
   } );
 
   it('should does not accept non-number keys', () => {
-    eventMock = mock_M();
-    expected = mock_M();
+    eventMock = Mock.mock_M();
+    expected = Mock.mock_M();
     directive['numberPositive'](eventMock);
     expect(eventMock.currentTarget.value).not.toBe(expected.currentTarget.value);
   });
