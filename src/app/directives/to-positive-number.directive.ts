@@ -4,23 +4,29 @@ import { Directive, HostListener } from '@angular/core';
   selector: '[appToPositiveNumber]'
 })
 export class ToPositiveNumberDirective {
-
   private lastValue: any;
 
   @HostListener( 'keyup', [ '$event' ] )
   numberPositive( ev: any ) {
     if (!this.isValidKey(ev.key)) {
-      ev.currentTarget.value = this.lastValue;
-      ev.preventDefault();
-      return false;
+      ev.target.value = this.lastValue;
     } else {
-      this.lastValue = ev.currentTarget.value;
+      this.lastValue = ev.target.value;
     }
   }
 
   @HostListener( 'paste', [ '$event' ] )
-  blockPaste( ev: any  ) {
-    ev.preventDefault();
+  async blockPaste( ev: any  ) {
+    const clipboardValue: any = await navigator['clipboard'].readText();
+    const mockIt0 = {
+      target: ev.target,
+      key: clipboardValue
+    };
+    if (!isNaN(clipboardValue)) {
+      this.numberPositive(mockIt0);
+    } else {
+      ev.preventDefault();
+    }
   }
 
   private isValidKey( key: string ): boolean {

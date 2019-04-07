@@ -3,11 +3,11 @@ const mockNotValidTarget = { value: 'm'};
 
 export const Mock = {
    mock_9: () => ({
-    currentTarget: { ...mockValidTarget },
+    target: { ...mockValidTarget },
     key: '9'
   }),
   mock_M: () => ({
-    currentTarget: { ...mockNotValidTarget },
+    target: { ...mockNotValidTarget },
     key: 'm',
     preventDefault: () => false
   })

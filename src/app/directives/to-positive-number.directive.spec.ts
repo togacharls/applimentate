@@ -18,13 +18,13 @@ describe('ToPositiveNumberDirective', () => {
     eventMock = Mock.mock_9();
     expected = Mock.mock_9();
     directive['numberPositive'](eventMock);
-    expect(eventMock.currentTarget.value).toBe(expected.currentTarget.value);
+    expect(eventMock.target.value).toBe(expected.target.value);
   } );
 
   it('should does not accept non-number keys', () => {
     eventMock = Mock.mock_M();
     expected = Mock.mock_M();
     directive['numberPositive'](eventMock);
-    expect(eventMock.currentTarget.value).not.toBe(expected.currentTarget.value);
+    expect(eventMock.target.value).not.toBe(expected.target.value);
   });
 });
