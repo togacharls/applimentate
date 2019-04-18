@@ -3,7 +3,8 @@
   "version": "1.1.2",
   "author": "Carlos Torres García<togacharls@gmail.com>, Jorge Jesús Campoy López<jorgecampoy81@gmail.com>, Elvira María Alonso Cervilla<elvi_ac94@hotmail.com>",
   "scripts": {
-    "ng": "ng",
+    "clean-install": "npm audit fix && npm i",
+    "clean-install:force": "npm audit fix --force && npm i",
     "start": "ng run app:serve --host=0.0.0.0 --port=8100",
     "aot": "ng run app:serve --aot --host=0.0.0.0 --port=8100",
     "build": "ng build",
