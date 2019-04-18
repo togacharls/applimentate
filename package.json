@@ -3,14 +3,18 @@
   "version": "1.1.2",
   "author": "Carlos Torres García<togacharls@gmail.com>, Jorge Jesús Campoy López<jorgecampoy81@gmail.com>, Elvira María Alonso Cervilla<elvi_ac94@hotmail.com>",
   "scripts": {
+    "android:build": "ionic cordova build android",
+    "android:platform:add": "ionic cordova platform add android",
+    "android:platform:remove": "ionic cordova platform remove android",
+    "android:run:device": "ionic cordova run android --device",
+    "android:run:emulator": "ionic cordova run android -l",
+    "aot": "ng run app:serve --aot --host=0.0.0.0 --port=8100",
     "clean-install": "npm audit fix && npm i",
     "clean-install:force": "npm audit fix --force && npm i",
-    "start": "ng run app:serve --host=0.0.0.0 --port=8100",
-    "aot": "ng run app:serve --aot --host=0.0.0.0 --port=8100",
-    "build": "ng build",
-    "test": "ng test",
+    "e2e": "ng e2e",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "ng run app:serve --host=0.0.0.0 --port=8100",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
