@@ -4,14 +4,11 @@ import { Directive, HostListener } from '@angular/core';
   selector: '[appToPositiveNumber]'
 })
 export class ToPositiveNumberDirective {
-  private lastValue: any;
 
-  @HostListener( 'keyup', [ '$event' ] )
-  numberPositive( ev: any ) {
-    if (!this.isValidKey(ev.key)) {
-      ev.target.value = this.lastValue;
-    } else {
-      this.lastValue = ev.target.value;
+  @HostListener( 'keydown', [ '$event' ] )
+  numberPositive( ev: any ): void {
+    if (this.isValidKey(ev.key)) {
+      ev.target.value = ev.key;
     }
   }
 
@@ -22,6 +19,7 @@ export class ToPositiveNumberDirective {
       target: ev.target,
       key: clipboardValue
     };
+    console.log(clipboardValue);
     if (!isNaN(clipboardValue)) {
       this.numberPositive(mockIt0);
     } else {
