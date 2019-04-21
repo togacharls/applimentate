@@ -1,59 +1,48 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { Component, DebugElement } from '@angular/core';
-import { ToPositiveNumberDirective } from './to-positive-number.directive';
-import { By } from '@angular/platform-browser';
-import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import {TestBed, ComponentFixture} from '@angular/core/testing';
+import {Component, DebugElement} from '@angular/core';
+import {ToPositiveNumberDirective} from './to-positive-number.directive';
+import {By} from '@angular/platform-browser';
+
 
 @Component({
-  template: `<ion-input appToPositiveNumber min="1" type="number"></ion-input>`
+  template: `
+    <input appToPositiveNumber type='number' />
+  `
 })
- class TestComponentWithToPositiveNumberDirective {}
+class TestComponentWithToPositiveNumberDirective {}
 
 describe('ToPositiveNumberDirective', () => {
   let component: TestComponentWithToPositiveNumberDirective;
   let fixture: ComponentFixture<TestComponentWithToPositiveNumberDirective>;
   let inputEl: DebugElement;
-  const directive = new ToPositiveNumberDirective();
-  let ionInput;
+  let elInput: any;
 
-  beforeEach( () => {
-    TestBed.configureTestingModule( {
-      declarations: [ ToPositiveNumberDirective, TestComponentWithToPositiveNumberDirective ],
-      imports: [ IonicModule ]
-    } );
-});
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        ToPositiveNumberDirective,
+        TestComponentWithToPositiveNumberDirective
+      ]
+    });
+  });
 
-beforeEach(function() {
-  fixture = TestBed.createComponent(TestComponentWithToPositiveNumberDirective);
-  component = fixture.componentInstance;
-  inputEl = fixture.debugElement.query(By.css('ion-input'));
-  ionInput = inputEl.nativeElement;
-  
-});
-
+  beforeEach(function() {
+    fixture = TestBed.createComponent(
+      TestComponentWithToPositiveNumberDirective
+    );
+    component = fixture.componentInstance;
+    inputEl = fixture.debugElement.query(By.css('input'));
+    elInput = inputEl.nativeElement;
+    elInput.value = '';
+    fixture.detectChanges();
+  });
 
   it('Input value accept just numbers', () => {
-    fixture.whenStable().then(()=>{
-      inputEl.triggerEventHandler('keydown', {key: '7', target: ionInput})
-      expect(ionInput.value).toBe('7');
-      inputEl.triggerEventHandler('keydown', {key: ',', target: ionInput})
-      expect(ionInput.value).toBe('7');
-      inputEl.triggerEventHandler('keydown', {key: 'e', target: ionInput.target})
-      expect(ionInput.value).toBe('7');
-      inputEl.triggerEventHandler('keydown', {key: '+', target: ionInput.target})
-      expect(ionInput.value).toBe('7');
-    });
-  })
-
-  // it('Input value accept just numbers', () => {
-  //   fixture.whenStable().then(()=>{
-  //     console.log(ionInput.value);
-  //     inputEl.triggerEventHandler('paste', {key: '4', target: ionInput})
-  //     expect(ionInput.value).toBe('4');
-  //   });
-  // })
-
-
-
+    elInput.value += 'm';
+    expect(elInput.value).toBe('');
+    elInput.value += '7';
+    expect(elInput.value).toBe('7');
+    elInput.value += '2';
+    expect(elInput.value).toBe('72');
+  });
 });
