@@ -1,13 +1,22 @@
 import { Directive, HostListener } from '@angular/core';
+import { KeydownEventInterface, PasteEventInterface } from './to-positive-number.interface';
 
 @Directive({
   selector: '[appToPositiveNumber]'
 })
+
 export class ToPositiveNumberDirective {
 
-  @HostListener( 'keydown' || 'paste', [ '$event' ] )
-  private numberPositive( ev: any ): void {
-    if (!this.isValidKey(ev.key) || !this.isValidKey(ev.clipboardData.getData('text'))) {
+  @HostListener( 'keydown', [ '$event' ] )
+  private keyPositive( ev: KeydownEventInterface ): void {
+    if (!this.isValidKey(ev.key)) {
+      ev.preventDefault();
+    }
+  }
+
+  @HostListener( 'paste', [ '$event' ] )
+  private pastePositive( ev: PasteEventInterface ): void {
+    if (!this.isValidKey(ev.clipboardData.getData('text'))) {
       ev.preventDefault();
     }
   }
