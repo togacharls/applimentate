@@ -11,23 +11,23 @@
   <form>
     <ion-item>
       <ion-label position="floating">{{'BMI.HEIGHT' | translate}} (cm)</ion-label>
-      <ion-input appToPositiveNumber type="number" min="1" [(ngModel)]="height" [ngModelOptions]="{standalone: true}">
+      <ion-input clearInput appToPositiveNumber type="number" min="1" [(ngModel)]="height" [ngModelOptions]="{standalone: true}">
       </ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">{{'BMI.WEIGHT' | translate}} (kg)</ion-label>
-      <ion-input appToPositiveNumber type="number" min="1" [(ngModel)]="weight" [ngModelOptions]="{standalone: true}">
+      <ion-input clearInput appToPositiveNumber type="number" min="1" [(ngModel)]="weight" [ngModelOptions]="{standalone: true}">
       </ion-input>
     </ion-item>
   </form>
 
 
-  <ion-radio-group #genreRadioButton>
+  <ion-radio-group [(ngModel)]="genre" #genreRadioButton>
     <ion-row>
       <ion-col>
         <ion-item>
           <ion-label>{{'BMI.WOMAN' | translate}}</ion-label>
-          <ion-radio checked value="{{GenreEnum.WOMAN}}"></ion-radio>
+          <ion-radio value="{{GenreEnum.WOMAN}}"></ion-radio>
         </ion-item>
       </ion-col>
       <ion-col>

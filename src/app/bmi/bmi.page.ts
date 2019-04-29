@@ -23,13 +23,19 @@ export class BmiPage implements OnInit {
   constructor ( private elRef: ElementRef, private store: Store<AppState> ) {  }
 
   ngOnInit() {
-    this.genre = Genre.WOMAN;
-    this.chosenGenre();
+    this.initGenre();
   }
 
-  chosenGenre(): void {
+  initGenre(): void {
+    this.store.select('genre').subscribe( state => {
+      if (state === undefined) {
+        const accion = new ToggleGenre(Genre.WOMAN);
+        this.store.dispatch(accion);
+      } else {
+        this.genre = state;
+      }
+    });
     this.genreRadioButton.ionChange.subscribe( RadButton => {
-      this.genre = RadButton.target.value;
         const accion = new ToggleGenre(RadButton.target.value);
         this.store.dispatch(accion);
     });
