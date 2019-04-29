@@ -1,41 +1,10 @@
-$green-softest: #fefcd7;
-$green-soft: #a6cb45;
-$green-heavy: #71b238;
-$green-heaviest: #6a8347;
-
-$color-softest: $green-softest;
-$color-soft: $green-soft;
-$color-heavy: $green-heavy;
-$color-heaviest: $green-heaviest;
-
-$grass-softest: rgb(196, 252, 198);
-$grass-heaviest: rgb(2, 114, 26);
-
-.bg-softest,
-ion-content.bg-softest {
-  background: $color-softest;
-}
-
-.bg-soft {
-  background: $color-soft;
-}
-
-.bg-heavy {
-  background: $color-heavy;
-}
-
-.bg-heaviest {
-  background: $color-heaviest;
-}
-.page {
-  height: 100%;
-  overflow-y: scroll;
-}
-.card-background {
+ion-content {
   ion-card {
     position: relative;
     text-align: center;
     background: #fff;
+    color: var(--green-softest, #fefcd7);
+    text-shadow: 3px 0 var(--green-heaviest, #6a8347), 0 2px var(--green-heaviest, #6a8347), 2px 0 var(--green-heaviest, #6a8347), 0 -2px var(--green-heaviest, #6a8347);
   }
 
   .card-title {
@@ -53,15 +22,4 @@ ion-content.bg-softest {
     font-size: 7.5vw;
     top: 55%;
   }
-
-  .allergens {
-    color: $color-softest;
-    text-shadow: 3px 0 $color-heaviest, 0 2px $color-heaviest, 2px 0 $color-heaviest, 0 -2px $color-heaviest;
-  }
-  
-  .bmi {
-    color: $grass-softest;
-    text-shadow: 3px 0 $grass-heaviest, 0 1px $grass-heaviest, 1px 0 $grass-heaviest, 0 -2px $grass-heaviest;
-  }
-
 }
