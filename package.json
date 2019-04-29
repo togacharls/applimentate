@@ -1,15 +1,20 @@
 {
   "name": "applimentate",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "author": "Carlos Torres García<togacharls@gmail.com>, Jorge Jesús Campoy López<jorgecampoy81@gmail.com>, Elvira María Alonso Cervilla<elvi_ac94@hotmail.com>",
   "scripts": {
-    "ng": "ng",
-    "start": "ng run app:serve --host=0.0.0.0 --port=8100",
+    "android:build": "ionic cordova build android",
+    "android:platform:add": "ionic cordova platform add android",
+    "android:platform:remove": "ionic cordova platform remove android",
+    "android:run:device": "ionic cordova run android --device",
+    "android:run:emulator": "ionic cordova run android -l",
     "aot": "ng run app:serve --aot --host=0.0.0.0 --port=8100",
-    "build": "ng build",
-    "test": "ng test",
+    "clean-install": "npm audit fix && npm i",
+    "clean-install:force": "npm audit fix --force && npm i",
+    "e2e": "ng e2e",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "ng run app:serve --host=0.0.0.0 --port=8100",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -20,19 +25,20 @@
     "@angular/platform-browser": "~6.1.1",
     "@angular/platform-browser-dynamic": "~6.1.1",
     "@angular/router": "~6.1.1",
-    "@ngx-translate/core": "^10.0.0",
-    "@ngx-translate/http-loader": "^3.0.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.0.0",
+    "@ngx-translate/core": "^10.0.0",
+    "@ngx-translate/http-loader": "^3.0.0",
+    "cordova-android": "8.0.0",
     "core-js": "^2.5.3",
     "rxjs": "6.2.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.8.5",
-    "@angular-devkit/build-angular": "~0.8.5",
+    "@angular-devkit/build-angular": "^0.13.8",
     "@angular-devkit/core": "~0.8.5",
     "@angular-devkit/schematics": "~0.8.5",
     "@angular/cli": "~6.2.5",
@@ -54,7 +60,27 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~2.9.2"
+    "typescript": "~2.9.2",
+    "cordova-plugin-whitelist": "1.3.3",
+    "cordova-plugin-statusbar": "2.4.2",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-ionic-webview": "^2.0.0",
+    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "webpack-dev-server": ">=3.1.14"
   },
-  "description": "Hybrid App about advising on eating and healthy habits using Ionic"
+  "description": "Hybrid App about advising on eating and healthy habits using Ionic",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }

@@ -1,22 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="/allergens"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ allergen.name | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="bg-softest">
-  <ion-img src="{{allergen.imgSummary}}"></ion-img>
-  <div>
-    <p class="allergenDetails"> {{ allergen.summary | translate }}</p>
-  </div>
-  <div>
-    <p class="allergenDetails"> {{ allergen.food | translate }}</p>
-  </div>
-  <div>
-    <p class="allergenDetails"> {{ allergen.health | translate }}</p>
+  <ion-img [src]="allergen.imgSummary"></ion-img>
+  <div class="allergen-detail">
+    <p> {{ allergen.summary | translate }}</p>
+    <p> {{ allergen.food | translate }}</p>
+    <p> {{ allergen.health | translate }}</p>
   </div>
 </ion-content>
