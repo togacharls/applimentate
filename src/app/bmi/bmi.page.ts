@@ -1,6 +1,9 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Input, ViewChild, ViewChildren } from '@angular/core';
 import { Genre } from './enums/bmi.genre.enum';
 import { BmiRange } from './enums/bmi.bmi-range.enum';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.reducers';
+import { ToggleGenre } from './bmi.action';
 
 @Component( {
   selector: 'app-bmi',
@@ -9,6 +12,7 @@ import { BmiRange } from './enums/bmi.bmi-range.enum';
 } )
 export class BmiPage implements OnInit {
 
+  @ViewChild('genreRadioButton') private genreRadioButton: any;
   public height: any;
   public weight: any;
   public genre: Genre;
@@ -16,10 +20,23 @@ export class BmiPage implements OnInit {
   public bmiResult = 0;
   public readonly GenreEnum = Genre;
 
-  constructor ( private elRef: ElementRef ) { }
+  constructor ( private elRef: ElementRef, private store: Store<AppState> ) {
+
+   }
 
   ngOnInit() {
     this.genre = Genre.WOMAN;
+    this.chosenGenre();
+  }
+
+  chosenGenre(): void {
+    this.genreRadioButton.ionChange.subscribe( RadButton => {
+      this.genre = RadButton.target.value;
+      this.store.select('genre').subscribe( chosenGenre => {
+        const accion = new ToggleGenre(this.genre);
+        this.store.dispatch(accion);
+      });
+    });
   }
 
   onClickCalcBMI(): void {
