@@ -1,30 +1,48 @@
-import { TestBed } from '@angular/core/testing';
-import { ToPositiveNumberDirective } from './to-positive-number.directive';
-import { Mock } from './to-positive-number.directive.mock';
+import {TestBed, ComponentFixture} from '@angular/core/testing';
+import {Component, DebugElement} from '@angular/core';
+import {ToPositiveNumberDirective} from './to-positive-number.directive';
+import {By} from '@angular/platform-browser';
+
+
+@Component({
+  template: `
+    <input appToPositiveNumber type='number' />
+  `
+})
+class TestComponentWithToPositiveNumberDirective {}
 
 describe('ToPositiveNumberDirective', () => {
-  let directive;
-  let eventMock;
-  let expected;
+  let component: TestComponentWithToPositiveNumberDirective;
+  let fixture: ComponentFixture<TestComponentWithToPositiveNumberDirective>;
+  let inputEl: DebugElement;
+  let elInput: any;
 
-  beforeEach( () => {
-    directive = new ToPositiveNumberDirective();
-    TestBed.configureTestingModule( {
-      declarations: [ ToPositiveNumberDirective ],
-    } );
-  } );
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        ToPositiveNumberDirective,
+        TestComponentWithToPositiveNumberDirective
+      ]
+    });
+  });
 
-  it( 'should accept number keys', () => {
-    eventMock = Mock.mock_9();
-    expected = Mock.mock_9();
-    directive['numberPositive'](eventMock);
-    expect(eventMock.currentTarget.value).toBe(expected.currentTarget.value);
-  } );
+  beforeEach(function() {
+    fixture = TestBed.createComponent(
+      TestComponentWithToPositiveNumberDirective
+    );
+    component = fixture.componentInstance;
+    inputEl = fixture.debugElement.query(By.css('input'));
+    elInput = inputEl.nativeElement;
+    elInput.value = '';
+    fixture.detectChanges();
+  });
 
-  it('should does not accept non-number keys', () => {
-    eventMock = Mock.mock_M();
-    expected = Mock.mock_M();
-    directive['numberPositive'](eventMock);
-    expect(eventMock.currentTarget.value).not.toBe(expected.currentTarget.value);
+  it('Input value accept just numbers', () => {
+    elInput.value += 'm';
+    expect(elInput.value).toBe('');
+    elInput.value += '7';
+    expect(elInput.value).toBe('7');
+    elInput.value += '2';
+    expect(elInput.value).toBe('72');
   });
 });
