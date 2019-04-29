@@ -32,8 +32,8 @@ export const ApplimentateTranslateLoaderFactory = (http: HttpClient) => new Tran
               deps: [HttpClient]
           }
       }),
+      StoreModule.forRoot(appReducers),
       StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-      StoreModule.forRoot(appReducers)
   ],
   providers: [
     StatusBar,
