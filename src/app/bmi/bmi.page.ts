@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Input, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Genre } from './enums/bmi.genre.enum';
 import { BmiRange } from './enums/bmi.bmi-range.enum';
 import { Store } from '@ngrx/store';
@@ -20,9 +20,7 @@ export class BmiPage implements OnInit {
   public bmiResult = 0;
   public readonly GenreEnum = Genre;
 
-  constructor ( private elRef: ElementRef, private store: Store<AppState> ) {
-
-   }
+  constructor ( private elRef: ElementRef, private store: Store<AppState> ) {  }
 
   ngOnInit() {
     this.genre = Genre.WOMAN;
@@ -32,10 +30,8 @@ export class BmiPage implements OnInit {
   chosenGenre(): void {
     this.genreRadioButton.ionChange.subscribe( RadButton => {
       this.genre = RadButton.target.value;
-      this.store.select('genre').subscribe( chosenGenre => {
-        const accion = new ToggleGenre(this.genre);
+        const accion = new ToggleGenre(RadButton.target.value);
         this.store.dispatch(accion);
-      });
     });
   }
 
