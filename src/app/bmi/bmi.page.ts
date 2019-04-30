@@ -3,7 +3,7 @@ import { Genre } from './enums/bmi.genre.enum';
 import { BmiRange } from './enums/bmi.bmi-range.enum';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.reducers';
-import { ToggleGenre } from './bmi.action';
+import * as BMI_ACTIONS from './bmi.actions';
 
 @Component( {
   selector: 'app-bmi',
@@ -29,15 +29,14 @@ export class BmiPage implements OnInit {
   initGenre(): void {
     this.store.select('genre').subscribe( state => {
       if (state === undefined) {
-        const accion = new ToggleGenre(Genre.WOMAN);
-        this.store.dispatch(accion);
+        this.store.dispatch(new BMI_ACTIONS.ToggleGenre(Genre.WOMAN));
       } else {
         this.genre = state;
       }
     });
     this.genreRadioButton.ionChange.subscribe( RadButton => {
-        const accion = new ToggleGenre(RadButton.target.value);
-        this.store.dispatch(accion);
+      const toggledGenre = RadButton.target.value;
+      this.store.dispatch(new BMI_ACTIONS.ToggleGenre(toggledGenre));
     });
   }
 
