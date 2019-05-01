@@ -1,10 +1,3 @@
-import { Action } from '@ngrx/store';
-
 export const TYPES = {
-  initStore: '[APP] init store'
+  ngrxStoreInit: '@ngrx/store/init'
 };
-
-export class InitStore implements Action {
-  readonly type = TYPES.initStore;
-  constructor() {}
-}

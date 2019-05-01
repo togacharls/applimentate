@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
-import { Store } from '@ngrx/store';
-import { AppState } from './app.state';
-import { InitStore } from './app.actions';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +13,10 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private translate: TranslateService,
-    private store: Store<AppState>
+    private translate: TranslateService
   ) {
     this.initializeApp();
     this.translate.setDefaultLang(this.translate.getBrowserLang());
-    this.initializeStore();
   }
 
   initializeApp() {
@@ -30,9 +24,5 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-  }
-
-  initializeStore() {
-    this.store.dispatch(new InitStore());
   }
 }
