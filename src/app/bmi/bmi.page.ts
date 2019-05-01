@@ -28,11 +28,7 @@ export class BmiPage implements OnInit {
 
   initGenre(): void {
     this.store.select('genre').subscribe( state => {
-      if (state === undefined) {
-        this.store.dispatch(new BMI_ACTIONS.ToggleGenre(Genre.WOMAN));
-      } else {
-        this.genre = state;
-      }
+      this.genre = state;
     });
     this.genreRadioButton.ionChange.subscribe( RadButton => {
       const toggledGenre = RadButton.target.value;
