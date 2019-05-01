@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Genre } from './enums/bmi.genre.enum';
 import { BmiRange } from './enums/bmi.bmi-range.enum';
 import { Store } from '@ngrx/store';
-import { AppState } from '../app.reducers';
+import { AppState } from '../app.state';
 import * as BMI_ACTIONS from './bmi.actions';
 
 @Component( {
