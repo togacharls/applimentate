@@ -1,3 +1,3 @@
-export const TYPES = {
-  ngrxStoreInit: '@ngrx/store/init'
-};
+export enum TYPES {
+  NGRX_STORE_INIT = '@ngrx/store/init'
+}
