@@ -1,6 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
-import {BmiPage} from './bmi.page';
 import {By} from '@angular/platform-browser';
 import {IonicModule, NavController} from '@ionic/angular';
 import {TranslateModule} from '@ngx-translate/core';
@@ -8,11 +6,16 @@ import {FormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
 import {Genre} from './enums/bmi.genre.enum';
 import {DebugElement} from '@angular/core';
+import {combineReducers, Store, StoreModule} from '@ngrx/store';
+import {BmiPage} from './bmi.page';
 import {BmiRange} from './enums/bmi.bmi-range.enum';
+import {AppState} from '../app.state';
+import * as BMI_REDUCERS from './bmi.reducers';
 
 describe('BmiPage html elements', () => {
   let component: BmiPage;
   let fixture: ComponentFixture<BmiPage>;
+  let store: Store<AppState>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -21,15 +24,18 @@ describe('BmiPage html elements', () => {
         IonicModule,
         TranslateModule.forRoot(),
         FormsModule,
-        RouterTestingModule
+        RouterTestingModule,
+        StoreModule.forRoot({
+          'BMI' : combineReducers(BMI_REDUCERS.genre)
+        })
       ],
       providers: [
         {provide: NavController, useValue: null}
       ]
     });
-  });
 
-  beforeEach(() => {
+    store = TestBed.get(Store);
+    spyOn(store, 'dispatch').and.callThrough();
     fixture = TestBed.createComponent(BmiPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
