@@ -11,6 +11,9 @@ export class AllergensService {
     private allergenList: AllergenInterface[];
     private srcImgIconPath = '../../../assets/icon/';
     private srcImgSummaryPath = '../../../assets/img/ImgAllergens/';
+    private namesList = [ 'LUPINS', 'CELERY', 'PEANUTS', 'CRUSTACEANS', 'SULFUR_DIOXIDE_AND_SULPHITES', 'NUTS', 'GLUTEN',
+        'SESAME_SEEDS', 'EGG', 'DAIRY_PRODUCTS', 'MOLLUSCS', 'MUSTARD', 'FISH', 'SOY' ];
+
     constructor ( private translateService: TranslateService ) {
         this.allergenList = this.getDefaultAllergenList();
         this.sortAllergenList();
@@ -21,95 +24,40 @@ export class AllergensService {
     }
 
     getAllergenById( id: string ): AllergenDetailInterface {
-        switch ( id ) {
-            case 'ALLERGENS.LUPINS':
-            case 'ALLERGENS.CELERY':
-            case 'ALLERGENS.PEANUTS':
-            case 'ALLERGENS.CRUSTACEANS':
-            case 'ALLERGENS.SULFUR_DIOXIDE_AND_SULPHITES':
-            case 'ALLERGENS.NUTS':
-            case 'ALLERGENS.GLUTEN':
-            case 'ALLERGENS.SESAME_SEEDS':
-            case 'ALLERGENS.EGG':
-            case 'ALLERGENS.DAIRY_PRODUCTS':
-            case 'ALLERGENS.MOLLUSCS':
-            case 'ALLERGENS.MUSTARD':
-            case 'ALLERGENS.FISH':
-            case 'ALLERGENS.SOY':
-                return {
-                    name: id,
-                    icon: this.getIconFilename( id ),
-                    imgSummary: this.getSummaryImg( id ),
-                    summary: this.getSummary( id ),
-                    food: this.getFood( id ),
-                    health: this.getHealth( id )
-                };
-            default: return null;
-        }
+        const allergenName = id.slice( id.lastIndexOf( '.' ) + 1 );
+        return {
+            name: 'ALLERGENS.' + allergenName,
+            icon: this.srcImgIconPath + allergenName.toLowerCase() + '.png',
+            imgSummary: this.srcImgSummaryPath + allergenName + '.png',
+            summary: 'ALLERGENS.SUMMARIES.' + allergenName,
+            food: 'ALLERGENS.FOODS.' + allergenName,
+            health: 'ALLERGENS.HEALTH.' + allergenName
+        };
     }
 
-
     private getDefaultAllergenList(): AllergenInterface[] {
-        const allergenList: AllergenInterface[] = [
-            { name: 'ALLERGENS.LUPINS', icon: '' },
-            { name: 'ALLERGENS.CELERY', icon: '' },
-            { name: 'ALLERGENS.PEANUTS', icon: '' },
-            { name: 'ALLERGENS.CRUSTACEANS', icon: '' },
-            { name: 'ALLERGENS.SULFUR_DIOXIDE_AND_SULPHITES', icon: '' },
-            { name: 'ALLERGENS.NUTS', icon: '' },
-            { name: 'ALLERGENS.GLUTEN', icon: '' },
-            { name: 'ALLERGENS.SESAME_SEEDS', icon: '' },
-            { name: 'ALLERGENS.EGG', icon: '' },
-            { name: 'ALLERGENS.DAIRY_PRODUCTS', icon: '' },
-            { name: 'ALLERGENS.MOLLUSCS', icon: '' },
-            { name: 'ALLERGENS.MUSTARD', icon: '' },
-            { name: 'ALLERGENS.FISH', icon: '' },
-            { name: 'ALLERGENS.SOY', icon: '' }
-        ];
-        for ( const allergen of allergenList ) {
-            allergen.icon = this.getIconFilename( allergen.name.split( '.' )[ 1 ] );
+        const allergenNameIcon = [];
+        class AllergenId {
+            constructor (
+                public name: string,
+                public icon: string
+            ) { }
         }
-        return allergenList;
+        for ( const allergen of this.namesList ) {
+            allergenNameIcon.push( new AllergenId( 'ALLERGENS.' + allergen,
+                this.srcImgIconPath + allergen.toLowerCase() + '.png' ) );
+        }
+        return allergenNameIcon;
     }
 
     private sortAllergenList(): void {
         this.translateService
-            .get( this.allergenList.map( item => item.name ) )
+            .get( this.allergenList.map( allergenName => allergenName.name ) )
             .pipe( take( 1 ) )
             .subscribe( translated => {
                 this.allergenList.sort( ( elem1, elem2 ) =>
                     translated[ elem1.name ] < translated[ elem2.name ] ? -1 : translated[ elem1.name ] > translated[ elem2.name ] ? 1 : 0
                 );
             } );
-    }
-
-    private getIconFilename( allergenName: string ): string {
-        return this.srcImgIconPath + allergenName
-            .toLowerCase()
-            + '.png';
-    }
-
-    private getSummary( allergenID: string ): string {
-        return 'ALLERGENS.SUMMARIES.' + allergenID
-            .slice( allergenID
-                .lastIndexOf( '.' ) + 1 );
-    }
-
-    private getFood( allergenID: string ): string {
-        return 'ALLERGENS.FOODS.' + allergenID
-            .slice( allergenID
-                .lastIndexOf( '.' ) + 1 );
-    }
-
-    private getHealth( allergenID: string ): string {
-        return 'ALLERGENS.HEALTH.' + allergenID
-            .slice( allergenID
-                .lastIndexOf( '.' ) + 1 );
-    }
-
-    private getSummaryImg( allergenID: string ): string {
-        return this.srcImgSummaryPath + allergenID
-            .slice( allergenID
-                .lastIndexOf( '.' ) + 1 ) + '.png';
     }
 }
