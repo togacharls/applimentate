@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { take } from 'rxjs/operators';
-import { AllergensList } from '../interfaces/allergen.interface';
+import { AllergenInterface } from '../interfaces/allergen.interface';
 
 @Injectable( {
     providedIn: 'root'
 } )
 export class AllergensService {
 
-    private allergenList: AllergensList[];
+    private allergenList: AllergenInterface[];
     public aName: string;
     private srcIcon = '../../../assets/icon/';
     public srcImg = '../../../assets/img/ImgAllergens/';
@@ -27,7 +27,7 @@ export class AllergensService {
         this.sortAllergenList();
     }
 
-    getList(): AllergensList[] {
+    getList(): AllergenInterface[] {
         return this.allergenList;
     }
 
@@ -38,7 +38,7 @@ export class AllergensService {
         return this.aName;
     }
 
-    private getDefaultAllergenList(): AllergensList[] {
+    private getDefaultAllergenList(): AllergenInterface[] {
         const allergenListStack = [];
 
         for ( const Name of this.namesList ) {
