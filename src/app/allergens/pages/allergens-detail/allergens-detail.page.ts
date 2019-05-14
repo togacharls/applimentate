@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { AllergensService } from '../../services/allergens.service';
 
 @Component( {
@@ -12,6 +12,7 @@ export class AllergensDetailPage implements OnInit {
   numberBadgeSummary: number;
   numberBadgeHealth: number;
   numberBadgeFood: number;
+  @ViewChild('summary') inp;
 
   constructor (
     private route: ActivatedRoute,
@@ -23,5 +24,10 @@ export class AllergensDetailPage implements OnInit {
     this.numberBadgeSummary = this.allergensService.srcImgNameSummary.length;
     this.numberBadgeHealth = this.allergensService.srcImgNameHealth.length;
     this.numberBadgeFood = this.allergensService.srcImgNameFood.length;
+    setTimeout(() => {
+      
+    this.inp.selected = true;
+    console.log(this.inp);
+    }, 100);
   }
 }

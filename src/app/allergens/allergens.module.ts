@@ -21,25 +21,22 @@ const routes: Routes = [
     path: ':id', component: AllergensDetailPage,
     children: [
       {
-        path: '',
-        outlet: 'Summary',
-        component: AllergenSummaryPage,
-      },
-      {
         path: 'Summary',
-        outlet: 'Summary',
         component: AllergenSummaryPage,
       },
       {
         path: 'Health',
-        outlet: 'Health',
         component: AllergenHealthPage,
       },
       {
         path: 'Food',
-        outlet: 'Food',
         component: AllergenFoodPage,
       },
+      // {
+      //   path: '',
+      //   // outlet: 'Summary',
+      //   component: AllergenSummaryPage,
+      // },
     ]
   },
 ];
@@ -59,6 +56,7 @@ const routes: Routes = [
     AllergenHealthPage,
     AllergenFoodPage
   ],
+  exports: [RouterModule],
   providers: [ AllergensService ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 } )
