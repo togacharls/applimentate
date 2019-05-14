@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AllergensService } from '../../services/allergens.service';
+import { IonTabButton } from '@ionic/angular';
 
 @Component( {
   selector: 'app-allergens-details',
@@ -8,11 +9,11 @@ import { AllergensService } from '../../services/allergens.service';
   styleUrls: [ './allergens-detail.page.scss' ],
 } )
 export class AllergensDetailPage implements OnInit {
-  allergenName: string;
-  numberBadgeSummary: number;
-  numberBadgeHealth: number;
-  numberBadgeFood: number;
-  @ViewChild('summary') inp;
+  private allergenName: string;
+  private numberBadgeSummary: number;
+  private numberBadgeHealth: number;
+  private numberBadgeFood: number;
+  @ViewChild('summary') private tabSummary: IonTabButton;
 
   constructor (
     private route: ActivatedRoute,
@@ -24,10 +25,10 @@ export class AllergensDetailPage implements OnInit {
     this.numberBadgeSummary = this.allergensService.srcImgNameSummary.length;
     this.numberBadgeHealth = this.allergensService.srcImgNameHealth.length;
     this.numberBadgeFood = this.allergensService.srcImgNameFood.length;
-    setTimeout(() => {
-      
-    this.inp.selected = true;
-    console.log(this.inp);
-    }, 100);
+
+    // This is just for select by default the tab "Summary" when u enter to the view,
+    // but the routing are setted with a wildcard in allergens.module.ts
+    setTimeout(() => this.tabSummary.selected = true, 100);
   }
+
 }

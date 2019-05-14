@@ -32,11 +32,10 @@ const routes: Routes = [
         path: 'Food',
         component: AllergenFoodPage,
       },
-      // {
-      //   path: '',
-      //   // outlet: 'Summary',
-      //   component: AllergenSummaryPage,
-      // },
+      {
+        path: '**',
+        component: AllergenSummaryPage,
+      },
     ]
   },
 ];
@@ -56,7 +55,6 @@ const routes: Routes = [
     AllergenHealthPage,
     AllergenFoodPage
   ],
-  exports: [RouterModule],
   providers: [ AllergensService ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 } )
