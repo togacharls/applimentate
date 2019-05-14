@@ -19,14 +19,17 @@ ion-content {
   &.bg-softest {
     --background: var(--green-softest);
   }
-  &.wd-softest {
-    --background: var(--brown-softest);
+  &.wd-softy {
+    --background: var(--brown-softy);
   }
   &.wd-heaviest {
     --background: var(--brown-heaviest);
   }
   &.gr-soft {
     --background: var(--green-soft);
+  }
+  &.gr-softy {
+    --background: var(--green-softy);
   }
 }
 
