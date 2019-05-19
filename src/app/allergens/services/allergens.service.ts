@@ -2,62 +2,66 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { take } from 'rxjs/operators';
 import { AllergenInterface } from '../interfaces/allergen.interface';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable( {
-    providedIn: 'root'
+  providedIn: 'root'
 } )
 export class AllergensService {
 
-    private allergenList: AllergenInterface[];
-    public aName: string;
-    private srcIcon = '../../../assets/icon/';
-    public srcImg = '../../../assets/img/ImgAllergens/';
-    public srcImgNameSummary = [ '_S01', '_S02', '_S03' ];
-    public srcImgNameHealth = [ '_H01', '_H02', '_H03' ];
-    public srcImgNameFood = [ '_F01', '_F02', '_F03' ];
+  private allergenList: AllergenInterface[];
+  private urlAllergenList = 'https://applimentate.herokuapp.com/allergens';
+  public aName: string;
+  private srcIcon = '../../../assets/icon/';
+  public srcImg = '../../../assets/img/ImgAllergens/';
+  public srcImgNameSummary = [ '_S01', '_S02', '_S03' ];
+  public srcImgNameHealth = [ '_H01', '_H02', '_H03' ];
+  public srcImgNameFood = [ '_F01', '_F02', '_F03' ];
 
+  constructor(
+    private translateService: TranslateService,
+    public http: HttpClient,
+  ) {
+    this.getDefaultAllergenList();
+  }
 
-    private namesList = [
-        'LUPINS', 'CELERY', 'PEANUTS', 'CRUSTACEANS', 'SULFUR_DIOXIDE_AND_SULPHITES', 'NUTS',
-        'GLUTEN', 'SESAME_SEEDS', 'EGG', 'DAIRY_PRODUCTS', 'MOLLUSCS', 'MUSTARD', 'FISH', 'SOY'
-    ];
+  getList(): AllergenInterface[] {
+    return this.allergenList;
+  }
 
-    constructor ( private translateService: TranslateService ) {
-        this.allergenList = this.getDefaultAllergenList();
-        this.sortAllergenList();
-    }
+  getAllergenNameFromParams( data ): string {
+    this.aName = data.slice( data.indexOf( '.' ) + 1 );
+    return this.aName;
+  }
 
-    getList(): AllergenInterface[] {
-        return this.allergenList;
-    }
+  // TODO  añadir cabeceras CORS al http provider
+  // TODO TESTS
+  private getDefaultAllergenList(): any {
+    const allergenListStack = [];
 
-    getAllergenNameFromParams( data ): string {
-        // data = 'ALLERGENS.LUPINS'
-        this.aName = data.slice( data.indexOf( '.' ) + 1 );
-        // this.aName = 'LUPINS'
-        return this.aName;
-    }
-
-    private getDefaultAllergenList(): AllergenInterface[] {
-        const allergenListStack = [];
-
-        for ( const Name of this.namesList ) {
-            allergenListStack.push( {
-                name: 'ALLERGENS.' + Name,
-                icon: this.srcIcon + Name.toLowerCase() + '.png'
-            } );
+    this.http.get( this.urlAllergenList )
+      .pipe( take( 1 ) )
+      .subscribe( ( response: any ) => {
+        this.allergenList = [];
+        for ( const Name of response ) {
+          this.allergenList.push( {
+            name: 'ALLERGENS.' + Name.id,
+            icon: this.srcIcon + Name.id.toLowerCase() + '.png'
+          } );
         }
-        return allergenListStack;
-    }
+        this.sortAllergenList();
+      }
+      );
+  }
 
-    private sortAllergenList(): void {
-        this.translateService
-            .get( this.allergenList.map( aName => aName.name ) )
-            .pipe( take( 1 ) )
-            .subscribe( translated => {
-                this.allergenList.sort( ( elem1, elem2 ) =>
-                    translated[ elem1.name ] < translated[ elem2.name ] ? -1 : translated[ elem1.name ] > translated[ elem2.name ] ? 1 : 0
-                );
-            } );
-    }
+  private sortAllergenList(): void {
+    this.translateService
+      .get( this.allergenList.map( aName => aName.name ) )
+      .pipe( take( 1 ) )
+      .subscribe( translated => {
+        this.allergenList.sort( ( elem1, elem2 ) =>
+          translated[ elem1.name ] < translated[ elem2.name ] ? -1 : translated[ elem1.name ] > translated[ elem2.name ] ? 1 : 0
+        );
+      } );
+  }
 }
