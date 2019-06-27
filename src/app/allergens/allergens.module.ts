@@ -2,19 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
 import { TranslateModule } from '@ngx-translate/core';
-
 import { IonicModule } from '@ionic/angular';
-
 import { AllergensPage } from './pages/allergens-list/allergens.page';
-import { AllergensDetailPage } from './pages/allergens-detail/allergens-detail.page';
-
+import { AllergenDetailPage } from './pages/allergen-detail/allergen-detail.page';
 import { AllergensService } from './services';
 
 const routes: Routes = [
   { path: '', component: AllergensPage },
-  { path: ':id', component: AllergensDetailPage }
+  { path: ':id', component: AllergenDetailPage }
 ];
 
 @NgModule({
@@ -25,7 +21,7 @@ const routes: Routes = [
     TranslateModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ AllergensPage, AllergensDetailPage ],
+  declarations: [ AllergensPage, AllergenDetailPage ],
   providers: [ AllergensService ]
 })
 export class AllergensModule {}
