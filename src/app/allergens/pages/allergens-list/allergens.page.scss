@@ -1,9 +1,13 @@
 ion-list {
-    h2 {
-    margin-left: 10px;
-    font-family: 'Kaushan Script', cursive;
-        &:active {
-        font-weight: bold
+    ion-item {
+        h2 {
+            margin: 1rem 0 1rem .625rem;
+            vertical-align: middle;
+            font-family: 'Kaushan Script', cursive;
+        }
+
+        img {
+            width: var(--list-item-icon-width, 3rem);
         }
     }
 }
