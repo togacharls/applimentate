@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Genre } from './enums/bmi.genre.enum';
-import { BmiRange } from './enums/bmi.bmi-range.enum';
+import { BmiService } from './services';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
 import * as BMI_ACTIONS from './bmi.actions';
@@ -20,7 +20,10 @@ export class BmiPage implements OnInit {
   public bmiResult = 0;
   public readonly GenreEnum = Genre;
 
-  constructor ( private elRef: ElementRef, private store: Store<AppState> ) {  }
+  constructor (
+    private elRef: ElementRef, private store: Store<AppState>,
+    private bmiService: BmiService
+  ) {  }
 
   ngOnInit() {
     this.initGenre();
@@ -37,8 +40,8 @@ export class BmiPage implements OnInit {
   }
 
   onClickCalcBMI(): void {
-    this.calcBMI();
-    this.updateChoosenSilhouette();
+    this.bmiResult = this.bmiService.calcBMI(this.height, this.weight);
+    this.updateChosenSilhouette();
   }
 
   disableCalcBMI(): boolean {
@@ -49,35 +52,9 @@ export class BmiPage implements OnInit {
     return '../../assets/img/bmi/bmi_' + this.genre + '_silhouettes.png';
   }
 
-  private calcBMI(): void {
-    const result: number = this.weight / ( ( this.height / 100 ) * ( this.height / 100 ) );
-    isNaN( result ) || result === Infinity || this.height === '' || this.weight === ''
-      ? this.bmiResult = 0
-      : this.bmiResult = result;
-  }
-
-  private updateChoosenSilhouette(): void {
-    const choosenSilhouette = this.elRef.nativeElement.querySelector( 'div.choosen-silhouette' );
-    if ( this.bmiResult <= BmiRange.SLIM ) {
-      choosenSilhouette.style.marginLeft = '0%';
-      choosenSilhouette.style.right = 'initial';
-      choosenSilhouette.style.width = '16%';
-    } else if ( this.bmiResult <= BmiRange.FIT ) {
-      choosenSilhouette.style.marginLeft = '18%';
-      choosenSilhouette.style.right = 'initial';
-      choosenSilhouette.style.width = '18%';
-    } else if ( this.bmiResult <= BmiRange.OVERWEIGHT ) {
-      choosenSilhouette.style.marginLeft = '36%';
-      choosenSilhouette.style.right = 'initial';
-      choosenSilhouette.style.width = '18%';
-    } else if ( this.bmiResult <= BmiRange.OBESE ) {
-      choosenSilhouette.style.marginLeft = '0%';
-      choosenSilhouette.style.right = '24%';
-      choosenSilhouette.style.width = '17%';
-    } else {
-      choosenSilhouette.style.marginLeft = '0%';
-      choosenSilhouette.style.right = '17px';
-      choosenSilhouette.style.width = '19%';
-    }
+  private updateChosenSilhouette(): void {
+    const chosenSilhouette = this.elRef.nativeElement.querySelector( 'div.choosen-silhouette' ),
+      styles = this.bmiService.silhouetteStylesDependingOnBmiResult(this.bmiResult);
+    Object.keys(styles).map(key => chosenSilhouette.style[key] = styles[key]);
   }
 }

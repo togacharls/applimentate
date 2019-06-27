@@ -68,17 +68,6 @@ describe('BmiPage html elements', () => {
     expect(element).toBeTruthy();
   });
 
-  describe('bmiCalc()', () => {
-    it('Should return the correct value ', () => {
-      const elButton: DebugElement = fixture.debugElement.query(By.css('ion-button'));
-
-      component.height = 180;
-      component.weight = 80;
-      elButton.triggerEventHandler('click', null);
-      expect(component.bmiResult).toBeLessThan(BmiRange.OVERWEIGHT);
-    });
-  });
-
   describe('getSilhouetteImg()', () => {
     it('Should return the correct path of bmiImage', () => {
       const elSelect: Array<DebugElement> = fixture.debugElement.queryAll(By.css('ion-radio'));
@@ -93,7 +82,7 @@ describe('BmiPage html elements', () => {
   });
 
   describe('disableCalcBMI()', () => {
-    it(' should disable tbe button of cbmiCalc', () => {
+    it('Should disable tbe button of bmiCalc', () => {
       component.height = undefined;
       component.weight = undefined;
       expect(component.disableCalcBMI()).toBeTruthy();
@@ -114,46 +103,51 @@ describe('BmiPage html elements', () => {
       positionSillhouette = fixture.debugElement.query(By.css('div.choosen-silhouette')).nativeElement;
     });
 
-    it('BmiResult.SLIM should place correctly the div.chosen-silhouette', () => {
+    it('Should place correctly the div.chosen-silhouette when BmiResult is SLIM', () => {
       component.height = 180;
       component.weight = 50;
       elButton.triggerEventHandler('click', null);
+      expect(component.bmiResult).toBeLessThan(BmiRange.SLIM);
       expect(positionSillhouette.style.marginLeft).toBe('0%');
       expect(positionSillhouette.style.right).toBe('initial');
       expect(positionSillhouette.style.width).toBe('16%');
     });
 
-    it('BmiResult.FIT should place correctly the div.chosen-silhouette', () => {
+    it('Should place correctly the div.chosen-silhouette when BmiResult is FIT', () => {
       component.height = 180;
       component.weight = 70;
       elButton.triggerEventHandler('click', null);
+      expect(component.bmiResult).toBeLessThan(BmiRange.FIT);
       expect(positionSillhouette.style.marginLeft).toBe('18%');
       expect(positionSillhouette.style.right).toBe('initial');
       expect(positionSillhouette.style.width).toBe('18%');
     });
 
-    it('BmiResult.OVERWEIGHT should place correctly the div.chosen-silhouette', () => {
+    it('Should place correctly the div.chosen-silhouette when BmiResult is OVERWEIGHT', () => {
       component.height = 180;
       component.weight = 90;
       elButton.triggerEventHandler('click', null);
+      expect(component.bmiResult).toBeLessThan(BmiRange.OVERWEIGHT);
       expect(positionSillhouette.style.marginLeft).toBe('36%');
       expect(positionSillhouette.style.right).toBe('initial');
       expect(positionSillhouette.style.width).toBe('18%');
     });
 
-    it('BmiResult.OBESE should place correctly the div.chosen-silhouette', () => {
+    it('Should place correctly the div.chosen-silhouette when BmiResult is OBESE', () => {
       component.height = 180;
       component.weight = 100;
       elButton.triggerEventHandler('click', null);
+      expect(component.bmiResult).toBeLessThan(BmiRange.OBESE);
       expect(positionSillhouette.style.marginLeft).toBe('0%');
       expect(positionSillhouette.style.right).toBe('24%');
       expect(positionSillhouette.style.width).toBe('17%');
     });
 
-    it('BmiResult.MORBID should place correctly the div.chosen-silhouette', () => {
+    it('Should place correctly the div.chosen-silhouette when BmiResult is MORBID', () => {
       component.height = 180;
       component.weight = 120;
       elButton.triggerEventHandler('click', null);
+      expect(component.bmiResult).toBeLessThan(BmiRange.MORBID);
       expect(positionSillhouette.style.marginLeft).toBe('0%');
       expect(positionSillhouette.style.right).toBe('17px');
       expect(positionSillhouette.style.width).toBe('19%');

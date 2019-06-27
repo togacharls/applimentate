@@ -36,3 +36,14 @@ ion-footer {
     --ion-color-primary: #fff;
   }
 }
+ion-title,
+ion-content,
+ion-item,
+ion-input,
+ion-card .card-title,
+ion-card .card-subtitle,
+ion-label,
+.item.sc-ion-label-md-h,
+.item .sc-ion-label-md-h {
+  font-family: var(--applimentate-primary-font, inherit);
+}

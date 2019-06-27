@@ -3,7 +3,7 @@ import { getInitialState } from '../app.state';
 import * as BMI_ACTIONS from './bmi.actions';
 
 const toggleGenreReducer = (action: BMI_ACTIONS.ToggleGenre): Genre => action.chosenGenre;
-export function genre(
+export function genre (
   state: Genre = getInitialState().genre,
   action: BMI_ACTIONS.ToggleGenre | any
 ): Genre {
@@ -13,4 +13,4 @@ export function genre(
     default:
       return state;
   }
-}
+};

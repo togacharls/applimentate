@@ -2,16 +2,15 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AllergenDetailPage } from './allergen-detail.page';
 
-import { AllergensDetailPage } from './allergens-detail.page';
-
-describe('AllergensDetailsPage', () => {
-  let component: AllergensDetailPage;
-  let fixture: ComponentFixture<AllergensDetailPage>;
+describe('AllergenDetailsPage', () => {
+  let component: AllergenDetailPage;
+  let fixture: ComponentFixture<AllergenDetailPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AllergensDetailPage ],
+      declarations: [ AllergenDetailPage ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
       imports: [ TranslateModule.forRoot() ],
       providers: [{
@@ -29,7 +28,7 @@ describe('AllergensDetailsPage', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AllergensDetailPage);
+    fixture = TestBed.createComponent(AllergenDetailPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
