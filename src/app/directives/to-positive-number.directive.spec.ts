@@ -26,7 +26,7 @@ describe('ToPositiveNumberDirective', () => {
     });
   });
 
-  beforeEach(function() {
+  beforeEach(() => {
     fixture = TestBed.createComponent(
       TestComponentWithToPositiveNumberDirective
     );
