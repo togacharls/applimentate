@@ -1,7 +1,10 @@
 {
   "HOME": {
     "ALLERGENS": "Alérgenos",
-    "14_ALLERGENS": "Los 14 alérgenos alimentarios"
+    "14_ALLERGENS": "Los 14 alérgenos alimentarios",
+    "SUMMARY": "Resumen",
+    "FOOD": "Alimentos",
+    "HEALTH": "Salud"
   },
   "ALLERGENS": {
     "TITLE": "Alérgenos",
