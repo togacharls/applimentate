@@ -39,7 +39,7 @@ export class AllergensService {
                 return {
                     name: id,
                     icon: this.getIconFilename( id ),
-                    imgSummary: this.getSummaryImg( id ),
+                    images: this.getImages( id ),
                     summary: this.getSummary( id ),
                     food: this.getFood( id ),
                     health: this.getHealth( id )
@@ -107,9 +107,15 @@ export class AllergensService {
                 .lastIndexOf( '.' ) + 1 );
     }
 
-    private getSummaryImg( allergenID: string ): string {
-        return this.srcImgSummaryPath + allergenID
-            .slice( allergenID
-                .lastIndexOf( '.' ) + 1 ) + '.png';
+    private getImages( allergenID: string ): string[] {
+        const suffixes = ['_S01', '_S02', '_S03', '_F01', '_F02', '_F03', '_H01', '_H02', '_H03'];
+        const images = suffixes.map(suffix => this.srcImgSummaryPath
+          + allergenID.slice( allergenID.lastIndexOf( '.' ) + 1 )
+          + '/'
+          + allergenID.slice( allergenID.lastIndexOf( '.' ) + 1 )
+          + suffix
+          + '.png'
+        );
+        return images;
     }
 }
