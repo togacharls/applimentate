@@ -13,4 +13,4 @@ export function genre (
     default:
       return state;
   }
-};
+}
