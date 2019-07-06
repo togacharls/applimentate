@@ -9,8 +9,8 @@ import { AllergenDetailInterface, AllergenInterface } from '../interfaces';
 export class AllergensService {
 
     private allergenList: AllergenInterface[];
-    private srcImgIconPath = '../../../assets/icon/';
-    private srcImgSummaryPath = '../../../assets/img/ImgAllergens/';
+    private srcIconPath = '../../../assets/icon/';
+    private srcImgPath = '../../../assets/img/allergens/';
     constructor ( private translateService: TranslateService ) {
         this.allergenList = this.getDefaultAllergenList();
         this.sortAllergenList();
@@ -84,7 +84,7 @@ export class AllergensService {
     }
 
     private getIconFilename( allergenName: string ): string {
-        return this.srcImgIconPath + allergenName
+        return this.srcIconPath + allergenName
             .toLowerCase()
             + '.png';
     }
@@ -109,7 +109,7 @@ export class AllergensService {
 
     private getImages( allergenID: string ): string[] {
         const suffixes = ['_S01', '_S02', '_S03', '_F01', '_F02', '_F03', '_H01', '_H02', '_H03'];
-        const images = suffixes.map(suffix => this.srcImgSummaryPath
+        const images = suffixes.map(suffix => this.srcImgPath
           + allergenID.slice( allergenID.lastIndexOf( '.' ) + 1 )
           + '/'
           + allergenID.slice( allergenID.lastIndexOf( '.' ) + 1 )
